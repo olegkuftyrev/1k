@@ -16,7 +16,7 @@ Write in information style (after Maxim Ilyakhov):
 
 ## File Naming
 
-Use `snake_case` for all files.
+Use `snake_case` for all files and folders.
 
 - Correct: `operational_standards.md`
 - Wrong: `Operational Standards.md`, `operational-standards.md`, `OperationalStandards.md`
@@ -35,13 +35,52 @@ Every document must have:
 
 Changes and ownership are tracked in `release_memo.md`.
 
+## Abbreviations
+
+On first use, write the full term followed by the abbreviation in parentheses: `Accounts Payable (AP)`. After that, use the abbreviation only.
+
+## Dates
+
+Always use `YYYY-MM-DD` format. No exceptions.
+
+- Correct: `2026-06-21`
+- Wrong: `Jun 21`, `21/06/2026`, `June 21st`
+
+## Links Between Documents
+
+Link to other documents using relative paths:
+
+- Correct: `[Operational Standards](./operational_standards.md)`
+- Wrong: full URLs or file names without `./`
+
+## Images and Diagrams
+
+Images are allowed. PNG format only.
+
+Naming: `snake_case`, descriptive. Example: `ap_workflow_diagram.png`.
+
+Place images in the same folder as the document that uses them.
+
 ## Tracking Changes
 
 All changes to any document are logged in `release_memo.md` at the repo root.
 
-When you update a document — add a row to `release_memo.md`.
+`release_memo.md` columns: `Date | Author | Document | Version | Status | Changes`
 
-Author field: use full name. Default author is **Oleg Kuftyrev**.
+- **Date**: `YYYY-MM-DD`
+- **Author**: full name. Default is **Oleg Kuftyrev**.
+- **Version**: `v1.0`, `v1.1`, etc. Increment minor version for edits, major for rewrites.
+- **Status**: `Draft`, `Review`, or `Approved`.
+
+When you update a document — add a row. Do not edit existing rows.
+
+## Deprecation
+
+When a document is no longer valid:
+
+1. Move it to the `archive/` folder.
+2. Add a note at the top of the file: `> Deprecated on YYYY-MM-DD. Reason: [reason].`
+3. Log the change in `release_memo.md` with status `Deprecated`.
 
 ## Folders
 
