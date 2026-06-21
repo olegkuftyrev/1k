@@ -4,7 +4,7 @@ Every service is defined by its outcome. We take an engagement only if we can co
 
 ---
 
-## Asset Protection (AP) Consulting
+## Asset Protection (AP) Package
 
 **Problem:** the business is losing money it cannot see. Theft, shrinkage, fraud, and untracked losses eat into margin every month. There are no systems to detect or prevent it.
 
@@ -14,7 +14,7 @@ Every service is defined by its outcome. We take an engagement only if we can co
 
 ---
 
-## Facilities Management Consulting
+## Facilities Management Package
 
 **Problem:** [TBD — details pending Jake Steele]
 
