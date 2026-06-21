@@ -90,7 +90,7 @@ All changes to any document are logged in `release_memo.md` at the repo root.
 `release_memo.md` columns: `Date | Author | Document | Version | Status | Changes`
 
 - **Date**: `YYYY-MM-DD`
-- **Author**: full name. Default is **Oleg Kuftyrev**.
+- **Author**: full name of the person who made the change.
 - **Version**: three-part semantic version `vMAJOR.MINOR.PATCH`.
   - `PATCH` — small fix: wording, typo, single sentence
   - `MINOR` — new section, rewritten block, structural change
