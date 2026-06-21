@@ -31,7 +31,7 @@ Every document must have:
 
 1. A top-level heading (`#`) that matches the topic.
 2. Clear sections with `##` subheadings.
-3. No shапка (no Author / Status / Date inside the document itself).
+3. No metadata block — do not put Author, Status, or Date inside the document.
 
 Changes and ownership are tracked in `release_memo.md`.
 
