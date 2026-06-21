@@ -69,7 +69,10 @@ All changes to any document are logged in `release_memo.md` at the repo root.
 
 - **Date**: `YYYY-MM-DD`
 - **Author**: full name. Default is **Oleg Kuftyrev**.
-- **Version**: `v1.0`, `v1.1`, etc. Increment minor version for edits, major for rewrites.
+- **Version**: three-part semantic version `vMAJOR.MINOR.PATCH`.
+  - `PATCH` — small fix: wording, typo, single sentence
+  - `MINOR` — new section, rewritten block, structural change
+  - `MAJOR` — status change (e.g. Draft → Approved) or full document rewrite
 - **Status**: `Draft`, `Review`, or `Approved`.
 
 When you update a document — add a row. Do not edit existing rows.

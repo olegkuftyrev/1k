@@ -2,12 +2,13 @@
 
 | Date | Author | Document | Version | Status | Changes |
 |------|--------|----------|---------|--------|---------|
-| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.0 | Draft | Initial draft |
-| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.1 | Draft | Fixed Russian word in document structure section |
-| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.2 | Draft | Added abbreviations, dates, links, images, version tracking, deprecation rules |
-| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.0 | Draft | Initial draft |
-| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.1 | Draft | Rewritten with outcome-first framing across all sections |
-| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2 | Draft | Operational Standards: standards come from proven experience, not built from scratch |
-| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.3 | Draft | Introduced Operational Elevation Package — productized SOP library model |
-| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.4 | Draft | Corrected AP: Asset Protection, not Accounts Payable — rewritten AP service section |
-| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.5 | Draft | Updated team: Oleg Kuftyrev & Malakhi Valler as partners, Jake Steele as contractor |
+| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.0.1 | Draft | Fixed Russian word in document structure section |
+| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.1.0 | Draft | Added abbreviations, dates, links, images, version tracking, deprecation rules |
+| 2026-06-21 | Oleg Kuftyrev | rules.md | v1.1.1 | Draft | Updated versioning to three-part semantic version |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.1.0 | Draft | Rewritten with outcome-first framing across all sections |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.1.1 | Draft | Operational Standards: standards come from proven experience |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2.0 | Draft | Introduced Operational Elevation Package — productized SOP library model |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2.1 | Draft | Corrected AP: Asset Protection, not Accounts Payable |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2.2 | Draft | Updated team: partners and contractor |
