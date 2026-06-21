@@ -91,6 +91,8 @@ The market is not served by consultants who focus on operations at the unit leve
 
 ## Operations
 
+> **[NEEDS WORK]** This section requires further development.
+
 **How an engagement works:**
 
 1. **Discovery** — understand the client's situation: what is broken, what it costs them, what a fix looks like
