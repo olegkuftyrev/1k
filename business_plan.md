@@ -1,5 +1,19 @@
 # Business Plan
 
+## Contents
+
+- [Executive Summary](#executive-summary)
+- [Target Market](#target-market)
+- [Services](#services)
+- [Market Analysis](#market-analysis)
+- [Marketing and Sales](#marketing-and-sales)
+- [Operations](#operations)
+- [Financial Plan](#financial-plan)
+- [Team](#team)
+- [Open Items](#open-items)
+
+---
+
 ## Executive Summary
 
 **Company name:** [TBD — pending Malakhi Valler]
