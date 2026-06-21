@@ -13,7 +13,7 @@
 2. [Target Market](./02_target_market.md)
 3. [Services](./03_services.md)
 4. [Market Analysis](./04_market_analysis.md) ⚠️ Needs work
-5. [Marketing and Sales](./05_marketing_and_sales.md)
+5. [Marketing and Sales](./05_marketing_and_sales.md) ⚠️ Needs work
 6. [Operations](./06_operations.md) ⚠️ Needs work
 7. [Financial Plan](./07_financial_plan.md)
 8. [Team](./08_team.md)
