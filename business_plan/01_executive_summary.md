@@ -7,7 +7,7 @@
 **Stage:** Pre-launch
 **Year 1 revenue goal:** $300,000
 
-We work with small businesses and franchises in retail and restaurants. Every engagement has one purpose: the client either makes more money, stops losing money, or both. We do not deliver reports. We deliver outcomes.
+The company sells operational consulting packages and proprietary SOPs to small businesses and franchises in the retail and restaurant sectors. Products and services address three areas: Asset Protection (AP), facilities management, and operational standards.
 
 ---
 
