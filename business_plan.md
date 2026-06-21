@@ -58,7 +58,7 @@ Every service is defined by its outcome. We take an engagement only if we can co
 
 **Problem:** the business runs on tribal knowledge. There are no written standards. When a manager leaves, the knowledge walks out with them. Quality is inconsistent across shifts and locations.
 
-**What we do:** assess how the business actually operates, build operational standards from scratch, write SOPs (Standard Operating Procedures), and implement them with the team.
+**What we do:** assess how the business actually operates, build operational standards from our own experience where those standards have already produced results, write SOPs (Standard Operating Procedures), and implement them with the team.
 
 **Result:** every location runs the same way. New staff onboard faster. Quality is consistent. The owner can step back from day-to-day fire-fighting.
 
