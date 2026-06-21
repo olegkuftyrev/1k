@@ -124,9 +124,12 @@ We do not leave until the result is real and the client can sustain it without u
 
 ## Team
 
-- Malakhi Valler — [role TBD, responsible for company name]
-- Jake Steele — [role TBD, responsible for facilities service definition]
-- Oleg Kuftyrev — [role TBD]
+**Partners:**
+- Oleg Kuftyrev — Co-founder
+- Malakhi Valler — Co-founder [company name TBD]
+
+**Contractors:**
+- Jake Steele — Facilities [scope TBD]
 
 ---
 

@@ -10,3 +10,4 @@
 | 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2 | Draft | Operational Standards: standards come from proven experience, not built from scratch |
 | 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.3 | Draft | Introduced Operational Elevation Package — productized SOP library model |
 | 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.4 | Draft | Corrected AP: Asset Protection, not Accounts Payable — rewritten AP service section |
+| 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.5 | Draft | Updated team: Oleg Kuftyrev & Malakhi Valler as partners, Jake Steele as contractor |
