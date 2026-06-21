@@ -21,11 +21,11 @@ Use `snake_case` for all files and folders.
 - Correct: `operational_standards.md`
 - Wrong: `Operational Standards.md`, `operational-standards.md`, `OperationalStandards.md`
 
-## Template vs. Client Files
+## Core vs. Client Files
 
-Files are prefixed to distinguish company templates from client-adapted versions.
+Files are prefixed to distinguish core company documents from client-adapted versions.
 
-**Company template** — not yet adapted for any specific client:
+**Core document** — our standard, not yet adapted for any specific client:
 
 ```
 cf_cash_handling_policy.md
@@ -41,7 +41,7 @@ cookie_cash_handling_policy.md
 
 The prefix is the client's name or abbreviation. One file per client per document.
 
-**Rule:** never mix template and client content in the same file.
+**Rule:** never mix core and client content in the same file.
 
 ## File Format
 
