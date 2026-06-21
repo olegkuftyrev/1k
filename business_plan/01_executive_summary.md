@@ -1,5 +1,7 @@
 # Executive Summary
 
+> **[NEEDS WORK]** This section requires further development.
+
 **Company name:** [TBD — pending Malakhi Valler]
 **Location:** Washington State, US
 **Stage:** Pre-launch

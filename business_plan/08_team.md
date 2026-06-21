@@ -1,5 +1,7 @@
 # Team
 
+> **[NEEDS WORK]** This section requires further development.
+
 **Partners:**
 - Oleg Kuftyrev — Co-founder
 - Malakhi Valler — Co-founder [company name TBD]

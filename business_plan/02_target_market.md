@@ -1,5 +1,7 @@
 # Target Market
 
+> **[NEEDS WORK]** This section requires further development.
+
 **Geography:** Washington State
 
 **Client profile:**

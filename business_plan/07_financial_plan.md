@@ -1,5 +1,7 @@
 # Financial Plan
 
+> **[NEEDS WORK]** This section requires further development.
+
 **Year 1 goal:** $300,000 in revenue
 
 **Revenue model:** [TBD — project-based, retainer, or hybrid]

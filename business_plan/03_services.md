@@ -1,5 +1,7 @@
 # Services
 
+> **[NEEDS WORK]** This section requires further development.
+
 Every service is defined by its outcome. We take an engagement only if we can connect our work to a measurable result — money saved, losses prevented, or standards built.
 
 ---
