@@ -134,6 +134,6 @@ We do not leave until the result is real and the client can sustain it without u
 |------|-------|--------|
 | Company name | Malakhi Valler | Pending |
 | Facilities service scope and outcome | Jake Steele | Pending |
-| Pricing model | Oleg Kuftyrev | Not started |
+| Pricing model | Oleg Kuftyrev & Malakhi Valler | Not started |
 | Sales process | TBD | Not started |
 | Delivery model (on-site vs remote) | TBD | Not started |
