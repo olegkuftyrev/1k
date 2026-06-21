@@ -26,7 +26,7 @@ We work with small businesses and franchises in retail and restaurants. Every en
 
 Business owners in this segment are operators. They run the business day to day and have no time to build systems. As a result:
 
-- AP is uncontrolled. Vendors are not paid on time. Cash flow suffers. Late fees accumulate. The owner does not know what the business actually owes.
+- Asset Protection (AP) is neglected. Theft, shrinkage, and losses go undetected. The owner does not know where the money is going.
 - Facilities are reactive. Equipment breaks. Repairs are expensive. Downtime costs revenue. There is no preventive plan.
 - Operations are inconsistent. Each location runs differently. Staff makes it up as they go. Quality drops. Customer experience is unpredictable.
 
@@ -38,13 +38,13 @@ These are not abstract problems. Each one costs real money every month.
 
 Every service is defined by its outcome. We take an engagement only if we can connect our work to a measurable result — money saved, losses prevented, or standards built.
 
-### Accounts Payable (AP) Consulting
+### Asset Protection (AP) Consulting
 
-**Problem:** the business does not know what it owes, to whom, and when. Payments are late, duplicate, or missing. Cash flow is unpredictable.
+**Problem:** the business is losing money it cannot see. Theft, shrinkage, fraud, and untracked losses eat into margin every month. There are no systems to detect or prevent it.
 
-**What we do:** map the current AP process, find the leaks, build a structured process, and train the team to run it.
+**What we do:** audit current AP exposure, identify where losses are occurring, build controls and prevention systems, and train the team to maintain them.
 
-**Result:** vendor relationships stabilize, late fees stop, cash flow becomes predictable, and the owner has visibility into every dollar owed.
+**Result:** losses are identified and stopped. The owner knows exactly where the money is going and has systems in place to protect it going forward.
 
 ### Facilities Management Consulting
 
