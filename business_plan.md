@@ -54,11 +54,13 @@ Every service is defined by its outcome. We take an engagement only if we can co
 
 **Result:** [TBD]
 
-### Operational Standards
+### Operational Standards — Operational Elevation Package
 
 **Problem:** the business runs on tribal knowledge. There are no written standards. When a manager leaves, the knowledge walks out with them. Quality is inconsistent across shifts and locations.
 
-**What we do:** assess how the business actually operates, build operational standards from our own experience where those standards have already produced results, write SOPs (Standard Operating Procedures), and implement them with the team.
+**What we do:** we have built a library of SOPs based on experience in businesses where these standards already produced results. A client purchases the Operational Elevation Package — a set of approximately 50 SOPs. Each SOP is adapted to the specific business. We then implement them inside the business with the team.
+
+The package is not a document drop. We make the SOPs real — trained, applied, and running.
 
 **Result:** every location runs the same way. New staff onboard faster. Quality is consistent. The owner can step back from day-to-day fire-fighting.
 
