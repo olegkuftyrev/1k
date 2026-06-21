@@ -38,4 +38,16 @@ The package is not a document drop. We make the SOPs real — trained, applied, 
 
 ---
 
+## Hiring and Onboarding Package
+
+> Note: this service covers the hiring process and onboarding systems only. Recruiting — sourcing and finding candidates — is not included.
+
+**Problem:** the business has no structured hiring process. Managers hire based on gut feel. New staff receive inconsistent training. People are let go or quit within the first 90 days. The same mistakes repeat with every new hire.
+
+**What we do:** build a structured hiring process — interview frameworks, evaluation criteria, and decision standards. Build an onboarding system that gets new employees productive faster and reduces early turnover.
+
+**Result:** hiring decisions are consistent and documented. New staff onboard faster. Early turnover drops. The owner is not the only one who knows how to train someone.
+
+---
+
 [← Target Market](./02_target_market.md) | [Back to Index](./index.md) | [Next: Market Analysis →](./04_market_analysis.md)
