@@ -41,6 +41,8 @@ All changes to any document are logged in `release_memo.md` at the repo root.
 
 When you update a document — add a row to `release_memo.md`.
 
+Author field: use full name. Default author is **Oleg Kuftyrev**.
+
 ## Folders
 
 No empty folders. Create a folder only when there are files to put in it.
