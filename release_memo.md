@@ -12,3 +12,4 @@
 | 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2.0 | Draft | Introduced Operational Elevation Package — productized SOP library model |
 | 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2.1 | Draft | Corrected AP: Asset Protection, not Accounts Payable |
 | 2026-06-21 | Oleg Kuftyrev | business_plan.md | v1.2.2 | Draft | Updated team: partners and contractor |
+| 2026-06-21 | Oleg Kuftyrev | business_plan/ | v2.0.0 | Draft | Restructured business plan into folder — one file per chapter |
