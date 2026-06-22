@@ -22,3 +22,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_bartending_policy_procedures.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_associate_meal_discount_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_cash_pull_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_tip_pooling_policy.md | v1.0.0 | Draft | Initial draft |
