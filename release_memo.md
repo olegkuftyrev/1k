@@ -76,3 +76,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_ch4a_manual_deposits.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/oc_fin2_sales_tax_exemption_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr_ref1_payroll_earnings_compensation_codes.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/oc_fin3_expense_reimbursement_policy.md | v1.0.0 | Draft | Initial draft |
