@@ -34,3 +34,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_personal_hygiene_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_associate_illness_reporting_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_pest_control_preparation_checklist.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/facilities/oc_sewage_backup_drainage_policy.md | v1.0.0 | Draft | Initial draft |
