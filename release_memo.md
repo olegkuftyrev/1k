@@ -87,3 +87,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr6_role_assistant_manager.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr4_role_chef.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr2_role_cook.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr7_role_general_manager.md | v1.0.0 | Draft | Initial draft |
