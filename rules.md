@@ -28,10 +28,10 @@ Files are prefixed to distinguish core company documents from client-adapted ver
 **Core document** — our standard, not yet adapted for any specific client:
 
 ```
-cf_cash_handling_policy.md
+oc_cash_handling_policy.md
 ```
 
-`cf` stands for "consulting firm" — placeholder until the company name is finalized. When the name is confirmed, all `cf_` prefixes will be updated.
+`oc` stands for Ordina Cresce — the company prefix.
 
 **Client-adapted file** — customized for a specific business:
 

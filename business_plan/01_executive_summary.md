@@ -2,7 +2,7 @@
 
 > **[NEEDS WORK]** This section requires further development.
 
-**Company name:** [TBD — pending Malakhi Valler]
+**Company name:** Ordina Cresce
 **Location:** Washington State, US
 **Stage:** Pre-launch
 **Year 1 revenue goal:** $300,000

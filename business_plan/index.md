@@ -1,6 +1,6 @@
 # Business Plan
 
-**Company:** [TBD — pending Malakhi Valler]
+**Company:** Ordina Cresce
 **Location:** Washington State, US
 **Stage:** Pre-launch
 **Year 1 goal:** $300,000

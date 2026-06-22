@@ -2,7 +2,7 @@
 
 | Item | Owner | Status |
 |------|-------|--------|
-| Company name | Malakhi Valler | Pending |
+| Company name | Malakhi Valler | Done — Ordina |
 | Facilities service scope and outcome | Jake Steele | Pending |
 | Pricing model | Oleg Kuftyrev & Malakhi Valler | Not started |
 | Sales process | TBD | Not started |

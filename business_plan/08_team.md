@@ -4,7 +4,7 @@
 
 **Partners:**
 - Oleg Kuftyrev — Co-founder
-- Malakhi Valler — Co-founder [company name TBD]
+- Malakhi Valler — Co-founder
 
 **Contractors:**
 - Jake Steele — Facilities [scope TBD]
