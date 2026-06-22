@@ -90,3 +90,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr7_role_general_manager.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr1_role_kitchen_help.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr3_role_shift_lead.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr6_5_role_gmit.md | v1.0.0 | Draft | Initial draft |
