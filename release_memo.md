@@ -56,3 +56,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_workplace_violence_prevention_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_armored_carrier_deposit_bag_procedures.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_firearms_weapons_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_armored_carrier_service_policy.md | v1.0.0 | Draft | Initial draft |
