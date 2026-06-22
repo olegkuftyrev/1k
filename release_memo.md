@@ -81,3 +81,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr2_performance_management_merit_increase_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr10_role_regional_director.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_ops_lead3_role_training_leader.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr11_role_vp_operations.md | v1.0.0 | Draft | Initial draft |
