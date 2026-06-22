@@ -48,3 +48,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_behavioral_observation_fraud_awareness_guideline.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_loitering_solicitation_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_robbery_response_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_security_awareness_crime_prevention_policy.md | v1.0.0 | Draft | Initial draft |
