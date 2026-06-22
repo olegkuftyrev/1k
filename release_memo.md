@@ -122,3 +122,4 @@
 | 2026-06-22 | Oleg Kuftyrev | rules.md | v1.2.1 | Draft | Updated images rule: SVG allowed for logos/icons, PNG for raster; added logo |
 | 2026-06-22 | Oleg Kuftyrev | oc_logo.svg | v1.0.0 | Draft | Initial logo file |
 | 2026-06-22 | Oleg Kuftyrev | business_plan/index.md | v2.1.0 | Draft | Added logo |
+| 2026-06-22 | Oleg Kuftyrev | oc_logo.svg | v1.0.1 | Draft | Cropped viewBox to content area; set display size 420x122 |
