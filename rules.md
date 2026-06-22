@@ -110,3 +110,19 @@ When a document is no longer valid:
 ## Folders
 
 No empty folders. Create a folder only when there are files to put in it.
+
+## Work Methodology
+
+We use Agile.
+
+Each task is independent. Any partner can pick up any task and complete it without waiting for the other. Tasks do not block each other by default.
+
+All tasks are tracked in Notion. Before starting work, check Notion for open tasks. When you finish a task, mark it done in Notion.
+
+A task description in Notion must include:
+
+- What needs to be done.
+- Which document or folder it affects.
+- Any relevant context or source material.
+
+Do not start undescribed work. If you identify something that needs to be done — create a task in Notion first.

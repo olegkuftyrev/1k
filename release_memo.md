@@ -118,3 +118,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_requirements.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_question_guide.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_tip_pooling_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | rules.md | v1.2.0 | Draft | Added Work Methodology section: Agile, independent tasks, Notion task tracking |
