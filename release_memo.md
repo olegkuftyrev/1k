@@ -69,3 +69,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_cash_protection_audit_requirements.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_cash_protection_audit_requirements.md | v1.1.0 | Draft | Added minimum 4 audits per quarter; added Audit Method section; restructured |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_cash_protection_audit_question_guide.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_ap1_asset_protection_program.md | v1.0.0 | Draft | Initial draft |
