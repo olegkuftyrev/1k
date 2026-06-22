@@ -31,3 +31,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_food_safety_accountability_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_daily_food_safety_checklist.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_food_safety_bonus_structure.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_personal_hygiene_policy.md | v1.0.0 | Draft | Initial draft |
