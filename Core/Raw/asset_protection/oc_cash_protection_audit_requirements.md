@@ -4,9 +4,9 @@
 
 ### Summary
 
-The Cash Protection Audit provides an objective assessment of how effectively a location protects its people, assets, property, and financial resources.
+Cash Protection Audits provide an objective assessment of how effectively each location protects company assets, financial resources, facilities, and people.
 
-The audit is designed to identify risks, reinforce accountability, and ensure consistent operational standards.
+These audits promote accountability, reduce risk, and ensure compliance with company standards.
 
 ---
 
@@ -21,67 +21,54 @@ The Cash Protection Audit evaluates store-level controls involving:
 - Associate accountability.
 - Financial controls.
 
-The objective is prevention, consistency, and continuous improvement.
+The purpose of the audit is to identify risks, improve execution, and protect company assets.
 
 ---
 
-# Audit Program
+# Audit Requirements
 
-Cash Protection Audits are conducted on a regular basis to verify compliance with company standards.
+Area leadership is responsible for ensuring regular Cash Protection Audits are completed within their assigned locations.
 
-Audits may be:
+Each operating area should complete a minimum of four Cash Protection Audits per quarter.
 
-- Scheduled.
-- Random.
-- Follow-up.
-- Risk-based.
+Additional audits may be conducted based on:
 
-Additional audits may be conducted when operational concerns or security issues arise.
-
----
-
-# Audit Responsibility
-
-Area leadership is responsible for completing audits within their assigned locations.
-
-Responsibilities include:
-
-- Conducting audits objectively.
-- Reviewing supporting documentation.
-- Observing operations.
-- Identifying risks.
-- Providing coaching and follow-up.
-
-Audits should evaluate both processes and behaviors.
-
----
-
-# Audit Frequency
-
-Each operating area should complete a minimum number of audits each quarter to ensure adequate oversight and accountability.
-
-Additional audits may be performed based on:
-
+- Prior audit results.
 - Cash shortages.
 - Security incidents.
 - Operational concerns.
-- Prior audit results.
 - Leadership discretion.
 
 ---
 
 # Audit Standards
 
-Audits evaluate compliance with:
+Audits should evaluate:
 
 - Cash handling procedures.
-- Safe controls.
-- Security requirements.
-- Access controls.
+- Safe and deposit controls.
+- Register accountability.
+- Security practices.
 - Asset protection standards.
-- Operational expectations.
+- Compliance with company policies.
 
-Observations should be based on facts, documentation, and direct observation.
+Observations should be based on direct observation, documentation, and operational review.
+
+---
+
+# Audit Method
+
+Audits may include:
+
+- Physical inspections.
+- Cash counts.
+- Security reviews.
+- Documentation verification.
+- Transaction reviews.
+- Leadership discussions.
+- Associate interviews.
+
+The audit process should remain objective, consistent, and fact-based.
 
 ---
 
@@ -89,45 +76,30 @@ Observations should be based on facts, documentation, and direct observation.
 
 Audit findings should include:
 
-- Observations.
-- Supporting evidence.
-- Areas of concern.
+- Areas of compliance.
+- Opportunities for improvement.
 - Corrective actions.
 - Follow-up requirements.
 
-Documentation should remain objective and factual.
+All findings should be documented accurately and professionally.
 
 ---
 
-# Follow-Up Actions
+# Leadership Responsibilities
 
-Findings may require:
+Leaders conducting audits are responsible for:
 
-- Coaching.
-- Retraining.
-- Process improvements.
-- Corrective action.
-- Additional audits.
+- Maintaining objectivity.
+- Protecting company assets.
+- Identifying operational risks.
+- Coaching leaders and associates.
+- Following up on deficiencies.
 
-The purpose of follow-up is risk reduction and operational improvement.
-
----
-
-# Leadership Expectations
-
-Leaders are expected to:
-
-- Conduct fair audits.
-- Maintain consistency.
-- Protect company assets.
-- Support associate development.
-- Promote accountability.
-
-Audits should strengthen operations rather than simply identify deficiencies.
+Audits are intended to strengthen operations and improve accountability.
 
 ---
 
-# Guiding Principles
+# Guiding Principle
 
 Inspect what you expect.
 
@@ -135,6 +107,6 @@ Protect people.
 
 Protect assets.
 
-Create accountability.
+Drive accountability.
 
-Drive continuous improvement.
+Create continuous improvement.
