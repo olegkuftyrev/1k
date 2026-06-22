@@ -53,3 +53,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_asset_protection_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_crime_prevention_personal_safety_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_restroom_privacy_safety_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_workplace_violence_prevention_policy.md | v1.0.0 | Draft | Initial draft |
