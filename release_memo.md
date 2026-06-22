@@ -71,3 +71,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_cash_protection_audit_question_guide.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_ap1_asset_protection_program.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/reference/oc_fiscal_calendar.md | v1.0.0 | Draft | Initial draft — FY2025 and FY2026 periods |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_ch4_safe_register_funds.md | v1.0.0 | Draft | Initial draft |
