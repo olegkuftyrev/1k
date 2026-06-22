@@ -17,3 +17,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_associate_meal_beverage_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_safe_register_funds_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_cash_handling_accountability_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_cash_handling_register_security_over_short_policy.md | v1.0.0 | Draft | Initial draft |
