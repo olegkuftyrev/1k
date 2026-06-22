@@ -65,3 +65,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_managing_aggressive_guest_behavior.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_vehicle_security_break_in_prevention.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_cash_protection_audit_program.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_cash_protection_audit_scoring_accountability.md | v1.0.0 | Draft | Initial draft |
