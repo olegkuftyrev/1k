@@ -119,3 +119,6 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_question_guide.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_tip_pooling_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
 | 2026-06-22 | Oleg Kuftyrev | rules.md | v1.2.0 | Draft | Added Work Methodology section: Agile, independent tasks, Notion task tracking |
+| 2026-06-22 | Oleg Kuftyrev | rules.md | v1.2.1 | Draft | Updated images rule: SVG allowed for logos/icons, PNG for raster; added logo |
+| 2026-06-22 | Oleg Kuftyrev | oc_logo.svg | v1.0.0 | Draft | Initial logo file |
+| 2026-06-22 | Oleg Kuftyrev | business_plan/index.md | v2.1.0 | Draft | Added logo |

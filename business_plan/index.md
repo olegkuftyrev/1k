@@ -1,5 +1,7 @@
 # Business Plan
 
+![Ordina Cresce](./oc_logo.svg)
+
 **Company:** Ordina Cresce
 **Location:** Washington State, US
 **Stage:** Pre-launch

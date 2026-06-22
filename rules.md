@@ -1,5 +1,7 @@
 # Documentation Rules
 
+![Ordina Cresce](./oc_logo.svg)
+
 ## Language
 
 All documents are written in English only.
@@ -77,9 +79,14 @@ Link to other documents using relative paths:
 
 ## Images and Diagrams
 
-Images are allowed. PNG format only.
+Two formats are allowed:
 
-Naming: `snake_case`, descriptive. Example: `ap_workflow_diagram.png`.
+- **SVG** — for logos, icons, and vector graphics.
+- **PNG** — for photos, screenshots, and raster diagrams.
+
+Do not use JPG, GIF, or other formats.
+
+Naming: `snake_case`, descriptive. Examples: `oc_logo.svg`, `ap_workflow_diagram.png`.
 
 Place images in the same folder as the document that uses them.
 
