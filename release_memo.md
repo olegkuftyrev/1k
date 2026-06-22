@@ -27,3 +27,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_exterior_maintenance_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_repair_maintenance_capital_expenditure_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/oc_emergency_preparedness_response_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/operations/oc_food_safety_audit_policy.md | v1.0.0 | Draft | Initial draft |
