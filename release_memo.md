@@ -91,3 +91,30 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr1_role_kitchen_help.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr3_role_shift_lead.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr6_5_role_gmit.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr1_role_kitchen_help.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr2_role_cook.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr3_role_shift_lead.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr4_role_chef.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr6_role_assistant_manager.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr6_5_role_gmit.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr7_role_general_manager.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr9_role_area_coach_operations.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr10_role_regional_director.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr11_role_vp_operations.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_hr12_role_zone_vp.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/roles/oc_ops_lead3_role_training_leader.md | v1.1.0 | Draft | Moved to hr/roles/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr2_performance_management_merit_increase_policy.md | v1.1.0 | Draft | Moved to hr/policies/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr4_payroll_cards_electronic_wage_access.md | v1.1.0 | Draft | Moved to hr/policies/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr_ref1_payroll_earnings_compensation_codes.md | v1.1.0 | Draft | Moved to hr/policies/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_ch4_safe_register_funds.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_ch4a_manual_deposits.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_pull_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_safe_register_funds_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_handling_accountability_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_handling_register_security_over_short_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_handling_policy_statement.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_program.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_scoring_accountability.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_requirements.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_cash_protection_audit_question_guide.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/cash/oc_tip_pooling_policy.md | v1.1.0 | Draft | Moved from asset_protection/ to finance/cash/ |
