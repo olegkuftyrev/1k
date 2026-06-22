@@ -74,3 +74,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_ch4_safe_register_funds.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/oc_fin1_house_accounts_customer_credit.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_ch4a_manual_deposits.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/finance/oc_fin2_sales_tax_exemption_policy.md | v1.0.0 | Draft | Initial draft |
