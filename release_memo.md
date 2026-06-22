@@ -40,3 +40,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/facilities/oc_water_interruption_hot_water_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_civil_disturbance_protest_security_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_personal_safety_civil_disturbances_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_temporary_store_closure_policy.md | v1.0.0 | Draft | Initial draft |
