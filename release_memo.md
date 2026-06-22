@@ -38,3 +38,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/facilities/oc_fire_suppression_discharge_cleanup_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/facilities/oc_boil_water_advisory_recovery_policy.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/facilities/oc_water_interruption_hot_water_policy.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/asset_protection/oc_civil_disturbance_protest_security_policy.md | v1.0.0 | Draft | Initial draft |
