@@ -83,3 +83,4 @@
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_ops_lead3_role_training_leader.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr11_role_vp_operations.md | v1.0.0 | Draft | Initial draft |
 | 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr12_role_zone_vp.md | v1.0.0 | Draft | Initial draft |
+| 2026-06-22 | Oleg Kuftyrev | Core/Raw/hr/oc_hr9_role_area_coach_operations.md | v1.0.0 | Draft | Initial draft |
