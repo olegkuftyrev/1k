@@ -137,3 +137,4 @@
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr15_non_solicitation_policy.md | v1.0.0 | Draft | Initial draft — non-solicitation policy for company premises |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/reference/oc_ref_required_workplace_postings.md | v1.0.0 | Draft | Initial draft — federal and state required workplace posting reference |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/operations/oc_ops_outside_agency_inspections.md | v1.2.0 | Draft | Added employment references and verification section |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr16_pto_vacation_sick_leave_policy.md | v1.0.0 | Draft | Initial draft — PTO (management), vacation (non-management), PSL (non-CA) with accrual tables |
