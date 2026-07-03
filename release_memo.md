@@ -130,3 +130,4 @@
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/finance/oc_fin5_travel_expense_policy.md | v1.0.0 | Draft | Initial draft — air, rail, car, lodging, meals, entertainment, gifts, reimbursement rules |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/operations/oc_ops_right_items_right_amount_faq.md | v1.0.0 | Draft | Initial draft — guest FAQ for order verification and portion consistency |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/finance/oc_fin6_meals_policy.md | v1.0.0 | Draft | Initial draft — travel meals, business meals, celebration meals, alcohol rules, quick reference |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/finance/oc_fin7_gift_policy.md | v1.0.0 | Draft | Initial draft — gift rules, unacceptable gifts, vendor communication, enforcement |
