@@ -14,16 +14,20 @@ Regular Operations Management and Support Center associates are eligible and beg
 - All requests must be approved by the supervisor.
 - If a planned request cannot be approved, discuss alternative dates with your supervisor.
 
-### PTO as Paid Sick Leave
+### PTO as Paid Sick Leave or Other Mandated Paid Time Off
 
-In locations with a mandatory paid sick leave (PSL) law, PTO serves as the exclusive mechanism for complying with those requirements to the fullest extent of the law.
+In locations with a mandatory paid leave law, PTO serves as the exclusive mechanism for complying with those requirements — including paid sick leave, safe time, or other mandated paid time off — to the fullest extent of the law.
 
 - **Foreseeable absence:** advance notice required.
 - **Unforeseeable absence:** notify your supervisor as soon as reasonably possible.
 
+### Unscheduled PTO
+
+Unscheduled PTO will sometimes happen. Keep it to a minimum so coverage can be arranged. When unanticipated time off is needed, notify your supervisor as soon as possible.
+
 ### Pay Rate and Overtime
 
-Associates are paid at their regular hourly rate while on PTO. Overtime is not paid during PTO periods. PTO does not accrue during a leave of absence.
+Associates are paid at their regular hourly rate while on PTO. PTO hours are not counted toward overtime calculation or overtime premiums. PTO does not accrue during unpaid leaves of absence or other periods of inactive service (pay periods in which no work is performed and no paid time off is used), except where required by applicable law.
 
 ### Cash-Out
 
@@ -37,7 +41,7 @@ Once the cap is reached, accrual stops until hours are used below the cap. There
 
 ### PTO Accrual Tables — Operations Management Associates
 
-**Group A — Area Leaders, Directors, VPs, and equivalent roles (including Assistant Manager, Chef):**
+**Group A — Assistant Manager, Chef, Area Leader through Zone Vice President and equivalent:**
 
 | Service | Accrual per Pay Period |
 |---------|----------------------|
@@ -45,7 +49,7 @@ Once the cap is reached, accrual stops until hours are used below the cap. There
 | 5 – 10 years | 4.62 hrs/pay period |
 | 10+ years | 6.15 hrs/pay period |
 
-**Group B — General Managers, Training Leaders, General Manager Trainees:**
+**Group B — Store Manager in Training, Store Manager, General Manager, General Manager Trainee, Training Leader:**
 
 | Service | Accrual per Pay Period |
 |---------|----------------------|
@@ -53,12 +57,13 @@ Once the cap is reached, accrual stops until hours are used below the cap. There
 | 5 – 10 years | 5.77 hrs/pay period |
 | 10+ years | 7.69 hrs/pay period |
 
+Directors and above may be eligible for higher accrual rates. Contact HR for details.
+
 ### PTO Accrual Table — Support Center Associates
 
 | Service | Accrual per Pay Period |
 |---------|----------------------|
-| 0 – 1 year | 3.69 hrs/pay period, or total hours worked ÷ 30 (whichever is greater) |
-| 1 – 5 years | 4.62 hrs/pay period |
+| 0 – 5 years | 4.62 hrs/pay period |
 | 5 – 10 years | 5.54 hrs/pay period |
 | 10 – 15 years | 6.46 hrs/pay period |
 | 15+ years | 7.38 hrs/pay period |

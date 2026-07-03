@@ -140,3 +140,4 @@
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr16_pto_vacation_sick_leave_policy.md | v1.0.0 | Draft | Initial draft — PTO (management), vacation (non-management), PSL (non-CA) with accrual tables |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr17_anti_bullying_policy.md | v1.0.0 | Draft | Initial draft — definition, examples, reporting, investigation, no retaliation |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr_form_out_of_store_timecard.md | v1.0.0 | Draft | Initial draft — out-of-store activity timecard form with activity list and weekly log table |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr16_pto_vacation_sick_leave_policy.md | v1.1.0 | Draft | Updated PTO section: corrected accrual tables, updated role groups, added unscheduled PTO and mandated leave language |
