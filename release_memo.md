@@ -123,3 +123,4 @@
 | 2026-06-22 | Oleg Kuftyrev | oc_logo.svg | v1.0.0 | Draft | Initial logo file |
 | 2026-06-22 | Oleg Kuftyrev | business_plan/index.md | v2.1.0 | Draft | Added logo |
 | 2026-06-22 | Oleg Kuftyrev | oc_logo.svg | v1.0.1 | Draft | Cropped viewBox to content area; set display size 420x122 |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr5_ai_use_policy.md | v1.0.0 | Draft | Initial draft — AI use policy: confidentiality, recording, IP, privacy, human review |
