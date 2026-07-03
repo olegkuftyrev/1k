@@ -10,7 +10,7 @@ Associates are expected to:
 
 Unapproved tardiness, early departures, or absences are disruptive. Repeated or excessive occurrences may result in corrective action up to and including termination.
 
-If an associate believes their absence or tardiness is legally protected, they must notify their supervisor at the time of the absence. If discipline is applied in error, the associate should raise the issue with their supervisor or HR promptly. The company will investigate and correct any errors.
+If an associate believes their absence or tardiness is legally protected, they must notify their supervisor at the time of the absence. If the absence may qualify for FMLA or another leave governed by law, the associate must also notify the LOA team. If discipline is applied in error, the associate should raise the issue with their supervisor or HR promptly. The company will investigate and correct any errors.
 
 ---
 
@@ -39,6 +39,7 @@ The following absences will not result in disciplinary action:
 - Approved federal or state leaves (jury duty, military leave, FMLA, and similar).
 - Absences approved as an accommodation under disability law.
 - Work-related injuries covered by workers' compensation.
+- Absences in compliance with the company's Illness Policy.
 - Approved shift swaps.
 
 ---
@@ -104,3 +105,5 @@ An associate who does not call in and does not report for **3 consecutively sche
 ## Policy Changes
 
 The company reserves the right to modify this policy at any time. Variations may apply where required by state or local law.
+
+For the most current attendance guidelines, refer to the Attendance Policy document in WorkJam: **My Work → Human Resources → Policies & Guidelines → Attendance Policy**.
