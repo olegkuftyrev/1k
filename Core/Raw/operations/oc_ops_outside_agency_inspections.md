@@ -106,3 +106,29 @@ Notify HR of all terminations and resignations promptly. Late responses to unemp
 Each location contributes a percentage of associate wages into the state unemployment pool (typically 0.3%–0.7%). Following correct disciplinary procedures and minimizing preventable claims helps keep that contribution rate low.
 
 The best way to reduce unemployment claims is to document performance issues consistently and follow progressive discipline procedures.
+
+---
+
+## Employment References and Verification
+
+The company protects the rights of applicants, current associates, and former associates against defamation and invasion of privacy.
+
+### Reference Requests
+
+All requests for references or verification of information about current or former associates must be referred to HR. Do not respond to reference requests directly.
+
+### Applicant Reference Checks
+
+When checking references on a job applicant, limit questions to matters directly relevant to the applicant's job performance and qualifications.
+
+Do not ask — in interviews or through reference sources — about:
+
+- Age.
+- Race.
+- Marital status.
+- Number of children.
+- Any other protected characteristic.
+
+### Confidentiality
+
+All information received during a reference check is confidential. Do not share it with the applicant.
