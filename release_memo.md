@@ -126,3 +126,4 @@
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr5_ai_use_policy.md | v1.0.0 | Draft | Initial draft — AI use policy: confidentiality, recording, IP, privacy, human review |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr8_attendance_punctuality_policy.md | v1.0.0 | Draft | Initial draft — attendance, call-in, tardiness, no call no show, progressive discipline |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/finance/oc_fin4_rental_vehicle_policy.md | v1.0.0 | Draft | Initial draft — rental vehicle coverage, driver requirements, domestic/international rules, accident procedure |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr13_union_activity_manager_guide.md | v1.0.0 | Draft | Initial draft — union basics, recognizing activity, legal do's and don'ts, escalation |
