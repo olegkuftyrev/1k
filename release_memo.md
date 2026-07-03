@@ -128,3 +128,4 @@
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/finance/oc_fin4_rental_vehicle_policy.md | v1.0.0 | Draft | Initial draft — rental vehicle coverage, driver requirements, domestic/international rules, accident procedure |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr13_union_activity_manager_guide.md | v1.0.0 | Draft | Initial draft — union basics, recognizing activity, legal do's and don'ts, escalation |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/finance/oc_fin5_travel_expense_policy.md | v1.0.0 | Draft | Initial draft — air, rail, car, lodging, meals, entertainment, gifts, reimbursement rules |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/operations/oc_ops_right_items_right_amount_faq.md | v1.0.0 | Draft | Initial draft — guest FAQ for order verification and portion consistency |
