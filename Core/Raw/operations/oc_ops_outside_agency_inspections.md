@@ -83,3 +83,26 @@ The Department of Labor enforces federal and state wage and hour laws.
 An inspector may visit your location and may request valid work permits for minor associates.
 
 Know the federal and state labor laws that apply to your location. Refer to posted state and federal labor law notices or contact HR with questions.
+
+---
+
+## Unemployment Claims
+
+The company uses a third-party unemployment claims representative to manage unemployment filings on the company's behalf.
+
+### When an Associate Files for Unemployment
+
+1. Fax or submit the unemployment claim to HR immediately, along with an explanation of why the associate was terminated or resigned.
+2. HR will complete the required forms and submit them to the unemployment representative.
+3. The state Unemployment Department will issue a ruling based on information provided by both the associate and the company.
+4. If either party appeals, the Unemployment Department will schedule a hearing.
+
+Managers are expected to attend hearings when possible — they are most familiar with the facts. HR is available to support. Additional assistance is available for managers in remote locations.
+
+### Why Timeliness Matters
+
+Notify HR of all terminations and resignations promptly. Late responses to unemployment claims create avoidable losses.
+
+Each location contributes a percentage of associate wages into the state unemployment pool (typically 0.3%–0.7%). Following correct disciplinary procedures and minimizing preventable claims helps keep that contribution rate low.
+
+The best way to reduce unemployment claims is to document performance issues consistently and follow progressive discipline procedures.
