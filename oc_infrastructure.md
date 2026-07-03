@@ -4,7 +4,7 @@
 
 ## Overview
 
-Ordina Cresce runs on a zero-cost (where possible) internal stack. The goal is a centralized internal portal where staff log in once and access all tools from one place.
+Ordina Cresce runs on a low-cost internal stack. The goal is a centralized internal portal where staff log in once and access all tools from one place.
 
 ## Tools
 
@@ -12,13 +12,35 @@ Ordina Cresce runs on a zero-cost (where possible) internal stack. The goal is a
 |-------|------|------|
 | Email, calendar, drive, passwords | Proton Business (Mail Essentials) | ~$6.99/user/month |
 | CRM | Twenty (self-hosted, open-source) | $0 |
-| Internal portal | Next.js hosted on Vercel | $0 |
+| Internal portal | Next.js on DigitalOcean Droplet | $12/month |
 | Authentication | Clerk | $0 (up to 10,000 users) |
-| Database | Supabase or Railway PostgreSQL | $0 |
+| Database | PostgreSQL on same Droplet | $0 |
+
+## Monthly Cost Estimate
+
+| Item | Cost |
+|------|------|
+| Proton Business — 2 users | ~$14 |
+| DigitalOcean Droplet (2 GB RAM) | $12 |
+| Clerk | $0 |
+| **Total** | **~$26/month** |
+
+## Server — DigitalOcean Droplet
+
+One Droplet hosts everything: the Next.js portal, Twenty CRM, and PostgreSQL database.
+
+**Recommended spec:** 1 vCPU, 2 GB RAM, $12/month.
+
+Nginx runs as a reverse proxy and routes traffic by subdomain:
+
+- `app.ordinacresce.com` — internal portal
+- `crm.ordinacresce.com` — Twenty CRM
+
+Both Twenty and the portal run in Docker. Nginx terminates SSL and forwards requests to the correct container.
 
 ## Internal Portal
 
-The portal is a Next.js web app hosted on Vercel. Staff log in once via Clerk (email + password sent to Proton inbox). After login, the portal shows links and tools based on the user's role.
+The portal is a Next.js web app. Staff log in once via Clerk (email + password, magic link to Proton inbox). After login, the portal shows links and tools based on the user's role.
 
 ### Access by role
 
@@ -29,18 +51,16 @@ The portal is a Next.js web app hosted on Vercel. Staff log in once via Clerk (e
 
 ### Authentication flow
 
-1. Staff opens the portal URL.
-2. Logs in with company email and password (Proton inbox receives any magic links or verification emails).
+1. Staff opens `app.ordinacresce.com`.
+2. Logs in with company email and password (Proton inbox receives verification emails).
 3. Clerk confirms identity and returns a session.
 4. Portal shows the dashboard for that user's role.
 
 ## CRM — Twenty
 
-Twenty is an open-source CRM. We self-host it at no cost. It manages contacts, clients, and opportunities.
+Twenty is an open-source CRM. We self-host it on the same Droplet via Docker. It manages contacts, clients, and opportunities.
 
 Twenty supports SAML 2.0 SSO and OAuth 2.0. Future integration with the portal can use Twenty's OAuth server so staff do not need a separate CRM login.
-
-Self-hosting options: Railway, Render, or any VPS with Docker.
 
 ## Email — Proton Business
 
@@ -59,10 +79,12 @@ Proton also provides:
 ## Architecture Diagram
 
 ```
-Staff → [Clerk login] → [Internal portal / Vercel]
-                              ↓               ↓
-                         [Twenty CRM]    [Other tools]
-                        (self-hosted)    (Proton, etc.)
+Staff → [Clerk login] → [app.ordinacresce.com]
+                               ↓
+                    [DigitalOcean Droplet / Nginx]
+                         ↓              ↓
+                  [Next.js portal]  [Twenty CRM]
+                                    [PostgreSQL]
 ```
 
 ## Status
