@@ -134,3 +134,4 @@
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr14_code_of_conduct_ethics.md | v1.0.0 | Draft | Initial draft — integrity foundation, core principles, the test, reporting, code changes |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/operations/oc_ops_outside_agency_inspections.md | v1.0.0 | Draft | Initial draft — OSHA, Health Department, Department of Labor inspection procedures |
 | 2026-07-03 | Oleg Kuftyrev | Core/Raw/operations/oc_ops_outside_agency_inspections.md | v1.1.0 | Draft | Added unemployment claims section: filing procedure, timeliness, contribution rate |
+| 2026-07-03 | Oleg Kuftyrev | Core/Raw/hr/policies/oc_hr15_non_solicitation_policy.md | v1.0.0 | Draft | Initial draft — non-solicitation policy for company premises |
