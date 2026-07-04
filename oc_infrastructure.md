@@ -25,6 +25,15 @@ Ordina Cresce runs on a low-cost internal stack. The goal is a centralized inter
 | Clerk | $0 |
 | **Total** | **~$26/month** |
 
+## Domains
+
+`ordina.one` — internal use only. All staff-facing tools run under this domain.
+
+- `app.ordina.one` — internal portal
+- `crm.ordina.one` — Twenty CRM
+
+`ordinacresce.com` — public-facing company website (future).
+
 ## Server — DigitalOcean Droplet
 
 One Droplet hosts everything: the Next.js portal, Twenty CRM, and PostgreSQL database.
@@ -33,8 +42,8 @@ One Droplet hosts everything: the Next.js portal, Twenty CRM, and PostgreSQL dat
 
 Nginx runs as a reverse proxy and routes traffic by subdomain:
 
-- `app.ordinacresce.com` — internal portal
-- `crm.ordinacresce.com` — Twenty CRM
+- `app.ordina.one` — internal portal
+- `crm.ordina.one` — Twenty CRM
 
 Both Twenty and the portal run in Docker. Nginx terminates SSL and forwards requests to the correct container.
 
@@ -51,7 +60,7 @@ The portal is a Next.js web app. Staff log in once via Clerk (email + password, 
 
 ### Authentication flow
 
-1. Staff opens `app.ordinacresce.com`.
+1. Staff opens `app.ordina.one`.
 2. Logs in with company email and password (Proton inbox receives verification emails).
 3. Clerk confirms identity and returns a session.
 4. Portal shows the dashboard for that user's role.
@@ -79,7 +88,7 @@ Proton also provides:
 ## Architecture Diagram
 
 ```
-Staff → [Clerk login] → [app.ordinacresce.com]
+Staff → [Clerk login] → [app.ordina.one]
                                ↓
                     [DigitalOcean Droplet / Nginx]
                          ↓              ↓
