@@ -154,3 +154,4 @@
 | 2026-07-03 | Oleg Kuftyrev | oc_infrastructure.md | v1.0.0 | Draft | Initial draft — internal tech stack: Proton Business for email, Twenty CRM self-hosted, Next.js portal on Vercel, Clerk for authentication |
 | 2026-07-03 | Oleg Kuftyrev | oc_infrastructure.md | v1.1.0 | Draft | Updated hosting: Vercel replaced with DigitalOcean Droplet (2 GB, $12/month); added Nginx reverse proxy setup, subdomain routing, monthly cost estimate |
 | 2026-07-03 | Oleg Kuftyrev | oc_infrastructure.md | v1.2.0 | Draft | Added Domains section: ordina.one for internal use (app.ordina.one, crm.ordina.one); ordinacresce.com reserved for future public site |
+| 2026-07-03 | Oleg Kuftyrev | oc_brand_identity.md | v1.0.0 | Draft | Initial draft — brand concept: deep heritage green + ivory paper + antique gold + muted botanical accents; full color palette, primary/accent palette, gold treatment rules, usage rules |
