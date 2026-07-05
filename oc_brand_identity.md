@@ -76,3 +76,36 @@ Antique gold (`#B48748`) is a foil color, not a flat fill.
 - Text on dark uses `#D9CAB7` (Warm ivory). Never pure white.
 - Accent colors support, not lead. One accent per composition.
 - Gold marks structure: headlines, dividing rules, foil stamps. Not decoration.
+
+## Design Principles
+
+Everything should feel expensive and considered. No cheap shortcuts.
+
+**Typography**
+- Serif typeface for all headings — Cormorant Garant or Playfair Display. These communicate print heritage, not tech.
+- Sans-serif for body text only where readability demands it.
+- Never use system fonts in any branded surface.
+
+**Depth and texture**
+- No flat design. Every surface has shadow, depth, or texture.
+- Cards and containers have subtle layering — they sit on top of something.
+- Backgrounds can carry a faint texture (paper grain, linen) at low opacity.
+
+**Motion**
+- All animations are slow and deliberate. Nothing snaps or bounces.
+- Transitions: 300–500ms ease-in-out minimum.
+- Hover states fade, they do not flash.
+
+**Space**
+- Generous whitespace. Do not fill the screen.
+- Elements breathe. Padding is never tight.
+- Less on screen means more weight per element.
+
+**Iconography**
+- Thin, single-weight line icons only. No filled icons, no bold strokes.
+- Icons are supporting elements, not focal points.
+
+**Gold discipline**
+- Gold appears in headlines, dividers, and key interactive accents.
+- Never use gold as a background fill.
+- Never use gold on gold.
