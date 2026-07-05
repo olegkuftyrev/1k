@@ -82,7 +82,7 @@ Antique gold (`#B48748`) is a foil color, not a flat fill.
 Everything should feel expensive and considered. No cheap shortcuts.
 
 **Typography**
-- Serif typeface for all headings — Cormorant Garant or Playfair Display. These communicate print heritage, not tech.
+- Serif typeface for all headings — **Noto Serif Display**. Communicates print heritage, not tech.
 - Sans-serif for body text only where readability demands it.
 - Never use system fonts in any branded surface.
 

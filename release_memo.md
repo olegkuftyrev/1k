@@ -156,3 +156,4 @@
 | 2026-07-03 | Oleg Kuftyrev | oc_infrastructure.md | v1.2.0 | Draft | Added Domains section: ordina.one for internal use (app.ordina.one, crm.ordina.one); ordinacresce.com reserved for future public site |
 | 2026-07-03 | Oleg Kuftyrev | oc_brand_identity.md | v1.0.0 | Draft | Initial draft — brand concept: deep heritage green + ivory paper + antique gold + muted botanical accents; full color palette, primary/accent palette, gold treatment rules, usage rules |
 | 2026-07-05 | Oleg Kuftyrev | oc_brand_identity.md | v1.1.0 | Draft | Added Name section: ORDINA (external), Ordina Cresce (legal); added Design Principles: typography (Cormorant Garant / Playfair Display), depth, motion, space, iconography, gold discipline |
+| 2026-07-05 | Oleg Kuftyrev | oc_brand_identity.md | v1.1.1 | Draft | Updated typeface: Noto Serif Display replaces Cormorant Garant / Playfair Display |
