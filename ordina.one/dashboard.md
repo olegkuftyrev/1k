@@ -22,6 +22,8 @@ Each tool is represented as a card/tile. Clicking a tile opens the tool in a new
 |------|-------------|--------|
 | Notion | notion.so workspace | Per user |
 | CRM | crm.ordina.one | Per user |
+| Documents | github.com/ordinacresce/Ordina-Internals | Per user |
+| Email | mail.proton.me | Per user |
 
 ### Future tools
 
