@@ -28,3 +28,28 @@ To reflect the actual purpose of the first step, you can rename it to something 
 Rule of thumb for step size: each step = a coherent unit of work (component, endpoint, test suite). Not too granular (single function), not too broad (entire feature). Unit tests are part of each step, not separate.
 
 Update `{@artifacts_path}/plan.md` if it makes sense to have a plan and task has more than 1 big step.
+
+## Progress
+
+### [x] Step: Infrastructure & stack decisions
+Decisions: Proton Business email, Twenty CRM (self-hosted), Next.js portal on DigitalOcean Droplet, Clerk auth, PostgreSQL. Domains: ordina.one (login), app.ordina.one (dashboard), crm.ordina.one (CRM). Total cost ~$26/month.
+
+### [x] Step: Brand identity documentation
+Created oc_brand_identity.md with full color palette, typography (Noto Serif Display), design principles, gold treatment rules. Committed and pushed to Ordina-Internals repo.
+
+### [x] Step: Infrastructure documentation
+Created oc_infrastructure.md v1.2.0 with domains, Droplet setup, Nginx routing, cost breakdown. Committed and pushed.
+
+### [x] Step: Portal documentation
+Created separate GitHub repo ordinacresce/ordina.one. Added docs/: overview.md, auth.md, login.md, dashboard.md, stack.md covering full spec for the portal.
+
+### [x] Step: Scaffold Next.js app with login page
+- Created Next.js 16 + TypeScript + Tailwind CSS 4 + App Router
+- Noto Serif Display + Noto Sans via next/font/google
+- Installed Clerk, Framer Motion, Lucide React
+- Brand CSS variables in globals.css
+- Login page: dark forest green bg, warm ivory card, antique gold accents, botanical SVG corners, tree mark logo, email + password form, remember me, forgot password, security badge, v1.0.0
+- Committed and pushed to ordinacresce/ordina.one
+
+### [ ] Step: Clerk integration (next)
+Wire up Clerk auth — add NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY, ClerkProvider in layout, middleware, sign-in action on the form.
