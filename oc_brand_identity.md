@@ -2,6 +2,17 @@
 
 ![Ordina Cresce](./oc_logo.svg)
 
+## Name
+
+| Context | Name |
+|---------|------|
+| Legal / full | Ordina Cresce |
+| External / short | ORDINA |
+| Tagline | TBD |
+
+Use **ORDINA** in all external-facing materials: business cards, website, client documents.
+Use **Ordina Cresce** in legal documents and internal records.
+
 ## Concept
 
 Deep heritage green + ivory paper + antique gold + muted botanical accents.
