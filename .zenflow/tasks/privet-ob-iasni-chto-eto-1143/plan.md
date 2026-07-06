@@ -51,5 +51,13 @@ Created separate GitHub repo ordinacresce/ordina.one. Added docs/: overview.md, 
 - Login page: dark forest green bg, warm ivory card, antique gold accents, botanical SVG corners, tree mark logo, email + password form, remember me, forgot password, security badge, v1.0.0
 - Committed and pushed to ordinacresce/ordina.one
 
+### [x] Step: Login page UI polish + assets
+- Replaced SVG placeholder with real logo (public/logo.png, 400×400, transparent bg)
+- Added favicon (public/favicon.png + src/app/icon.png, resized to 64×64 via sips)
+- Premium CSS border system: .form-card multi-layer box-shadow, .gold-button-frame gradient border wrapper, .sign-button dark inner button
+- Security footer: shield icon, "Internal Use Only", "All activity is monitored and logged", "MFA Protected", · v1.0.0 ·
+- Dev server managed via screen -dmS ordina — survives shell exit, logs at /tmp/ordina-dev.log
+- Helper script: dev.sh — kills any existing process on port 3002 then starts fresh via screen
+
 ### [ ] Step: Clerk integration (next)
 Wire up Clerk auth — add NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY, ClerkProvider in layout, middleware, sign-in action on the form.
