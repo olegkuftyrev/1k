@@ -18,7 +18,7 @@ Do not make assumptions on important decisions — get clarification first.
 
 ## Workflow Steps
 
-### [ ] Step: Technical Specification
+### [x] Step: Technical Specification
 <!-- chat-id: 68599ca9-70c7-4b7b-90ea-e04a4e26cf69 -->
 
 Assess the task's difficulty, as underestimating it leads to poor outcomes.
@@ -53,16 +53,52 @@ Save to `{@artifacts_path}/plan.md`. If the feature is trivial and doesn't warra
 
 ---
 
-### [ ] Step: Implementation
+Implementation is broken into the milestones below, derived from `spec.md`. Follow them in order. Each milestone implements code **and** its tests together, then runs lint + typecheck + tests before being marked done.
 
-Implement the task according to the technical specification and general engineering best practices.
+After all milestones, write a report to `{@artifacts_path}/report.md` describing: what was implemented, how it was tested, and the biggest issues/challenges.
 
-1. Break the task into steps where possible.
-2. Implement the required changes in the codebase
-3. If relevant, write unit tests alongside each change.
-4. Run relevant tests and linters in the end of each step.
-5. Perform basic manual verification if applicable.
-6. After completion, write a report to `{@artifacts_path}/report.md` describing:
-   - What was implemented
-   - How the solution was tested
-   - The biggest issues or challenges encountered
+---
+
+### [ ] Step: Project scaffold & tooling
+
+Stand up the brand-new, self-contained repository/project.
+- Scaffold Next.js (App Router) + TypeScript (strict) + Tailwind CSS.
+- Configure ESLint, Prettier, Vitest + React Testing Library.
+- Add `.gitignore` (node_modules/, .next/, dist/, *.log, .env*) and npm scripts: `dev`, `build`, `lint`, `typecheck`, `test`, `validate:stores`.
+- Initialize independent git history for the new project.
+- Confirm repo destination/location with the user before finalizing.
+- [ ] `npm run lint`, `npm run typecheck`, and `npm run build` all pass on the empty scaffold.
+
+### [ ] Step: Data model & schema
+
+Define the authoritative store data contract.
+- Implement Zod schemas in `src/lib/schema.ts` (Unit, Category, Product, DeliverySchedule, Store) with TS types via `z.infer`.
+- Implement `src/lib/stores.ts` to load and validate store JSON, failing loudly on invalid data.
+- [ ] Unit tests: valid fixture passes; malformed data fails.
+
+### [ ] Step: PDF → JSON ingestion & verification tooling
+
+Turn per-store PDFs into verified JSON.
+- Obtain a sample store PDF from the user; choose the extraction library based on it.
+- Implement `scripts/ingest/` to produce draft `data/stores/<store>.json`.
+- Implement `scripts/validate-stores.ts` (wired to `npm run validate:stores`) to validate all store JSON against the schema.
+- Convert the first real store and manually verify it against its PDF.
+- [ ] `npm run validate:stores` passes for the first verified store.
+
+### [ ] Step: Calculation engine
+
+Implement the pluggable ordering engine.
+- Implement `src/lib/ordering/coverage.ts` (`daysToCover` from delivery schedule) and `src/lib/ordering/calculate.ts` (`calculateOrder` with the stable `OrderInput`/`OrderResult` interface).
+- Finalize the formula using the verified store JSON; keep the interface stable.
+- [ ] Unit tests for coverage math and order math (needed / on-hand / rounding / never-negative) against fixtures.
+
+### [ ] Step: UI & manager workflow
+
+Build the three-screen flow.
+- Store selector (`src/app/page.tsx`), inventory count screen (`stores/[storeId]/page.tsx`), order results screen (`stores/[storeId]/order/page.tsx`).
+- Server components load+validate store JSON; client component handles count entry and calls the calc engine; results grouped by category with a printable/exportable view.
+- [ ] Component tests for count entry and results rendering; `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run test` all pass.
+
+### [ ] Step: Report
+
+Write `{@artifacts_path}/report.md`: what was implemented, how it was tested, and the biggest issues/challenges encountered.
