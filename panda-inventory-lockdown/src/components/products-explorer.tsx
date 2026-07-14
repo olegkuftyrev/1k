@@ -1,8 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { useMemo, useState, useTransition } from "react";
+import { Check, Pencil, Search, X } from "lucide-react";
+import {
+  updateProductAverage,
+  updateUnitsPerCase,
+  updateWeeklyUsage,
+} from "@/lib/actions";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { fmtCases, fmtTarget, fmtUsage } from "@/lib/format";
@@ -102,6 +108,7 @@ export function ProductsExplorer({
             <CategorySection
               key={category.name}
               category={category}
+              storeNumber={store.store.number}
               weekLabels={store.source.weekLabels}
               unitsPerCase={unitsPerCase}
               salesTarget={salesTarget}

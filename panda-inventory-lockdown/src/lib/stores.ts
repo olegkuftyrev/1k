@@ -1,67 +1,57 @@
 import "server-only";
-import { readdir, readFile } from "node:fs/promises";
-import { join } from "node:path";
-import {
-  DeliveryMapSchema,
-  ManagersSchema,
-  StoreDataSchema,
-  UnitsPerCaseSchema,
-  type DeliveryMap,
-  type Managers,
-  type Product,
-  type StoreData,
-  type UnitsPerCase,
+import { prisma } from "@/lib/db";
+import { toStoreData, type StoreRow } from "@/lib/mappers";
+import type {
+  DeliveryMap,
+  Managers,
+  Product,
+  StoreData,
+  UnitsPerCase,
 } from "@/lib/schema";
 import { casesPer1k } from "@/lib/ordering/calculate";
-
-const STORES_DIR = join(process.cwd(), "data", "stores");
-const UNITS_PER_CASE_FILE = join(process.cwd(), "data", "units-per-case.json");
-const MANAGERS_FILE = join(process.cwd(), "data", "managers.json");
-const DELIVERY_FILE = join(process.cwd(), "data", "delivery.json");
 
 /** Default delivery days when a store has no explicit schedule: Mon/Wed/Fri. */
 export const DEFAULT_DELIVERY_DAYS = [1, 3, 5];
 
-/** Load and validate every store JSON, sorted by store number. */
+/** Prisma include tree with children pre-sorted by position for stable order. */
+const STORE_INCLUDE = {
+  categories: {
+    orderBy: { position: "asc" as const },
+    include: {
+      products: {
+        orderBy: { position: "asc" as const },
+        include: {
+          weeks: { orderBy: { position: "asc" as const } },
+        },
+      },
+    },
+  },
+};
+
+/** Load every store, sorted by store number, as canonical StoreData. */
 export async function getAllStores(): Promise<StoreData[]> {
-  let files: string[] = [];
-  try {
-    files = (await readdir(STORES_DIR)).filter((f) => f.endsWith(".json"));
-  } catch {
-    return [];
-  }
-
-  const stores = await Promise.all(
-    files.map(async (file) => {
-      const raw = JSON.parse(await readFile(join(STORES_DIR, file), "utf8"));
-      return StoreDataSchema.parse(raw);
-    }),
-  );
-
-  return stores.sort((a, b) => a.store.number.localeCompare(b.store.number));
+  const rows = await prisma.store.findMany({
+    orderBy: { number: "asc" },
+    include: STORE_INCLUDE,
+  });
+  return rows.map((r) => toStoreData(r as unknown as StoreRow));
 }
 
 /** Load a single store by its number, or null if missing. */
 export async function getStore(number: string): Promise<StoreData | null> {
-  const stores = await getAllStores();
-  return stores.find((s) => s.store.number === number) ?? null;
+  const row = await prisma.store.findUnique({
+    where: { number },
+    include: STORE_INCLUDE,
+  });
+  return row ? toStoreData(row as unknown as StoreRow) : null;
 }
 
-/**
- * Load and validate the master units-per-case map.
- * Metadata keys (prefixed with "_") are stripped before validation.
- */
+/** Load the master units-per-case map (product number -> units per case). */
 export async function getUnitsPerCase(): Promise<UnitsPerCase> {
-  let raw: Record<string, unknown>;
-  try {
-    raw = JSON.parse(await readFile(UNITS_PER_CASE_FILE, "utf8"));
-  } catch {
-    return {};
-  }
-  const entries = Object.fromEntries(
-    Object.entries(raw).filter(([k]) => !k.startsWith("_")),
-  );
-  return UnitsPerCaseSchema.parse(entries);
+  const rows = await prisma.productCase.findMany();
+  const map: UnitsPerCase = {};
+  for (const r of rows) map[r.productNumber.toUpperCase()] = r.unitsPerCase;
+  return map;
 }
 
 /** Units per case for a product, or null when unknown. */
@@ -72,43 +62,30 @@ export function unitsPerCaseFor(
   return map[productNumber.toUpperCase()] ?? null;
 }
 
-/**
- * Load and validate the store-manager map.
- * Metadata keys (prefixed with "_") are stripped before validation.
- */
+/** Map of store number -> manager name (only stores that have one). */
 export async function getManagers(): Promise<Managers> {
-  let raw: Record<string, unknown>;
-  try {
-    raw = JSON.parse(await readFile(MANAGERS_FILE, "utf8"));
-  } catch {
-    return {};
-  }
-  const entries = Object.fromEntries(
-    Object.entries(raw).filter(([k]) => !k.startsWith("_")),
-  );
-  return ManagersSchema.parse(entries);
+  const rows = await prisma.store.findMany({
+    select: { number: true, manager: true },
+  });
+  const map: Managers = {};
+  for (const r of rows) if (r.manager) map[r.number] = r.manager;
+  return map;
 }
 
-/**
- * Load and validate the store→delivery-days map.
- * Metadata keys (prefixed with "_") are stripped before validation.
- */
+/** Map of store number -> delivery days. */
 export async function getDeliveryMap(): Promise<DeliveryMap> {
-  let raw: Record<string, unknown>;
-  try {
-    raw = JSON.parse(await readFile(DELIVERY_FILE, "utf8"));
-  } catch {
-    return {};
-  }
-  const entries = Object.fromEntries(
-    Object.entries(raw).filter(([k]) => !k.startsWith("_")),
-  );
-  return DeliveryMapSchema.parse(entries);
+  const rows = await prisma.store.findMany({
+    select: { number: true, deliveryDays: true },
+  });
+  const map: DeliveryMap = {};
+  for (const r of rows) map[r.number] = r.deliveryDays;
+  return map;
 }
 
 /** Delivery days for a store, falling back to the Mon/Wed/Fri default. */
 export function deliveryDaysFor(map: DeliveryMap, number: string): number[] {
-  return map[number] ?? DEFAULT_DELIVERY_DAYS;
+  const days = map[number];
+  return days && days.length > 0 ? days : DEFAULT_DELIVERY_DAYS;
 }
 
 /** Flatten every product across a store's categories. */

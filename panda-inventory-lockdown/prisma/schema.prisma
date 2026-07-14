@@ -1,0 +1,86 @@
+// Panda Inventory Lockdown — data model.
+//
+// One Store owns many Categories; each Category owns many Products; each
+// Product has per-week usage rows. ProductCase is a global map of product
+// number -> units per case, shared across all stores. Managers and delivery
+// days live on Store so re-ingesting a report never clobbers them.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Store {
+  id         String   @id @default(cuid())
+  number     String   @unique
+  aco        String?
+  rdo        String?
+  fiscalWeek String?
+  manager    String?
+  sourceFile String?
+  parsedAt   DateTime?
+  // Week column labels in report order, e.g. ["W25 '26", "W26 '26"].
+  weekLabels String[]
+  // Delivery days of week (0=Sun ... 6=Sat).
+  deliveryDays Int[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  categories Category[]
+}
+
+model Category {
+  id       String @id @default(cuid())
+  store    Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  storeId  String
+  name     String
+  position Int    @default(0)
+
+  products Product[]
+
+  @@unique([storeId, name])
+  @@index([storeId])
+}
+
+model Product {
+  id            String  @id @default(cuid())
+  category      Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId    String
+  productNumber String
+  name          String
+  unit          String
+  // Rolling-average usage per $1000 (the report's "Average" column).
+  averagePer1k  Float?
+  position      Int     @default(0)
+
+  weeks WeeklyUsage[]
+
+  @@unique([categoryId, productNumber])
+  @@index([categoryId])
+  @@index([productNumber])
+}
+
+model WeeklyUsage {
+  id        String  @id @default(cuid())
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  // Column label as printed, e.g. "W25 '26".
+  label     String
+  // Usage per $1000 for that week. null when the source cell was blank.
+  value     Float?
+  position  Int     @default(0)
+
+  @@unique([productId, label])
+  @@index([productId])
+}
+
+// Global units-per-case map: product number -> units (lb/ct/gal) per case.
+model ProductCase {
+  productNumber String @id
+  unitsPerCase  Float
+  updatedAt     DateTime @updatedAt
+}
