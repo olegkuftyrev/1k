@@ -69,7 +69,7 @@ export function ProductsExplorer({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="sticky top-14 z-30 -mx-4 flex flex-col gap-3 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+      <div className="sticky top-14 z-30 -mx-4 flex flex-col gap-3 border-b px-4 py-3">
         <SalesTargetBar
           salesTarget={salesTarget}
           custom={custom}
