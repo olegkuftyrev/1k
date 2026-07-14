@@ -39,7 +39,11 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background">
         <SiteHeader stores={headerStores} />
-        <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-6">
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-x-0 top-14 z-0 h-[280px] bg-[url('/bg-top-brand.svg')] bg-[length:auto_100%] bg-right-top bg-no-repeat"
+        />
+        <main className="relative z-10 mx-auto w-full max-w-5xl flex-1 px-4 py-6">
           {children}
         </main>
       </body>
