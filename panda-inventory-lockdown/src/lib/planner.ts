@@ -87,13 +87,12 @@ export function coverageWindow(
   return cover;
 }
 
-/** Next delivery that still has enough lead time to place an order. */
+/** Next actual delivery after the current day, wrapping across the week. */
 export function upcomingDeliveryDay(
   days: PlannerDays,
   fromDay: number,
-  lead = ORDER_LEAD_DAYS,
 ): number | null {
-  for (let offset = lead; offset < lead + 7; offset++) {
+  for (let offset = 1; offset <= 7; offset++) {
     const day = (fromDay + offset) % 7;
     if (days[day]?.delivery) return day;
   }

@@ -70,11 +70,11 @@ describe("sumSales", () => {
 });
 
 describe("upcomingDeliveryDay", () => {
-  it("chooses the next delivery with enough order lead time", () => {
+  it("chooses the next actual delivery after today", () => {
     const days = defaultDays(MWF);
-    expect(upcomingDeliveryDay(days, 2)).toBe(5); // Tue -> Fri
+    expect(upcomingDeliveryDay(days, 2)).toBe(3); // Tue -> Wed
     expect(upcomingDeliveryDay(days, 3)).toBe(5); // Wed -> Fri
-    expect(upcomingDeliveryDay(days, 4)).toBe(1); // Thu -> next Mon
+    expect(upcomingDeliveryDay(days, 5)).toBe(1); // Fri -> next Mon
   });
 
   it("returns null when there are no delivery days", () => {
