@@ -17,12 +17,12 @@ function product(values: Array<number | null>): Product {
 }
 
 describe("hasHighWeekVariance", () => {
-  it("flags adjacent week changes over 200 percent", () => {
-    expect(hasHighWeekVariance(product([1.49, 4.48, null]))).toBe(true);
+  it("flags adjacent week changes over 50 percent", () => {
+    expect(hasHighWeekVariance(product([2, 3.02, null]))).toBe(true);
   });
 
-  it("allows adjacent week changes up to 200 percent", () => {
-    expect(hasHighWeekVariance(product([1.49, 4.47, null]))).toBe(false);
+  it("allows adjacent week changes up to 50 percent", () => {
+    expect(hasHighWeekVariance(product([2, 3, null]))).toBe(false);
   });
 
   it("allows stable adjacent week values", () => {

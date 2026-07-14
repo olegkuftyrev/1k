@@ -1,6 +1,6 @@
 import type { Product, UnitsPerCase } from "@/lib/schema";
 
-export const WEEK_VARIANCE_WARNING_THRESHOLD = 2;
+export const WEEK_VARIANCE_WARNING_THRESHOLD = 0.5;
 
 export function hasMissingCaseSize(
   product: Product,
