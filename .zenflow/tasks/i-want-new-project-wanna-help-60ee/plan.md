@@ -84,12 +84,13 @@ Turn per-store PDFs into verified JSON. (Done for the first store.)
 - [x] `npm run validate:stores` passes for store 3847.
 - Remaining: confirm delivery days per store (not in the usage PDF) and run more stores through the parser as their PDFs arrive.
 
-### [ ] Step: Calculation engine
+### [x] Step: Calculation engine
 
 Implement the pluggable ordering engine.
-- Implement `src/lib/ordering/coverage.ts` (`daysToCover` from delivery schedule) and `src/lib/ordering/calculate.ts` (`calculateOrder` with the stable `OrderInput`/`OrderResult` interface).
-- Finalize the formula using the verified store JSON; keep the interface stable.
-- [ ] Unit tests for coverage math and order math (needed / on-hand / rounding / never-negative) against fixtures.
+- [x] Implement `src/lib/ordering/calculate.ts` — `casesPer1k`, `casesForTarget`, and `calculateOrder` with stable `OrderInput`/`OrderResult`.
+- [x] Formula confirmed from legacy dashboard + store 3847: `cases = (averagePer1k / unitsPerCase) × (salesTarget / 1000)`; on-hand subtraction (never negative) and round-up are optional layers.
+- [x] Unit tests (`tests/calculate.test.ts`, 12 tests) for cases-per-$1k, target scaling, on-hand subtraction, never-negative, round-up, and null propagation.
+- Note: delivery-day coverage not yet folded into the number (deferred per legacy behaviour); `salesTarget` is projected sales for the period.
 
 ### [-] Step: UI & manager workflow
 

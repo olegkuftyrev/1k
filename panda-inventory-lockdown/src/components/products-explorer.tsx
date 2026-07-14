@@ -2,10 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
+import { SalesTargetBar } from "@/components/sales-target-bar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { fmtUsage } from "@/lib/format";
+import { fmtCases, fmtTarget, fmtUsage } from "@/lib/format";
+import { BASE_SALES, casesForTarget } from "@/lib/ordering/calculate";
 import type {
   Category,
   Product,
@@ -23,6 +25,24 @@ export function ProductsExplorer({
 }) {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState<string>("all");
+  const [salesTarget, setSalesTarget] = useState<number>(BASE_SALES);
+  const [custom, setCustom] = useState("");
+
+  const handlePreset = (value: number) => {
+    setCustom("");
+    setSalesTarget(value);
+  };
+
+  const handleCustomChange = (raw: string) => {
+    setCustom(raw);
+    const k = parseFloat(raw);
+    setSalesTarget(Number.isFinite(k) && k > 0 ? k * 1000 : BASE_SALES);
+  };
+
+  const handleReset = () => {
+    setCustom("");
+    setSalesTarget(BASE_SALES);
+  };
 
   const categories = useMemo(
     () => store.categories.filter((c) => c.products.length > 0),
@@ -49,15 +69,24 @@ export function ProductsExplorer({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-        <Input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search products…"
-          className="pl-9"
-          inputMode="search"
+      <div className="sticky top-14 z-30 -mx-4 flex flex-col gap-3 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/75">
+        <SalesTargetBar
+          salesTarget={salesTarget}
+          custom={custom}
+          onPreset={handlePreset}
+          onCustomChange={handleCustomChange}
+          onReset={handleReset}
         />
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search products…"
+            className="pl-9"
+            inputMode="search"
+          />
+        </div>
       </div>
 
       <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -78,7 +107,11 @@ export function ProductsExplorer({
 
       <p className="text-xs text-muted-foreground">
         {resultCount} product{resultCount === 1 ? "" : "s"}
-        {query ? ` matching “${query}”` : ""}
+        {query ? ` matching “${query}”` : ""} · cases for{" "}
+        <span className="font-medium text-foreground">
+          {fmtTarget(salesTarget)}
+        </span>{" "}
+        sales
       </p>
 
       {filtered.length === 0 ? (
@@ -95,6 +128,7 @@ export function ProductsExplorer({
               category={category}
               weekLabels={store.source.weekLabels}
               unitsPerCase={unitsPerCase}
+              salesTarget={salesTarget}
             />
           ))}
         </div>
@@ -132,10 +166,12 @@ function CategorySection({
   category,
   weekLabels,
   unitsPerCase,
+  salesTarget,
 }: {
   category: Category;
   weekLabels: string[];
   unitsPerCase: UnitsPerCase;
+  salesTarget: number;
 }) {
   return (
     <section className="flex flex-col gap-2">
@@ -152,6 +188,7 @@ function CategorySection({
             product={p}
             weekLabels={weekLabels}
             unitsPerCase={unitsPerCase[p.productNumber.toUpperCase()] ?? null}
+            salesTarget={salesTarget}
           />
         ))}
       </div>
@@ -163,11 +200,18 @@ function ProductRow({
   product,
   weekLabels,
   unitsPerCase,
+  salesTarget,
 }: {
   product: Product;
   weekLabels: string[];
   unitsPerCase: number | null;
+  salesTarget: number;
 }) {
+  const cases = casesForTarget(
+    product.averagePer1k,
+    unitsPerCase,
+    salesTarget,
+  );
   return (
     <Card className="py-0">
       <CardContent className="flex flex-col gap-2 p-3">
@@ -183,13 +227,23 @@ function ProductRow({
               )}
             </p>
           </div>
-          <div className="shrink-0 text-right">
-            <p className="text-lg font-semibold tabular-nums leading-none">
-              {fmtUsage(product.averagePer1k)}
-            </p>
-            <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
-              avg / $1K
-            </p>
+          <div className="flex shrink-0 items-center gap-4 text-right">
+            <div>
+              <p className="text-sm font-medium tabular-nums leading-none text-muted-foreground">
+                {fmtUsage(product.averagePer1k)}
+              </p>
+              <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
+                avg / $1K
+              </p>
+            </div>
+            <div>
+              <p className="text-lg font-semibold tabular-nums leading-none text-red-600">
+                {fmtCases(cases)}
+              </p>
+              <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
+                order
+              </p>
+            </div>
           </div>
         </div>
 
