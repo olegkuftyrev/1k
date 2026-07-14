@@ -2,12 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
-import { SalesTargetBar } from "@/components/sales-target-bar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { fmtCases, fmtTarget, fmtUsage } from "@/lib/format";
-import { BASE_SALES, casesForTarget } from "@/lib/ordering/calculate";
+import { casesForTarget } from "@/lib/ordering/calculate";
 import type {
   Category,
   Product,
@@ -19,30 +18,14 @@ import { cn } from "@/lib/utils";
 export function ProductsExplorer({
   store,
   unitsPerCase,
+  salesTarget,
 }: {
   store: StoreData;
   unitsPerCase: UnitsPerCase;
+  salesTarget: number;
 }) {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState<string>("all");
-  const [salesTarget, setSalesTarget] = useState<number>(BASE_SALES);
-  const [custom, setCustom] = useState("");
-
-  const handlePreset = (value: number) => {
-    setCustom("");
-    setSalesTarget(value);
-  };
-
-  const handleCustomChange = (raw: string) => {
-    setCustom(raw);
-    const k = parseFloat(raw);
-    setSalesTarget(Number.isFinite(k) && k > 0 ? k * 1000 : BASE_SALES);
-  };
-
-  const handleReset = () => {
-    setCustom("");
-    setSalesTarget(BASE_SALES);
-  };
 
   const categories = useMemo(
     () => store.categories.filter((c) => c.products.length > 0),
@@ -70,13 +53,6 @@ export function ProductsExplorer({
   return (
     <div className="flex flex-col gap-4">
       <div className="sticky top-14 z-30 -mx-4 flex flex-col gap-3 border-b bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/75">
-        <SalesTargetBar
-          salesTarget={salesTarget}
-          custom={custom}
-          onPreset={handlePreset}
-          onCustomChange={handleCustomChange}
-          onReset={handleReset}
-        />
         <div className="relative">
           <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input

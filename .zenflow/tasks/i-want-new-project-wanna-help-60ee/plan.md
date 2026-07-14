@@ -99,7 +99,8 @@ Mobile-first shadcn/ui dashboard (count-entry / order-results screens deferred w
 - [x] Home dashboard with stat cards + per-store overview cards and top usage (`src/app/page.tsx`).
 - [x] Store detail page: stats + searchable/category-filtered products explorer with weekly usage (`src/app/stores/[number]/page.tsx`, `src/components/products-explorer.tsx`).
 - [x] Server-only store loader with summary helpers (`src/lib/stores.ts`).
-- [x] `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run test` all pass (store 3847 statically generated).
+- [x] Interactive delivery planner: per-day delivery toggle + projected sales entry drives a coverage window (delivery day until next delivery) whose summed sales feed the cases calculation; replaces the old fixed `$K` sales selector (`src/lib/planner.ts`, `src/components/delivery-planner.tsx`, `src/components/store-planner.tsx`, `tests/planner.test.ts`).
+- [x] `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run test` (31) all pass; interaction verified in-browser.
 - Remaining (depends on calc engine): inventory count-entry screen and order-results/export screen.
 
 ### [ ] Step: Report

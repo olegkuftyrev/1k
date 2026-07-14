@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Layers, Package, TrendingUp } from "lucide-react";
-import { DeliverySchedule } from "@/components/delivery-schedule";
-import { ProductsExplorer } from "@/components/products-explorer";
 import { StatCard } from "@/components/stat-card";
+import { StorePlanner } from "@/components/store-planner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fmtCases } from "@/lib/format";
@@ -99,9 +98,11 @@ export default async function StorePage({
         />
       </section>
 
-      <DeliverySchedule deliveryDays={deliveryDays} />
-
-      <ProductsExplorer store={store} unitsPerCase={unitsPerCase} />
+      <StorePlanner
+        store={store}
+        unitsPerCase={unitsPerCase}
+        deliveryDays={deliveryDays}
+      />
     </div>
   );
 }
