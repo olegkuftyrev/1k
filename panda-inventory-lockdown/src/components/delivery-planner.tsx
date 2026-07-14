@@ -109,17 +109,11 @@ export function DeliveryPlanner({
             const beforeDelivery = preDeliverySet.has(day);
             const showRole = isDelivery || isOrder;
             return (
-              <button
+              <div
                 key={day}
-                type="button"
                 title={FULL_DAY_LABELS[day]}
-                onClick={() => {
-                  onFocusDay(day);
-                  if (editing) onToggleDelivery(day, !isDelivery);
-                }}
                 className={cn(
                   "flex min-h-16 items-center justify-between gap-3 rounded-lg border bg-card px-3 py-2 text-left transition-colors",
-                  editing ? "hover:bg-accent/70" : "cursor-default",
                   inCoverage
                     ? "border-brand bg-brand/10 text-foreground"
                     : isDelivery
@@ -131,7 +125,14 @@ export function DeliveryPlanner({
                   isFocused && !isSelected && "ring-2 ring-navy/25",
                 )}
               >
-                <span className="flex min-w-0 items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onFocusDay(day);
+                    if (editing) onToggleDelivery(day, !isDelivery);
+                  }}
+                  className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+                >
                   <span
                     className={cn(
                       "flex size-10 shrink-0 items-center justify-center rounded-lg border text-sm font-semibold uppercase",
@@ -170,21 +171,19 @@ export function DeliveryPlanner({
                       {beforeDelivery ? " · before delivery" : ""}
                     </span>
                   </span>
-                </span>
+                </button>
 
                 <span className="flex shrink-0 items-center gap-2">
                   {editing ? (
-                    <span onClick={(event) => event.stopPropagation()}>
-                      <ForecastStepper
-                        dollars={cfg.sales}
-                        disabled={isPending}
-                        label={`Forecasted sales for ${FULL_DAY_LABELS[day]} in thousands`}
-                        onChange={(dollars) => onChangeSales(day, dollars)}
-                      />
-                    </span>
+                    <ForecastStepper
+                      dollars={cfg.sales}
+                      disabled={isPending}
+                      label={`Forecasted sales for ${FULL_DAY_LABELS[day]} in thousands`}
+                      onChange={(dollars) => onChangeSales(day, dollars)}
+                    />
                   ) : null}
                 </span>
-              </button>
+              </div>
             );
           })}
         </div>
