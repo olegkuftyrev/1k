@@ -6,10 +6,21 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { fmtUsage } from "@/lib/format";
-import type { Category, Product, StoreData } from "@/lib/schema";
+import type {
+  Category,
+  Product,
+  StoreData,
+  UnitsPerCase,
+} from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
-export function ProductsExplorer({ store }: { store: StoreData }) {
+export function ProductsExplorer({
+  store,
+  unitsPerCase,
+}: {
+  store: StoreData;
+  unitsPerCase: UnitsPerCase;
+}) {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState<string>("all");
 
@@ -83,6 +94,7 @@ export function ProductsExplorer({ store }: { store: StoreData }) {
               key={category.name}
               category={category}
               weekLabels={store.source.weekLabels}
+              unitsPerCase={unitsPerCase}
             />
           ))}
         </div>
@@ -119,9 +131,11 @@ function FilterChip({
 function CategorySection({
   category,
   weekLabels,
+  unitsPerCase,
 }: {
   category: Category;
   weekLabels: string[];
+  unitsPerCase: UnitsPerCase;
 }) {
   return (
     <section className="flex flex-col gap-2">
@@ -133,7 +147,12 @@ function CategorySection({
       </div>
       <div className="flex flex-col gap-2">
         {category.products.map((p) => (
-          <ProductRow key={p.productNumber} product={p} weekLabels={weekLabels} />
+          <ProductRow
+            key={p.productNumber}
+            product={p}
+            weekLabels={weekLabels}
+            unitsPerCase={unitsPerCase[p.productNumber.toUpperCase()] ?? null}
+          />
         ))}
       </div>
     </section>
@@ -143,9 +162,11 @@ function CategorySection({
 function ProductRow({
   product,
   weekLabels,
+  unitsPerCase,
 }: {
   product: Product;
   weekLabels: string[];
+  unitsPerCase: number | null;
 }) {
   return (
     <Card className="py-0">
@@ -155,6 +176,11 @@ function ProductRow({
             <p className="truncate text-sm font-medium">{product.name}</p>
             <p className="text-xs text-muted-foreground">
               {product.productNumber} · {product.unit}
+              {unitsPerCase !== null ? (
+                <> · {unitsPerCase} {product.unit}/case</>
+              ) : (
+                <> · <span className="text-amber-600">no case size</span></>
+              )}
             </p>
           </div>
           <div className="shrink-0 text-right">

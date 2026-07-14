@@ -56,6 +56,18 @@ export const StoreMetaSchema = z.object({
 });
 export type StoreMeta = z.infer<typeof StoreMetaSchema>;
 
+/**
+ * Master map of product number → units (lbs/each) per case.
+ * Shared across all stores; used to convert usage into case counts.
+ * Keys beginning with "_" (e.g. "_description") are metadata and stripped
+ * before validation by the loader.
+ */
+export const UnitsPerCaseSchema = z.record(
+  z.string().regex(/^P\d+$/i),
+  z.number().positive(),
+);
+export type UnitsPerCase = z.infer<typeof UnitsPerCaseSchema>;
+
 export const StoreDataSchema = z.object({
   store: StoreMetaSchema,
   source: z.object({

@@ -1,9 +1,16 @@
 import "server-only";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { StoreDataSchema, type Product, type StoreData } from "@/lib/schema";
+import {
+  StoreDataSchema,
+  UnitsPerCaseSchema,
+  type Product,
+  type StoreData,
+  type UnitsPerCase,
+} from "@/lib/schema";
 
 const STORES_DIR = join(process.cwd(), "data", "stores");
+const UNITS_PER_CASE_FILE = join(process.cwd(), "data", "units-per-case.json");
 
 /** Load and validate every store JSON, sorted by store number. */
 export async function getAllStores(): Promise<StoreData[]> {
@@ -28,6 +35,31 @@ export async function getAllStores(): Promise<StoreData[]> {
 export async function getStore(number: string): Promise<StoreData | null> {
   const stores = await getAllStores();
   return stores.find((s) => s.store.number === number) ?? null;
+}
+
+/**
+ * Load and validate the master units-per-case map.
+ * Metadata keys (prefixed with "_") are stripped before validation.
+ */
+export async function getUnitsPerCase(): Promise<UnitsPerCase> {
+  let raw: Record<string, unknown>;
+  try {
+    raw = JSON.parse(await readFile(UNITS_PER_CASE_FILE, "utf8"));
+  } catch {
+    return {};
+  }
+  const entries = Object.fromEntries(
+    Object.entries(raw).filter(([k]) => !k.startsWith("_")),
+  );
+  return UnitsPerCaseSchema.parse(entries);
+}
+
+/** Units per case for a product, or null when unknown. */
+export function unitsPerCaseFor(
+  map: UnitsPerCase,
+  productNumber: string,
+): number | null {
+  return map[productNumber.toUpperCase()] ?? null;
 }
 
 /** Flatten every product across a store's categories. */

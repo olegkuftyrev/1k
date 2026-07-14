@@ -9,6 +9,7 @@ import { fmtUsage } from "@/lib/format";
 import {
   getAllStores,
   getStore,
+  getUnitsPerCase,
   productCount,
   topProducts,
 } from "@/lib/stores";
@@ -26,6 +27,8 @@ export default async function StorePage({
   const { number } = await params;
   const store = await getStore(number);
   if (!store) notFound();
+
+  const unitsPerCase = await getUnitsPerCase();
 
   const categoryCount = store.categories.filter(
     (c) => c.products.length > 0,
@@ -89,7 +92,7 @@ export default async function StorePage({
         />
       </section>
 
-      <ProductsExplorer store={store} />
+      <ProductsExplorer store={store} unitsPerCase={unitsPerCase} />
     </div>
   );
 }
