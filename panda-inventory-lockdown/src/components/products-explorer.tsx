@@ -1,11 +1,12 @@
 "use client";
 
 import { FormEvent, useMemo, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { AlertTriangle, Check, Pencil, Search, ShoppingCart, X } from "lucide-react";
 import {
   updateProductAverage,
   updateUnitsPerCase,
-  updateWeeklyUsage,
+  updateWeeklyUsageAndAverage,
 } from "@/lib/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,8 +39,6 @@ import {
   hasMissingCaseSize,
   hasProductWarning,
 } from "@/lib/warnings";
-
-const INLINE_EDITING_ENABLED = false;
 
 export function ProductsExplorer({
   store,
@@ -528,11 +527,13 @@ function ProductRow({
   unitsPerCase: number | null;
   salesTarget: number;
 }) {
+  const router = useRouter();
   const [averageOverride, setAverageOverride] = useState<number | null>();
   const [caseSizeOverride, setCaseSizeOverride] = useState<number | null>();
   const [weekOverrides, setWeekOverrides] = useState<Record<number, number | null>>(
     {},
   );
+  const [editingUsage, setEditingUsage] = useState(false);
 
   const average =
     averageOverride === undefined ? product.averagePer1k : averageOverride;
@@ -570,14 +571,21 @@ function ProductRow({
   };
 
   const saveWeek = async (index: number, label: string, value: number | null) => {
-    const result = await updateWeeklyUsage({
+    const nextWeeks = weeks.map((week, weekIndex) =>
+      weekIndex === index ? { ...week, value } : week,
+    );
+    const nextAverage = averageFromWeeks(nextWeeks);
+    const result = await updateWeeklyUsageAndAverage({
       storeNumber,
       productNumber,
       label,
       value,
+      averagePer1k: nextAverage,
     });
     if (result.ok) {
       setWeekOverrides((prev) => ({ ...prev, [index]: value }));
+      setAverageOverride(nextAverage);
+      router.refresh();
     }
     return result;
   };
@@ -608,6 +616,7 @@ function ProductRow({
                 }
                 inputLabel={`${product.name} case size`}
                 onSave={saveCaseSize}
+                enabled={false}
               />
               {highVariance ? (
                 <>
@@ -619,7 +628,23 @@ function ProductRow({
               ) : null}
             </div>
           </div>
-          <div className="flex shrink-0 items-center gap-4 text-right">
+          <div className="flex shrink-0 items-center gap-3 text-right">
+            {weeks.length > 0 ? (
+              <Button
+                type="button"
+                variant={editingUsage ? "secondary" : "ghost"}
+                size="sm"
+                className="h-8 px-2 text-xs"
+                onClick={() => setEditingUsage((current) => !current)}
+              >
+                {editingUsage ? (
+                  <Check className="size-3.5" />
+                ) : (
+                  <Pencil className="size-3.5" />
+                )}
+                {editingUsage ? "Done" : "Edit usage"}
+              </Button>
+            ) : null}
             <div>
               <InlineNumberEditor
                 value={average}
@@ -629,6 +654,7 @@ function ProductRow({
                 displayValue={(value) => fmtUsage(value)}
                 inputLabel={`${product.name} average per $1K`}
                 onSave={saveAverage}
+                enabled={false}
               />
               <p className="text-[10px] uppercase tracking-wide text-muted-foreground">
                 avg / $1K
@@ -662,6 +688,7 @@ function ProductRow({
                   displayValue={(value) => fmtUsage(value)}
                   inputLabel={`${product.name} ${weekLabels[i] ?? w.label} usage`}
                   onSave={(value) => saveWeek(i, w.label, value)}
+                  enabled={editingUsage}
                 />
               </Badge>
             ))}
@@ -681,6 +708,7 @@ function InlineNumberEditor({
   displayValue,
   inputLabel,
   onSave,
+  enabled = false,
 }: {
   value: number | null;
   nullable: boolean;
@@ -690,13 +718,14 @@ function InlineNumberEditor({
   displayValue: (value: number | null) => React.ReactNode;
   inputLabel: string;
   onSave: (value: number | null) => Promise<{ ok: boolean; error?: string }>;
+  enabled?: boolean;
 }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  if (!INLINE_EDITING_ENABLED) {
+  if (!enabled) {
     return (
       <span
         className={cn(
@@ -816,4 +845,13 @@ function InlineNumberEditor({
 
 function formatNumber(value: number) {
   return Number.isInteger(value) ? value.toLocaleString() : value.toString();
+}
+
+function averageFromWeeks(weeks: Product["weeks"]) {
+  const values = weeks
+    .map((week) => week.value)
+    .filter((value): value is number => value !== null && Number.isFinite(value));
+  if (values.length === 0) return null;
+  const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+  return Math.round(average * 100) / 100;
 }

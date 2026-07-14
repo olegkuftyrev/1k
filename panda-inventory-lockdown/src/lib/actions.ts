@@ -20,6 +20,10 @@ const averageInput = z.object({
   value: nullableNumber,
 });
 
+const usageWithAverageInput = usageInput.extend({
+  averagePer1k: nullableNumber,
+});
+
 const unitsInput = z.object({
   productNumber: z.string().min(1),
   value: z.number().finite().positive(),
@@ -77,6 +81,38 @@ export async function updateWeeklyUsage(
     where: { productId, label },
     data: { value },
   });
+  if (updated.count === 0) return { ok: false, error: "Week not found." };
+
+  revalidateStore(storeNumber);
+  return { ok: true };
+}
+
+/** Update one week's usage and the product average derived from week values. */
+export async function updateWeeklyUsageAndAverage(
+  input: z.infer<typeof usageWithAverageInput>,
+): Promise<ActionResult> {
+  const parsed = usageWithAverageInput.safeParse(input);
+  if (!parsed.success) return { ok: false, error: "Invalid input." };
+  const { storeNumber, productNumber, label, value, averagePer1k } =
+    parsed.data;
+
+  const productId = await findProductId(storeNumber, productNumber);
+  if (!productId) return { ok: false, error: "Product not found." };
+
+  const updated = await prisma.$transaction(async (tx) => {
+    const weekly = await tx.weeklyUsage.updateMany({
+      where: { productId, label },
+      data: { value },
+    });
+    if (weekly.count === 0) return weekly;
+
+    await tx.product.update({
+      where: { id: productId },
+      data: { averagePer1k },
+    });
+    return weekly;
+  });
+
   if (updated.count === 0) return { ok: false, error: "Week not found." };
 
   revalidateStore(storeNumber);
