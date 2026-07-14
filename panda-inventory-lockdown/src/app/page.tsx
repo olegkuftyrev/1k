@@ -84,10 +84,10 @@ export default async function DashboardPage() {
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
                           <CardTitle className="flex items-center gap-2">
-                            <span className="flex size-8 items-center justify-center rounded-md bg-brand text-sm font-bold text-brand-foreground">
-                              {s.number.slice(-2)}
+                            <span className="flex h-8 min-w-12 items-center justify-center rounded-md bg-brand px-2 text-sm font-bold tabular-nums text-brand-foreground">
+                              {s.number}
                             </span>
-                            Store {s.number}
+                            Store
                           </CardTitle>
                           <CardDescription className="mt-1 truncate">
                             {managers[s.number]
