@@ -146,6 +146,6 @@ export function summarize(
     weekCount: weekCount(store),
     categoryCount: store.categories.filter((c) => c.products.length > 0).length,
     productCount: productCount(store),
-    top: topProductsByCases(store, unitsPerCase, 3),
+    top: topProductsByCases(store, unitsPerCase, 5),
   };
 }
