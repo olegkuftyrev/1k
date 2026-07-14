@@ -59,15 +59,13 @@ After all milestones, write a report to `{@artifacts_path}/report.md` describing
 
 ---
 
-### [ ] Step: Project scaffold & tooling
+### [x] Step: Project scaffold & tooling
 
 Stand up the brand-new, self-contained repository/project.
-- Scaffold Next.js (App Router) + TypeScript (strict) + Tailwind CSS.
-- Configure ESLint, Prettier, Vitest + React Testing Library.
-- Add `.gitignore` (node_modules/, .next/, dist/, *.log, .env*) and npm scripts: `dev`, `build`, `lint`, `typecheck`, `test`, `validate:stores`.
-- Initialize independent git history for the new project.
-- Confirm repo destination/location with the user before finalizing.
-- [ ] `npm run lint`, `npm run typecheck`, and `npm run build` all pass on the empty scaffold.
+- [x] Scaffold Next.js 16 (App Router, Turbopack) + TypeScript (strict) + Tailwind v4, `src/` dir, `@/*` alias.
+- [x] shadcn/ui initialized (Base UI backend); ESLint + Vitest configured; tsx for scripts.
+- [x] `.gitignore` includes node_modules/, .next/, build artifacts; npm scripts: `dev`, `build`, `lint`, `typecheck`, `test`, `ingest`, `validate:stores`.
+- [x] `npm run lint`, `npm run typecheck`, and `npm run build` all pass.
 
 ### [x] Step: Data model & schema
 
@@ -93,12 +91,15 @@ Implement the pluggable ordering engine.
 - Finalize the formula using the verified store JSON; keep the interface stable.
 - [ ] Unit tests for coverage math and order math (needed / on-hand / rounding / never-negative) against fixtures.
 
-### [ ] Step: UI & manager workflow
+### [-] Step: UI & manager workflow
 
-Build the three-screen flow.
-- Store selector (`src/app/page.tsx`), inventory count screen (`stores/[storeId]/page.tsx`), order results screen (`stores/[storeId]/order/page.tsx`).
-- Server components load+validate store JSON; client component handles count entry and calls the calc engine; results grouped by category with a printable/exportable view.
-- [ ] Component tests for count entry and results rendering; `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run test` all pass.
+Mobile-first shadcn/ui dashboard (count-entry / order-results screens deferred with the calc engine).
+- [x] App shell: sticky header + mobile Sheet nav (`src/components/site-header.tsx`), root layout loads + validates store JSON (`src/app/layout.tsx`).
+- [x] Home dashboard with stat cards + per-store overview cards and top usage (`src/app/page.tsx`).
+- [x] Store detail page: stats + searchable/category-filtered products explorer with weekly usage (`src/app/stores/[number]/page.tsx`, `src/components/products-explorer.tsx`).
+- [x] Server-only store loader with summary helpers (`src/lib/stores.ts`).
+- [x] `npm run lint`, `npm run typecheck`, `npm run build`, and `npm run test` all pass (store 3847 statically generated).
+- Remaining (depends on calc engine): inventory count-entry screen and order-results/export screen.
 
 ### [ ] Step: Report
 

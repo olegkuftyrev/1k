@@ -159,10 +159,6 @@ function parseCategoryPage(rows: Row[]): {
     const productItem = row.find((it) => /^P\d{2,6}$/i.test(it.str.trim()));
     if (!productItem) continue;
 
-    const numericTargets = [
-      ...layout.weekColumns.map((c) => c.center),
-      ...(layout.averageCenter !== null ? [layout.averageCenter] : []),
-    ];
     const numericItems = new Set<Item>();
 
     const unitItem = row.find(
