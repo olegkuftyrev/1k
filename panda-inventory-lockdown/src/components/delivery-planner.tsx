@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Minus, Pencil, Plus, X } from "lucide-react";
+import { Check, Laptop, Minus, Pencil, Plus, Truck, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { fmtTarget } from "@/lib/format";
@@ -101,16 +101,7 @@ export function DeliveryPlanner({
             const isSelected = day === selectedDay;
             const isFocused = day === focusedDay;
             const inCoverage = coverageSet.has(day);
-            const showRole = isDelivery || inCoverage;
-            const role = isDelivery
-              ? isOrder
-                ? "Both"
-                : "Delivery"
-              : isOrder
-                ? "Order by"
-                : inCoverage
-                  ? "Covered"
-                  : "Forecast";
+            const showRole = isDelivery || isOrder || inCoverage;
             return (
               <button
                 key={day}
@@ -145,7 +136,11 @@ export function DeliveryPlanner({
                         : "bg-muted text-muted-foreground",
                     )}
                   >
-                    {role}
+                    <DayRole
+                      isDelivery={isDelivery}
+                      isOrder={isOrder}
+                      inCoverage={inCoverage}
+                    />
                   </span>
                 ) : (
                   <span className="min-h-4" aria-hidden />
@@ -222,6 +217,30 @@ export function DeliveryPlanner({
       </CardContent>
     </Card>
   );
+}
+
+function DayRole({
+  isDelivery,
+  isOrder,
+  inCoverage,
+}: {
+  isDelivery: boolean;
+  isOrder: boolean;
+  inCoverage: boolean;
+}) {
+  if (isDelivery || isOrder) {
+    return (
+      <span className="inline-flex items-center gap-1">
+        {isDelivery ? (
+          <Truck className="size-3" aria-label="Delivery" />
+        ) : null}
+        {isDelivery && isOrder ? <span aria-hidden>+</span> : null}
+        {isOrder ? <Laptop className="size-3" aria-label="Order" /> : null}
+      </span>
+    );
+  }
+
+  return inCoverage ? "Covered" : null;
 }
 
 const FORECAST_STEP_DOLLARS = 500;
