@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Layers, Package, TrendingUp } from "lucide-react";
+import { DeliverySchedule } from "@/components/delivery-schedule";
 import { ProductsExplorer } from "@/components/products-explorer";
 import { StatCard } from "@/components/stat-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fmtCases } from "@/lib/format";
 import {
+  deliveryDaysFor,
   getAllStores,
+  getDeliveryMap,
   getManagers,
   getStore,
   getUnitsPerCase,
@@ -32,6 +35,8 @@ export default async function StorePage({
   const unitsPerCase = await getUnitsPerCase();
   const managers = await getManagers();
   const manager = managers[store.store.number];
+  const deliveryMap = await getDeliveryMap();
+  const deliveryDays = deliveryDaysFor(deliveryMap, store.store.number);
 
   const categoryCount = store.categories.filter(
     (c) => c.products.length > 0,
@@ -93,6 +98,8 @@ export default async function StorePage({
           icon={<TrendingUp className="size-5" />}
         />
       </section>
+
+      <DeliverySchedule deliveryDays={deliveryDays} />
 
       <ProductsExplorer store={store} unitsPerCase={unitsPerCase} />
     </div>

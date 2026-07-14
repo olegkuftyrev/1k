@@ -79,6 +79,17 @@ export const ManagersSchema = z.record(
 );
 export type Managers = z.infer<typeof ManagersSchema>;
 
+/**
+ * Map of store number → delivery days (0=Sun ... 6=Sat).
+ * Kept separate from store JSON so re-ingesting a PDF never overwrites it.
+ * Keys beginning with "_" are metadata and stripped before validation.
+ */
+export const DeliveryMapSchema = z.record(
+  z.string().regex(/^\d+$/),
+  z.array(z.number().int().min(0).max(6)),
+);
+export type DeliveryMap = z.infer<typeof DeliveryMapSchema>;
+
 export const StoreDataSchema = z.object({
   store: StoreMetaSchema,
   source: z.object({

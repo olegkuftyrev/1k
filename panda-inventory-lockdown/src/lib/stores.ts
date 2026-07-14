@@ -2,9 +2,11 @@ import "server-only";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import {
+  DeliveryMapSchema,
   ManagersSchema,
   StoreDataSchema,
   UnitsPerCaseSchema,
+  type DeliveryMap,
   type Managers,
   type Product,
   type StoreData,
@@ -15,6 +17,10 @@ import { casesPer1k } from "@/lib/ordering/calculate";
 const STORES_DIR = join(process.cwd(), "data", "stores");
 const UNITS_PER_CASE_FILE = join(process.cwd(), "data", "units-per-case.json");
 const MANAGERS_FILE = join(process.cwd(), "data", "managers.json");
+const DELIVERY_FILE = join(process.cwd(), "data", "delivery.json");
+
+/** Default delivery days when a store has no explicit schedule: Mon/Wed/Fri. */
+export const DEFAULT_DELIVERY_DAYS = [1, 3, 5];
 
 /** Load and validate every store JSON, sorted by store number. */
 export async function getAllStores(): Promise<StoreData[]> {
@@ -81,6 +87,28 @@ export async function getManagers(): Promise<Managers> {
     Object.entries(raw).filter(([k]) => !k.startsWith("_")),
   );
   return ManagersSchema.parse(entries);
+}
+
+/**
+ * Load and validate the store→delivery-days map.
+ * Metadata keys (prefixed with "_") are stripped before validation.
+ */
+export async function getDeliveryMap(): Promise<DeliveryMap> {
+  let raw: Record<string, unknown>;
+  try {
+    raw = JSON.parse(await readFile(DELIVERY_FILE, "utf8"));
+  } catch {
+    return {};
+  }
+  const entries = Object.fromEntries(
+    Object.entries(raw).filter(([k]) => !k.startsWith("_")),
+  );
+  return DeliveryMapSchema.parse(entries);
+}
+
+/** Delivery days for a store, falling back to the Mon/Wed/Fri default. */
+export function deliveryDaysFor(map: DeliveryMap, number: string): number[] {
+  return map[number] ?? DEFAULT_DELIVERY_DAYS;
 }
 
 /** Flatten every product across a store's categories. */
