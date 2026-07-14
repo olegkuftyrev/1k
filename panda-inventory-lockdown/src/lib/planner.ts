@@ -2,7 +2,7 @@
  * Pure helpers for the interactive delivery planner.
  *
  * A week is modelled as 7 day slots, indexed 0=Sun … 6=Sat. Each slot records
- * whether the store receives a delivery that day and the projected sales ($)
+ * whether the store receives a delivery that day and the forecasted sales ($)
  * for that day. An order placed for a delivery must cover sales from the
  * delivery day up to (but not including) the next delivery day.
  */
@@ -10,7 +10,7 @@
 export interface DayConfig {
   /** Store receives a delivery this day. */
   delivery: boolean;
-  /** Projected sales for this day, in dollars. */
+  /** Forecasted sales for this day, in dollars. */
   sales: number;
 }
 
@@ -20,7 +20,7 @@ export type PlannerDays = DayConfig[];
 /** Ordering must happen this many days before delivery. */
 export const ORDER_LEAD_DAYS = 2;
 
-/** Default per-day projected sales when none has been entered. */
+/** Default per-day forecasted sales when none has been entered. */
 export const DEFAULT_DAY_SALES = 5000;
 
 /** Days rendered Monday-first, then the weekend. */
@@ -87,7 +87,7 @@ export function coverageWindow(
   return cover;
 }
 
-/** Total projected sales across a set of day indices. */
+/** Total forecasted sales across a set of day indices. */
 export function sumSales(days: PlannerDays, dayIndices: number[]): number {
   return dayIndices.reduce((sum, d) => sum + (days[d]?.sales ?? 0), 0);
 }

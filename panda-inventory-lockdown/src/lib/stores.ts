@@ -9,6 +9,7 @@ import type {
   UnitsPerCase,
 } from "@/lib/schema";
 import { casesPer1k } from "@/lib/ordering/calculate";
+import { defaultDays, type PlannerDays } from "@/lib/planner";
 
 /** Default delivery days when a store has no explicit schedule: Mon/Wed/Fri. */
 export const DEFAULT_DELIVERY_DAYS = [1, 3, 5];
@@ -86,6 +87,28 @@ export async function getDeliveryMap(): Promise<DeliveryMap> {
 export function deliveryDaysFor(map: DeliveryMap, number: string): number[] {
   const days = map[number];
   return days && days.length > 0 ? days : DEFAULT_DELIVERY_DAYS;
+}
+
+/** Persisted planner settings for one store, falling back to defaults. */
+export async function getStorePlannerDays(number: string): Promise<PlannerDays> {
+  const row = await prisma.store.findUnique({
+    where: { number },
+    select: { deliveryDays: true, forecastSales: true },
+  });
+  const deliveryDays =
+    row?.deliveryDays && row.deliveryDays.length > 0
+      ? row.deliveryDays
+      : DEFAULT_DELIVERY_DAYS;
+  const defaults = defaultDays(deliveryDays);
+  const forecastSales = row?.forecastSales ?? [];
+
+  return defaults.map((day, index) => ({
+    ...day,
+    sales:
+      Number.isFinite(forecastSales[index]) && forecastSales[index] > 0
+        ? forecastSales[index]
+        : day.sales,
+  }));
 }
 
 /** Flatten every product across a store's categories. */

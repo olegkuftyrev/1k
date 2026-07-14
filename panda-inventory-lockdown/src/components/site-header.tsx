@@ -85,6 +85,7 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
           <Button
             variant={pathname === "/" ? "secondary" : "ghost"}
             size="sm"
+            nativeButton={false}
             render={<Link href="/" />}
           >
             Dashboard

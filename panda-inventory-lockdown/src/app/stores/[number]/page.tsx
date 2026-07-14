@@ -1,21 +1,20 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Layers, Package, TrendingUp } from "lucide-react";
-import { StatCard } from "@/components/stat-card";
-import { StorePlanner } from "@/components/store-planner";
+import { ArrowLeft } from "lucide-react";
+import { StoreWorkspace } from "@/components/store-workspace";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { fmtCases } from "@/lib/format";
 import {
-  deliveryDaysFor,
   getAllStores,
-  getDeliveryMap,
   getManagers,
   getStore,
+  getStorePlannerDays,
   getUnitsPerCase,
   productCount,
   topProductsByCases,
 } from "@/lib/stores";
+import { productWarningCount } from "@/lib/warnings";
 
 export async function generateStaticParams() {
   const stores = await getAllStores();
@@ -34,14 +33,18 @@ export default async function StorePage({
   const unitsPerCase = await getUnitsPerCase();
   const managers = await getManagers();
   const manager = managers[store.store.number];
-  const deliveryMap = await getDeliveryMap();
-  const deliveryDays = deliveryDaysFor(deliveryMap, store.store.number);
+  const plannerDays = await getStorePlannerDays(store.store.number);
 
   const categoryCount = store.categories.filter(
     (c) => c.products.length > 0,
   ).length;
   const top = topProductsByCases(store, unitsPerCase, 1)[0];
   const weekCount = store.source.weekLabels.length;
+  const warningCount = store.categories.reduce(
+    (count, category) =>
+      count + productWarningCount(category.products, unitsPerCase),
+    0,
+  );
 
   return (
     <div className="flex flex-col gap-6">
@@ -50,6 +53,7 @@ export default async function StorePage({
           variant="ghost"
           size="sm"
           className="w-fit -ml-2 text-muted-foreground"
+          nativeButton={false}
           render={<Link href="/" />}
         >
           <ArrowLeft className="size-4" />
@@ -80,28 +84,14 @@ export default async function StorePage({
         </div>
       </div>
 
-      <section className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-        <StatCard
-          label="Products"
-          value={productCount(store)}
-          icon={<Package className="size-5" />}
-        />
-        <StatCard
-          label="Categories"
-          value={categoryCount}
-          icon={<Layers className="size-5" />}
-        />
-        <StatCard
-          label="Top cases / $1K"
-          value={top ? fmtCases(top.casesPer1k) : "—"}
-          icon={<TrendingUp className="size-5" />}
-        />
-      </section>
-
-      <StorePlanner
+      <StoreWorkspace
         store={store}
         unitsPerCase={unitsPerCase}
-        deliveryDays={deliveryDays}
+        initialDays={plannerDays}
+        productCount={productCount(store)}
+        categoryCount={categoryCount}
+        topCasesLabel={top ? fmtCases(top.casesPer1k) : "—"}
+        warningCount={warningCount}
       />
     </div>
   );

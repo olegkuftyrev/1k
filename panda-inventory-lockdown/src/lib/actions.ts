@@ -25,6 +25,18 @@ const unitsInput = z.object({
   value: z.number().finite().positive(),
 });
 
+const weekPlanInput = z.object({
+  storeNumber: z.string().min(1),
+  days: z
+    .array(
+      z.object({
+        delivery: z.boolean(),
+        sales: z.number().finite().nonnegative(),
+      }),
+    )
+    .length(7),
+});
+
 export interface ActionResult {
   ok: boolean;
   error?: string;
@@ -111,5 +123,27 @@ export async function updateUnitsPerCase(
 
   revalidatePath("/");
   if (input.storeNumber) revalidatePath(`/stores/${input.storeNumber}`);
+  return { ok: true };
+}
+
+/** Save one store's delivery days and seven daily forecast values. */
+export async function updateStoreWeekPlan(
+  input: z.infer<typeof weekPlanInput>,
+): Promise<ActionResult> {
+  const parsed = weekPlanInput.safeParse(input);
+  if (!parsed.success) return { ok: false, error: "Invalid week plan." };
+  const { storeNumber, days } = parsed.data;
+
+  const deliveryDays = days.flatMap((day, index) =>
+    day.delivery ? [index] : [],
+  );
+  const forecastSales = days.map((day) => Math.round(day.sales));
+
+  await prisma.store.update({
+    where: { number: storeNumber },
+    data: { deliveryDays, forecastSales },
+  });
+
+  revalidateStore(storeNumber);
   return { ok: true };
 }

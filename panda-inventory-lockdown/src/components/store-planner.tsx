@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { DeliveryPlanner } from "@/components/delivery-planner";
 import { ProductsExplorer } from "@/components/products-explorer";
+import { updateStoreWeekPlan } from "@/lib/actions";
 import {
   coverageWindow,
-  defaultDays,
   firstDeliveryDay,
   orderDaySet,
   sumSales,
@@ -13,88 +13,48 @@ import {
 } from "@/lib/planner";
 import type { StoreData, UnitsPerCase } from "@/lib/schema";
 
-const STORAGE_VERSION = "v1";
-
-interface PersistedState {
-  days: PlannerDays;
-  selectedDay: number | null;
-}
-
-/** Read a saved plan from localStorage, or null when absent/invalid. */
-function loadPlan(key: string): PersistedState | null {
-  try {
-    const raw = localStorage.getItem(key);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as PersistedState;
-    if (Array.isArray(parsed.days) && parsed.days.length === 7) return parsed;
-  } catch {
-    /* ignore corrupt storage */
-  }
-  return null;
-}
-
 export function StorePlanner({
   store,
   unitsPerCase,
-  deliveryDays,
+  initialDays,
+  warningsOnly,
 }: {
   store: StoreData;
   unitsPerCase: UnitsPerCase;
-  deliveryDays: number[];
+  initialDays: PlannerDays;
+  warningsOnly: boolean;
 }) {
-  const storageKey = `pil:planner:${STORAGE_VERSION}:${store.store.number}`;
-
-  const [days, setDays] = useState<PlannerDays>(() =>
-    defaultDays(deliveryDays),
-  );
+  const [days, setDays] = useState<PlannerDays>(initialDays);
+  const [draftDays, setDraftDays] = useState<PlannerDays>(initialDays);
   const [selectedDay, setSelectedDay] = useState<number | null>(() =>
-    firstDeliveryDay(defaultDays(deliveryDays)),
+    firstDeliveryDay(initialDays),
   );
   const [focusedDay, setFocusedDay] = useState<number>(
-    () => firstDeliveryDay(defaultDays(deliveryDays)) ?? 1,
+    () => firstDeliveryDay(initialDays) ?? 1,
   );
+  const [editing, setEditing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
-  // Restore any saved plan for this store after mount (avoids SSR mismatch;
-  // state must be seeded from localStorage here rather than in an initializer).
-  useEffect(() => {
-    const restored = loadPlan(storageKey);
-    if (!restored) return;
-    /* eslint-disable react-hooks/set-state-in-effect */
-    setDays(restored.days);
-    setSelectedDay(restored.selectedDay);
-    setFocusedDay(restored.selectedDay ?? firstDeliveryDay(restored.days) ?? 1);
-    /* eslint-enable react-hooks/set-state-in-effect */
-  }, [storageKey]);
+  const activeDays = editing ? draftDays : days;
 
-  // Persist on change.
-  useEffect(() => {
-    try {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({ days, selectedDay } satisfies PersistedState),
-      );
-    } catch {
-      /* storage may be unavailable */
-    }
-  }, [storageKey, days, selectedDay]);
-
-  const orderDays = useMemo(() => orderDaySet(days), [days]);
+  const orderDays = useMemo(() => orderDaySet(activeDays), [activeDays]);
   const coverage = useMemo(
-    () => coverageWindow(days, selectedDay),
-    [days, selectedDay],
+    () => coverageWindow(activeDays, selectedDay),
+    [activeDays, selectedDay],
   );
   const salesTarget = useMemo(
-    () => sumSales(days, coverage),
-    [days, coverage],
+    () => sumSales(activeDays, coverage),
+    [activeDays, coverage],
   );
 
   const handleFocusDay = (day: number) => {
     setFocusedDay(day);
-    if (days[day].delivery) setSelectedDay(day);
+    if (activeDays[day].delivery) setSelectedDay(day);
   };
 
   const handleToggleDelivery = (day: number, value: boolean) => {
-    setDays((prev) => {
+    setDraftDays((prev) => {
       const next = prev.map((d, i) =>
         i === day ? { ...d, delivery: value } : d,
       );
@@ -109,21 +69,57 @@ export function StorePlanner({
   };
 
   const handleChangeSales = (day: number, dollars: number) => {
-    setDays((prev) =>
+    setDraftDays((prev) =>
       prev.map((d, i) => (i === day ? { ...d, sales: dollars } : d)),
     );
+  };
+
+  const handleStartEditing = () => {
+    setDraftDays(days);
+    setError(null);
+    setEditing(true);
+  };
+
+  const handleCancelEditing = () => {
+    setDraftDays(days);
+    setSelectedDay(firstDeliveryDay(days));
+    setFocusedDay(firstDeliveryDay(days) ?? 1);
+    setError(null);
+    setEditing(false);
+  };
+
+  const handleSaveEditing = () => {
+    setError(null);
+    startTransition(async () => {
+      const result = await updateStoreWeekPlan({
+        storeNumber: store.store.number,
+        days: draftDays,
+      });
+      if (result.ok) {
+        setDays(draftDays);
+        setEditing(false);
+      } else {
+        setError(result.error ?? "Could not save week plan.");
+      }
+    });
   };
 
   return (
     <div className="flex flex-col gap-6">
       <DeliveryPlanner
-        days={days}
+        days={activeDays}
         focusedDay={focusedDay}
         selectedDay={selectedDay}
         coverage={coverage}
         salesTarget={salesTarget}
         orderDays={orderDays}
+        editing={editing}
+        isPending={isPending}
+        error={error}
         onFocusDay={handleFocusDay}
+        onStartEditing={handleStartEditing}
+        onCancelEditing={handleCancelEditing}
+        onSaveEditing={handleSaveEditing}
         onToggleDelivery={handleToggleDelivery}
         onChangeSales={handleChangeSales}
       />
@@ -132,6 +128,10 @@ export function StorePlanner({
         store={store}
         unitsPerCase={unitsPerCase}
         salesTarget={salesTarget}
+        days={activeDays}
+        selectedDay={selectedDay}
+        coverage={coverage}
+        warningsOnly={warningsOnly}
       />
     </div>
   );

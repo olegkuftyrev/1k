@@ -4,7 +4,7 @@
  * Core formula (confirmed against the legacy dashboard and store 3847 data):
  *
  *   casesPer1k  = averagePer1k / unitsPerCase        // cases per $1,000 of sales
- *   casesNeeded = casesPer1k * (salesTarget / 1000)  // cases for projected sales
+ *   casesNeeded = casesPer1k * (salesTarget / 1000)  // cases for forecasted sales
  *
  * `averagePer1k` is the report's "Average" column (usage in the product's unit
  * per $1,000 of sales). `unitsPerCase` converts that usage into whole cases.
@@ -22,7 +22,7 @@ export interface OrderInput {
   averagePer1k: number | null;
   /** Units (lb/ct/gal/…) per case for this product. */
   unitsPerCase: number | null;
-  /** Projected sales for the coverage period, in dollars. */
+  /** Forecasted sales for the coverage period, in dollars. */
   salesTarget: number;
   /** Cases currently counted on hand. Omitted/null → projection only. */
   onHandCases?: number | null;
@@ -33,7 +33,7 @@ export interface OrderInput {
 export interface OrderResult {
   /** Cases consumed per $1,000 of sales. null when inputs are incomplete. */
   casesPer1k: number | null;
-  /** Cases needed for the projected sales target. null when incomplete. */
+  /** Cases needed for the forecasted sales target. null when incomplete. */
   casesNeeded: number | null;
   /**
    * Cases to order: casesNeeded − onHand, never negative. Equal to
@@ -53,7 +53,7 @@ export function casesPer1k(
   return averagePer1k / unitsPerCase;
 }
 
-/** Cases needed for a given projected sales target. */
+/** Cases needed for a given forecasted sales target. */
 export function casesForTarget(
   averagePer1k: number | null,
   unitsPerCase: number | null,
