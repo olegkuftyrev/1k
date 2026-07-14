@@ -6,7 +6,6 @@ import { ProductsExplorer } from "@/components/products-explorer";
 import { updateStoreWeekPlan } from "@/lib/actions";
 import {
   coverageWindow,
-  firstDeliveryDay,
   orderDaySet,
   preDeliveryWindow,
   sumSales,
@@ -29,9 +28,6 @@ export function StorePlanner({
   const [todayDay] = useState(() => new Date().getDay());
   const [days, setDays] = useState<PlannerDays>(initialDays);
   const [draftDays, setDraftDays] = useState<PlannerDays>(initialDays);
-  const [focusedDay, setFocusedDay] = useState<number>(
-    () => upcomingDeliveryDay(initialDays, new Date().getDay()) ?? 1,
-  );
   const [editing, setEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -60,17 +56,12 @@ export function StorePlanner({
     [activeDays, preDeliveryDays],
   );
 
-  const handleFocusDay = (day: number) => {
-    setFocusedDay(day);
-  };
-
   const handleToggleDelivery = (day: number, value: boolean) => {
     setDraftDays((prev) => {
       return prev.map((d, i) =>
         i === day ? { ...d, delivery: value } : d,
       );
     });
-    setFocusedDay(day);
   };
 
   const handleChangeSales = (day: number, dollars: number) => {
@@ -87,7 +78,6 @@ export function StorePlanner({
 
   const handleCancelEditing = () => {
     setDraftDays(days);
-    setFocusedDay(firstDeliveryDay(days) ?? 1);
     setError(null);
     setEditing(false);
   };
@@ -112,7 +102,6 @@ export function StorePlanner({
     <div className="flex flex-col gap-6">
       <DeliveryPlanner
         days={activeDays}
-        focusedDay={focusedDay}
         selectedDay={selectedDay}
         coverage={coverage}
         salesTarget={salesTarget}
@@ -122,7 +111,6 @@ export function StorePlanner({
         editing={editing}
         isPending={isPending}
         error={error}
-        onFocusDay={handleFocusDay}
         onStartEditing={handleStartEditing}
         onCancelEditing={handleCancelEditing}
         onSaveEditing={handleSaveEditing}

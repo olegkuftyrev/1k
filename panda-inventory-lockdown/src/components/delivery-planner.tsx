@@ -14,7 +14,6 @@ import { cn } from "@/lib/utils";
 
 export function DeliveryPlanner({
   days,
-  focusedDay,
   selectedDay,
   coverage,
   salesTarget,
@@ -24,7 +23,6 @@ export function DeliveryPlanner({
   editing,
   isPending,
   error,
-  onFocusDay,
   onStartEditing,
   onCancelEditing,
   onSaveEditing,
@@ -32,7 +30,6 @@ export function DeliveryPlanner({
   onChangeSales,
 }: {
   days: PlannerDays;
-  focusedDay: number;
   selectedDay: number | null;
   coverage: number[];
   salesTarget: number;
@@ -42,7 +39,6 @@ export function DeliveryPlanner({
   editing: boolean;
   isPending: boolean;
   error: string | null;
-  onFocusDay: (day: number) => void;
   onStartEditing: () => void;
   onCancelEditing: () => void;
   onSaveEditing: () => void;
@@ -102,8 +98,6 @@ export function DeliveryPlanner({
             const cfg = days[day];
             const isDelivery = cfg.delivery;
             const isOrder = orderDays.has(day);
-            const isSelected = !editing && day === selectedDay;
-            const isFocused = !editing && day === focusedDay;
             const inCoverage = coverageSet.has(day);
             const beforeDelivery = preDeliverySet.has(day);
             const showRole = isDelivery || isOrder || editing;
@@ -117,30 +111,13 @@ export function DeliveryPlanner({
                     ? "border-brand bg-brand/10 text-foreground"
                     : isDelivery
                       ? "border-border text-foreground"
-                      : isOrder
-                        ? "border-navy/40 text-foreground"
-                        : "border-border text-muted-foreground",
-                  isSelected && "ring-2 ring-brand/40 ring-offset-1 ring-offset-card",
-                  isFocused && !isSelected && "ring-2 ring-navy/25",
+                    : isOrder
+                      ? "border-navy/40 text-foreground"
+                      : "border-border text-muted-foreground",
                 )}
               >
                 <div
-                  role={editing ? undefined : "button"}
-                  tabIndex={editing ? undefined : 0}
-                  onClick={() => {
-                    if (!editing) onFocusDay(day);
-                  }}
-                  onKeyDown={(event) => {
-                    if (editing) return;
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      onFocusDay(day);
-                    }
-                  }}
-                  className={cn(
-                    "flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/50",
-                    !editing && "cursor-pointer hover:text-foreground",
-                  )}
+                  className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left"
                 >
                   <span
                     className={cn(
