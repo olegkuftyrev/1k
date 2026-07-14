@@ -218,6 +218,9 @@ function QuickOrder({
     [days, orderDays],
   );
   const quickTotalSalesTarget = quickSalesTarget + preDeliverySalesTarget;
+  const quickTotalDays = orderDays.length + preDeliveryDays.length;
+  const averageDaySales =
+    quickTotalDays > 0 ? quickTotalSalesTarget / quickTotalDays : 0;
   const onHandCases = Number(onHandText);
   const validOnHand =
     onHandText.trim() === "" ? 0 : Number.isFinite(onHandCases) ? onHandCases : null;
@@ -230,6 +233,13 @@ function QuickOrder({
   const selectedHighVariance = selectedProduct
     ? hasHighWeekVariance(selectedProduct)
     : false;
+  const averageDayCases = selectedProduct
+    ? casesForTarget(
+        selectedProduct.averagePer1k,
+        selectedUnits,
+        averageDaySales,
+      )
+    : null;
   const order = selectedProduct
     ? calculateOrder({
         averagePer1k: selectedProduct.averagePer1k,
@@ -333,20 +343,28 @@ function QuickOrder({
                 />
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-sm text-muted-foreground">
-                  On hand at the time of delivery
-                </span>
-                <Input
-                  value={onHandText}
-                  onChange={(event) =>
-                    setOnHandText(event.target.value.replace(/[^0-9.]/g, ""))
-                  }
-                  placeholder="0"
-                  inputMode="decimal"
-                  className="w-20 text-center font-semibold tabular-nums"
-                  aria-label="Cases on hand at the time of delivery"
-                />
-                <span className="text-sm text-muted-foreground">cs</span>
+                <div className="flex min-w-0 flex-1 items-center gap-2">
+                  <span className="text-sm text-muted-foreground">
+                    On hand at the time of delivery
+                  </span>
+                  <Input
+                    value={onHandText}
+                    onChange={(event) =>
+                      setOnHandText(event.target.value.replace(/[^0-9.]/g, ""))
+                    }
+                    placeholder="0"
+                    inputMode="decimal"
+                    className="w-20 text-center font-semibold tabular-nums"
+                    aria-label="Cases on hand at the time of delivery"
+                  />
+                  <span className="text-sm text-muted-foreground">cs</span>
+                </div>
+                <div className="ml-auto text-right text-xs text-muted-foreground">
+                  <span>Avg day use</span>{" "}
+                  <span className="font-semibold tabular-nums text-foreground">
+                    {averageDayCases === null ? "—" : fmtCases(averageDayCases)}
+                  </span>
+                </div>
               </div>
             </div>
 
