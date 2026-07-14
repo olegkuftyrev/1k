@@ -102,8 +102,8 @@ export function DeliveryPlanner({
             const cfg = days[day];
             const isDelivery = cfg.delivery;
             const isOrder = orderDays.has(day);
-            const isSelected = day === selectedDay;
-            const isFocused = day === focusedDay;
+            const isSelected = !editing && day === selectedDay;
+            const isFocused = !editing && day === focusedDay;
             const inCoverage = coverageSet.has(day);
             const beforeDelivery = preDeliverySet.has(day);
             const showRole = isDelivery || isOrder || editing;
@@ -126,8 +126,14 @@ export function DeliveryPlanner({
               >
                 <button
                   type="button"
-                  onClick={() => onFocusDay(day)}
-                  className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
+                  onClick={() => {
+                    if (!editing) onFocusDay(day);
+                  }}
+                  disabled={editing}
+                  className={cn(
+                    "flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none",
+                    !editing && "hover:text-foreground",
+                  )}
                 >
                   <span
                     className={cn(
