@@ -1,0 +1,23 @@
+{
+  "name": "panda-inventory-lockdown",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Inventory lockdown ordering tool for Panda Express store managers",
+  "scripts": {
+    "ingest": "tsx scripts/ingest/cli.ts",
+    "validate:stores": "tsx scripts/validate-stores.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^4.6.82",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}
