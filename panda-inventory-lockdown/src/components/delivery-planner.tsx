@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Check, Pencil, X } from "lucide-react";
+import { Check, Minus, Pencil, Plus, X } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { fmtTarget } from "@/lib/format";
 import {
   DAY_LABELS,
@@ -182,16 +180,14 @@ export function DeliveryPlanner({
 
               <div className="flex flex-col gap-1">
                 <span className="text-xs text-muted-foreground">Forecast</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-sm text-muted-foreground">$</span>
-                  <SalesInput
+                <div className="flex items-center gap-1.5">
+                  <ForecastStepper
                     key={focusedDay}
                     dollars={focused.sales}
                     disabled={isPending}
                     label={`Forecasted sales for ${FULL_DAY_LABELS[focusedDay]} in thousands`}
                     onChange={(dollars) => onChangeSales(focusedDay, dollars)}
                   />
-                  <span className="text-sm text-muted-foreground">K</span>
                 </div>
               </div>
             </div>
@@ -227,7 +223,9 @@ export function DeliveryPlanner({
   );
 }
 
-function SalesInput({
+const FORECAST_STEP_DOLLARS = 500;
+
+function ForecastStepper({
   dollars,
   disabled,
   label,
@@ -238,23 +236,46 @@ function SalesInput({
   label: string;
   onChange: (dollars: number) => void;
 }) {
-  const [text, setText] = useState(() => (dollars ? String(dollars / 1000) : ""));
+  const decrease = () => {
+    onChange(Math.max(0, dollars - FORECAST_STEP_DOLLARS));
+  };
+
+  const increase = () => {
+    onChange(dollars + FORECAST_STEP_DOLLARS);
+  };
 
   return (
-    <Input
-      value={text}
-      onChange={(e) => {
-        const clean = e.target.value.replace(/[^0-9.]/g, "");
-        setText(clean);
-        const k = parseFloat(clean);
-        onChange(Number.isFinite(k) && k > 0 ? k * 1000 : 0);
-      }}
-      placeholder="0"
-      inputMode="decimal"
+    <div
+      role="group"
       aria-label={label}
-      disabled={disabled}
-      className="h-9 w-16 text-center font-semibold"
-    />
+      className="inline-flex h-9 items-center overflow-hidden rounded-lg border border-input bg-card"
+    >
+      <Button
+        type="button"
+        variant="ghost"
+        size="icon-sm"
+        className="h-9 rounded-none border-r"
+        onClick={decrease}
+        disabled={disabled || dollars <= 0}
+        aria-label={`${label}: decrease by $0.5K`}
+      >
+        <Minus className="size-3.5" />
+      </Button>
+      <span className="flex h-9 min-w-20 items-center justify-center px-3 text-sm font-semibold tabular-nums">
+        {fmtTarget(dollars)}
+      </span>
+      <Button
+        type="button"
+        variant="ghost"
+        size="icon-sm"
+        className="h-9 rounded-none border-l"
+        onClick={increase}
+        disabled={disabled}
+        aria-label={`${label}: increase by $0.5K`}
+      >
+        <Plus className="size-3.5" />
+      </Button>
+    </div>
   );
 }
 
