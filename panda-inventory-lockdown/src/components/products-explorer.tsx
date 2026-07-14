@@ -153,7 +153,7 @@ function FilterChip({
       className={cn(
         "shrink-0 rounded-full border px-3 py-1 text-sm transition-colors",
         active
-          ? "border-red-600 bg-red-600 text-white"
+          ? "border-brand bg-brand text-brand-foreground"
           : "border-border bg-background text-muted-foreground hover:bg-accent",
       )}
     >
@@ -223,7 +223,7 @@ function ProductRow({
               {unitsPerCase !== null ? (
                 <> · {unitsPerCase} {product.unit}/case</>
               ) : (
-                <> · <span className="text-amber-600">no case size</span></>
+                <> · <span className="text-destructive">no case size</span></>
               )}
             </p>
           </div>
@@ -237,7 +237,7 @@ function ProductRow({
               </p>
             </div>
             <div>
-              <p className="text-lg font-semibold tabular-nums leading-none text-red-600">
+              <p className="text-lg font-semibold tabular-nums leading-none text-brand">
                 {fmtCases(cases)}
               </p>
               <p className="text-[10px] uppercase tracking-wide text-muted-foreground">

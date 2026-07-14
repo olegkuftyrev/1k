@@ -71,12 +71,12 @@ export default async function DashboardPage() {
                   href={`/stores/${s.number}`}
                   className="group"
                 >
-                  <Card className="h-full transition-colors group-hover:border-red-500/50">
+                  <Card className="h-full transition-colors group-hover:border-brand/50">
                     <CardHeader>
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
                           <CardTitle className="flex items-center gap-2">
-                            <span className="flex size-8 items-center justify-center rounded-md bg-red-600 text-sm font-bold text-white">
+                            <span className="flex size-8 items-center justify-center rounded-md bg-brand text-sm font-bold text-brand-foreground">
                               {s.number.slice(-2)}
                             </span>
                             Store {s.number}

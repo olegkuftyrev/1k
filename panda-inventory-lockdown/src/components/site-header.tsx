@@ -42,7 +42,7 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
           <SheetContent side="left" className="w-72 p-0">
             <SheetHeader>
               <SheetTitle className="flex items-center gap-2">
-                <span className="flex size-7 items-center justify-center rounded-md bg-red-600 text-white">
+                <span className="flex size-7 items-center justify-center rounded-md bg-brand text-brand-foreground">
                   <Boxes className="size-4" />
                 </span>
                 Panda Lockdown
@@ -75,7 +75,7 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
         </Sheet>
 
         <Link href="/" className="flex items-center gap-2 font-semibold">
-          <span className="flex size-7 items-center justify-center rounded-md bg-red-600 text-white">
+          <span className="flex size-7 items-center justify-center rounded-md bg-brand text-brand-foreground">
             <Boxes className="size-4" />
           </span>
           <span className="hidden sm:inline">Panda Lockdown</span>

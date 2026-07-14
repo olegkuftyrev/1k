@@ -48,7 +48,7 @@ export default async function StorePage({
           Dashboard
         </Button>
         <div className="flex items-center gap-3">
-          <span className="flex size-11 items-center justify-center rounded-lg bg-red-600 text-lg font-bold text-white">
+          <span className="flex size-11 items-center justify-center rounded-lg bg-brand text-lg font-bold text-brand-foreground">
             {store.store.number.slice(-2)}
           </span>
           <div className="min-w-0">

@@ -34,7 +34,7 @@ export function SalesTargetBar({
             className={cn(
               "h-10 flex-1 rounded-lg border text-sm font-semibold transition-colors",
               activePreset === value
-                ? "border-red-600 bg-red-600 text-white"
+                ? "border-brand bg-brand text-brand-foreground"
                 : "border-border bg-background text-muted-foreground hover:bg-accent",
             )}
           >
@@ -51,7 +51,7 @@ export function SalesTargetBar({
         aria-label="Custom sales target in thousands"
         className={cn(
           "h-10 w-14 text-center font-semibold",
-          isCustom && "border-red-500 text-red-600",
+          isCustom && "border-brand text-brand",
         )}
       />
 
