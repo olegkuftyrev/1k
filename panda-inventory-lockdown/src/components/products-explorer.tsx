@@ -154,7 +154,7 @@ function FilterChip({
         "shrink-0 rounded-full border px-3 py-1 text-sm transition-colors",
         active
           ? "border-brand bg-brand text-brand-foreground"
-          : "border-border bg-background text-muted-foreground hover:bg-accent",
+          : "border-border bg-card text-muted-foreground hover:bg-accent",
       )}
     >
       {label}

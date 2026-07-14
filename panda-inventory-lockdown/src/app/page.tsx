@@ -10,10 +10,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { fmtInt, fmtUsage } from "@/lib/format";
-import { getAllStores, productCount, summarize } from "@/lib/stores";
+import { getAllStores, getManagers, productCount, summarize } from "@/lib/stores";
 
 export default async function DashboardPage() {
   const stores = await getAllStores();
+  const managers = await getManagers();
 
   const totalProducts = stores.reduce((n, s) => n + productCount(s), 0);
   const totalCategories = stores.reduce(
@@ -81,9 +82,9 @@ export default async function DashboardPage() {
                             </span>
                             Store {s.number}
                           </CardTitle>
-                          {s.aco ? (
+                          {managers[s.number] ? (
                             <CardDescription className="mt-1 truncate">
-                              {s.aco}
+                              Manager · {managers[s.number]}
                             </CardDescription>
                           ) : null}
                         </div>

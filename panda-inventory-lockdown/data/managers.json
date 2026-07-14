@@ -1,0 +1,9 @@
+{
+  "_description": "Store number → store manager name. Kept separate from store JSON so re-ingesting a PDF never overwrites manager assignments.",
+  "1020": "Sophia",
+  "1088": "Jair",
+  "2261": "Robert",
+  "2874": "Tylene",
+  "3698": "Desire",
+  "3847": "Oleg"
+}

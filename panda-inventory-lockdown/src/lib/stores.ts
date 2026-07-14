@@ -2,8 +2,10 @@ import "server-only";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import {
+  ManagersSchema,
   StoreDataSchema,
   UnitsPerCaseSchema,
+  type Managers,
   type Product,
   type StoreData,
   type UnitsPerCase,
@@ -11,6 +13,7 @@ import {
 
 const STORES_DIR = join(process.cwd(), "data", "stores");
 const UNITS_PER_CASE_FILE = join(process.cwd(), "data", "units-per-case.json");
+const MANAGERS_FILE = join(process.cwd(), "data", "managers.json");
 
 /** Load and validate every store JSON, sorted by store number. */
 export async function getAllStores(): Promise<StoreData[]> {
@@ -60,6 +63,23 @@ export function unitsPerCaseFor(
   productNumber: string,
 ): number | null {
   return map[productNumber.toUpperCase()] ?? null;
+}
+
+/**
+ * Load and validate the store-manager map.
+ * Metadata keys (prefixed with "_") are stripped before validation.
+ */
+export async function getManagers(): Promise<Managers> {
+  let raw: Record<string, unknown>;
+  try {
+    raw = JSON.parse(await readFile(MANAGERS_FILE, "utf8"));
+  } catch {
+    return {};
+  }
+  const entries = Object.fromEntries(
+    Object.entries(raw).filter(([k]) => !k.startsWith("_")),
+  );
+  return ManagersSchema.parse(entries);
 }
 
 /** Flatten every product across a store's categories. */

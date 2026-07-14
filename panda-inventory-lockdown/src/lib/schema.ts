@@ -68,6 +68,17 @@ export const UnitsPerCaseSchema = z.record(
 );
 export type UnitsPerCase = z.infer<typeof UnitsPerCaseSchema>;
 
+/**
+ * Map of store number → store manager name.
+ * Kept separate from store JSON so re-ingesting a PDF never overwrites it.
+ * Keys beginning with "_" are metadata and stripped before validation.
+ */
+export const ManagersSchema = z.record(
+  z.string().regex(/^\d+$/),
+  z.string().min(1),
+);
+export type Managers = z.infer<typeof ManagersSchema>;
+
 export const StoreDataSchema = z.object({
   store: StoreMetaSchema,
   source: z.object({

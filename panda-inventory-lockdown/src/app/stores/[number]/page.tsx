@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { fmtUsage } from "@/lib/format";
 import {
   getAllStores,
+  getManagers,
   getStore,
   getUnitsPerCase,
   productCount,
@@ -29,6 +30,8 @@ export default async function StorePage({
   if (!store) notFound();
 
   const unitsPerCase = await getUnitsPerCase();
+  const managers = await getManagers();
+  const manager = managers[store.store.number];
 
   const categoryCount = store.categories.filter(
     (c) => c.products.length > 0,
@@ -55,9 +58,9 @@ export default async function StorePage({
             <h1 className="text-2xl font-semibold tracking-tight">
               Store {store.store.number}
             </h1>
-            {store.store.aco ? (
+            {manager ? (
               <p className="truncate text-sm text-muted-foreground">
-                {store.store.aco}
+                Manager · {manager}
               </p>
             ) : null}
           </div>

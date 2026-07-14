@@ -35,7 +35,7 @@ export function SalesTargetBar({
               "h-10 flex-1 rounded-lg border text-sm font-semibold transition-colors",
               activePreset === value
                 ? "border-brand bg-brand text-brand-foreground"
-                : "border-border bg-background text-muted-foreground hover:bg-accent",
+                : "border-border bg-card text-muted-foreground hover:bg-accent",
             )}
           >
             ${value / 1000}K
