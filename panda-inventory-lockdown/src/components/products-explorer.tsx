@@ -47,6 +47,8 @@ export function ProductsExplorer({
   days,
   selectedDay,
   coverage,
+  preDeliveryDays,
+  preDeliverySalesTarget,
   warningsOnly,
 }: {
   store: StoreData;
@@ -55,6 +57,8 @@ export function ProductsExplorer({
   days: PlannerDays;
   selectedDay: number | null;
   coverage: number[];
+  preDeliveryDays: number[];
+  preDeliverySalesTarget: number;
   warningsOnly: boolean;
 }) {
   const [query, setQuery] = useState("");
@@ -99,6 +103,8 @@ export function ProductsExplorer({
           days={days}
           selectedDay={selectedDay}
           coverage={coverage}
+          preDeliveryDays={preDeliveryDays}
+          preDeliverySalesTarget={preDeliverySalesTarget}
         />
         <div className="relative">
           <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -168,12 +174,16 @@ function QuickOrder({
   days,
   selectedDay,
   coverage,
+  preDeliveryDays,
+  preDeliverySalesTarget,
 }: {
   products: Product[];
   unitsPerCase: UnitsPerCase;
   days: PlannerDays;
   selectedDay: number | null;
   coverage: number[];
+  preDeliveryDays: number[];
+  preDeliverySalesTarget: number;
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -207,6 +217,7 @@ function QuickOrder({
     () => sumSales(days, orderDays),
     [days, orderDays],
   );
+  const quickTotalSalesTarget = quickSalesTarget + preDeliverySalesTarget;
   const onHandCases = Number(onHandText);
   const validOnHand =
     onHandText.trim() === "" ? 0 : Number.isFinite(onHandCases) ? onHandCases : null;
@@ -223,7 +234,7 @@ function QuickOrder({
     ? calculateOrder({
         averagePer1k: selectedProduct.averagePer1k,
         unitsPerCase: selectedUnits,
-        salesTarget: quickSalesTarget,
+        salesTarget: quickTotalSalesTarget,
         onHandCases: validOnHand,
         roundUp: true,
       })
@@ -284,11 +295,20 @@ function QuickOrder({
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs text-muted-foreground">Forecast</p>
+                    <p className="text-xs text-muted-foreground">Order need</p>
                     <p className="font-semibold tabular-nums">
-                      {fmtTarget(quickSalesTarget)}
+                      {fmtTarget(quickTotalSalesTarget)}
                     </p>
                   </div>
+                  {preDeliveryDays.length > 0 ? (
+                    <div className="col-span-3 rounded-md bg-card px-2 py-1 text-xs text-muted-foreground">
+                      On-hand is consumed through{" "}
+                      <span className="font-medium text-foreground">
+                        {preDeliveryDays.map((day) => DAY_LABELS[day]).join(", ")}
+                      </span>{" "}
+                      before delivery ({fmtTarget(preDeliverySalesTarget)}).
+                    </div>
+                  ) : null}
                 </div>
               ) : (
                 <p className="mt-2 text-sm text-muted-foreground">
@@ -423,6 +443,17 @@ function QuickOrder({
                       </>
                     ) : null}
                     .
+                    {preDeliveryDays.length > 0 ? (
+                      <>
+                        {" "}
+                        Also protects{" "}
+                        <span className="font-medium text-foreground">
+                          {fmtTarget(preDeliverySalesTarget)}
+                        </span>{" "}
+                        of forecasted sales before that delivery because your
+                        on-hand count is from today.
+                      </>
+                    ) : null}
                   </p>
 
                   {!canCalculate ? (

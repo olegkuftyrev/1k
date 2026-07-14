@@ -5,7 +5,9 @@ import {
   deliveryDayList,
   firstDeliveryDay,
   orderDaySet,
+  preDeliveryWindow,
   sumSales,
+  upcomingDeliveryDay,
   type PlannerDays,
 } from "../src/lib/planner";
 
@@ -64,6 +66,30 @@ describe("sumSales", () => {
     days[3].sales = 4000;
     days[4].sales = 5000;
     expect(sumSales(days, coverageWindow(days, 3))).toBe(9000);
+  });
+});
+
+describe("upcomingDeliveryDay", () => {
+  it("chooses the next delivery with enough order lead time", () => {
+    const days = defaultDays(MWF);
+    expect(upcomingDeliveryDay(days, 2)).toBe(5); // Tue -> Fri
+    expect(upcomingDeliveryDay(days, 3)).toBe(5); // Wed -> Fri
+    expect(upcomingDeliveryDay(days, 4)).toBe(1); // Thu -> next Mon
+  });
+
+  it("returns null when there are no delivery days", () => {
+    expect(upcomingDeliveryDay(defaultDays([]), 2)).toBeNull();
+  });
+});
+
+describe("preDeliveryWindow", () => {
+  it("includes today through the day before delivery", () => {
+    expect(preDeliveryWindow(5, 3)).toEqual([3, 4]); // Wed before Fri
+    expect(preDeliveryWindow(1, 6)).toEqual([6, 0]); // Sat before Mon
+  });
+
+  it("returns no days when delivery is today", () => {
+    expect(preDeliveryWindow(3, 3)).toEqual([]);
   });
 });
 

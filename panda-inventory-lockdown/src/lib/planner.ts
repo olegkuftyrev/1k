@@ -87,6 +87,39 @@ export function coverageWindow(
   return cover;
 }
 
+/** Next delivery that still has enough lead time to place an order. */
+export function upcomingDeliveryDay(
+  days: PlannerDays,
+  fromDay: number,
+  lead = ORDER_LEAD_DAYS,
+): number | null {
+  for (let offset = lead; offset < lead + 7; offset++) {
+    const day = (fromDay + offset) % 7;
+    if (days[day]?.delivery) return day;
+  }
+  return null;
+}
+
+/**
+ * Forecast days before the selected delivery arrives. These days consume the
+ * on-hand count a user enters today, so quick order must account for them.
+ */
+export function preDeliveryWindow(
+  selectedDay: number | null,
+  fromDay: number,
+): number[] {
+  if (selectedDay === null) return [];
+  const out: number[] = [];
+  let day = fromDay;
+  let guard = 0;
+  while (day !== selectedDay && guard < 7) {
+    out.push(day);
+    day = (day + 1) % 7;
+    guard++;
+  }
+  return out;
+}
+
 /** Total forecasted sales across a set of day indices. */
 export function sumSales(days: PlannerDays, dayIndices: number[]): number {
   return dayIndices.reduce((sum, d) => sum + (days[d]?.sales ?? 0), 0);

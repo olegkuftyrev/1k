@@ -18,6 +18,8 @@ export function DeliveryPlanner({
   selectedDay,
   coverage,
   salesTarget,
+  preDeliveryDays,
+  preDeliverySalesTarget,
   orderDays,
   editing,
   isPending,
@@ -34,6 +36,8 @@ export function DeliveryPlanner({
   selectedDay: number | null;
   coverage: number[];
   salesTarget: number;
+  preDeliveryDays: number[];
+  preDeliverySalesTarget: number;
   orderDays: Set<number>;
   editing: boolean;
   isPending: boolean;
@@ -46,6 +50,7 @@ export function DeliveryPlanner({
   onChangeSales: (day: number, dollars: number) => void;
 }) {
   const coverageSet = new Set(coverage);
+  const preDeliverySet = new Set(preDeliveryDays);
   const focused = days[focusedDay];
 
   return (
@@ -93,7 +98,7 @@ export function DeliveryPlanner({
           )}
         </div>
 
-        <div className="grid grid-cols-7 gap-1.5">
+        <div className="flex flex-col gap-2">
           {WEEK_ORDER.map((day) => {
             const cfg = days[day];
             const isDelivery = cfg.delivery;
@@ -101,15 +106,20 @@ export function DeliveryPlanner({
             const isSelected = day === selectedDay;
             const isFocused = day === focusedDay;
             const inCoverage = coverageSet.has(day);
+            const beforeDelivery = preDeliverySet.has(day);
             const showRole = isDelivery || isOrder || inCoverage;
             return (
               <button
                 key={day}
                 type="button"
                 title={FULL_DAY_LABELS[day]}
-                onClick={() => onFocusDay(day)}
+                onClick={() => {
+                  onFocusDay(day);
+                  if (editing) onToggleDelivery(day, !isDelivery);
+                }}
                 className={cn(
-                  "flex min-h-20 flex-col items-center justify-between gap-1 rounded-lg border bg-card px-1 py-2 text-center transition-colors hover:bg-accent/70",
+                  "flex min-h-16 items-center justify-between gap-3 rounded-lg border bg-card px-3 py-2 text-left transition-colors",
+                  editing ? "hover:bg-accent/70" : "cursor-default",
                   inCoverage
                     ? "border-brand bg-brand/10 text-foreground"
                     : isDelivery
@@ -121,30 +131,56 @@ export function DeliveryPlanner({
                   isFocused && !isSelected && "ring-2 ring-navy/25",
                 )}
               >
-                <span className="text-[11px] font-medium uppercase tracking-wide">
-                  {DAY_LABELS[day]}
-                </span>
-                <span className="text-sm font-semibold tabular-nums leading-none">
-                  {cfg.sales ? fmtTarget(cfg.sales) : "—"}
-                </span>
-                {showRole ? (
+                <span className="flex min-w-0 items-center gap-3">
                   <span
                     className={cn(
-                      "min-h-4 max-w-full truncate rounded px-1.5 text-[9px] font-semibold uppercase leading-4 tracking-wide",
+                      "flex size-10 shrink-0 items-center justify-center rounded-lg border text-sm font-semibold uppercase",
                       inCoverage
-                        ? "bg-brand text-brand-foreground"
-                        : "bg-muted text-muted-foreground",
+                        ? "border-brand bg-brand text-brand-foreground"
+                        : "border-border bg-muted text-foreground",
                     )}
                   >
-                    <DayRole
-                      isDelivery={isDelivery}
-                      isOrder={isOrder}
-                      inCoverage={inCoverage}
-                    />
+                    {DAY_LABELS[day].slice(0, 1)}
                   </span>
-                ) : (
-                  <span className="min-h-4" aria-hidden />
-                )}
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-semibold">
+                      {FULL_DAY_LABELS[day]}
+                    </span>
+                    <span className="block text-xs text-muted-foreground">
+                      {cfg.sales ? fmtTarget(cfg.sales) : "—"} forecasted
+                      {beforeDelivery ? " · before delivery" : ""}
+                    </span>
+                  </span>
+                </span>
+
+                <span className="flex shrink-0 items-center gap-2">
+                  {editing ? (
+                    <span onClick={(event) => event.stopPropagation()}>
+                      <ForecastStepper
+                        dollars={cfg.sales}
+                        disabled={isPending}
+                        label={`Forecasted sales for ${FULL_DAY_LABELS[day]} in thousands`}
+                        onChange={(dollars) => onChangeSales(day, dollars)}
+                      />
+                    </span>
+                  ) : null}
+                  {showRole ? (
+                    <span
+                      className={cn(
+                        "flex min-h-7 min-w-7 items-center justify-center rounded border px-2 text-xs font-semibold uppercase",
+                        inCoverage
+                          ? "border-brand bg-brand text-brand-foreground"
+                          : "border-border bg-muted text-muted-foreground",
+                      )}
+                    >
+                      <DayRole
+                        isDelivery={isDelivery}
+                        isOrder={isOrder}
+                        inCoverage={inCoverage}
+                      />
+                    </span>
+                  ) : null}
+                </span>
               </button>
             );
           })}
@@ -174,18 +210,10 @@ export function DeliveryPlanner({
                 </div>
               </div>
 
-              <div className="flex flex-col gap-1">
-                <span className="text-xs text-muted-foreground">Forecast</span>
-                <div className="flex items-center gap-1.5">
-                  <ForecastStepper
-                    key={focusedDay}
-                    dollars={focused.sales}
-                    disabled={isPending}
-                    label={`Forecasted sales for ${FULL_DAY_LABELS[focusedDay]} in thousands`}
-                    onChange={(dollars) => onChangeSales(focusedDay, dollars)}
-                  />
-                </div>
-              </div>
+              <p className="max-w-sm text-xs text-muted-foreground">
+                Tap any day row to turn delivery on or off. Use plus and minus
+                on that row to adjust the forecast.
+              </p>
             </div>
             {error ? (
               <p className="text-xs text-destructive">{error}</p>
@@ -203,6 +231,16 @@ export function DeliveryPlanner({
             <span className="font-medium text-foreground">
               {coverage.map((d) => DAY_LABELS[d]).join(", ")}
             </span>{" "}
+            {preDeliveryDays.length > 0 ? (
+              <>
+                · count on-hand through{" "}
+                <span className="font-medium text-foreground">
+                  {preDeliveryDays.map((d) => DAY_LABELS[d]).join(", ")}
+                </span>{" "}
+                ({fmtTarget(preDeliverySalesTarget)})
+              </>
+            ) : null}
+            {" "}
             ·{" "}
             <span className="font-medium text-foreground">
               {fmtTarget(salesTarget)}

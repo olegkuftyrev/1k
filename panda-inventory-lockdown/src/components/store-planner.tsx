@@ -8,7 +8,9 @@ import {
   coverageWindow,
   firstDeliveryDay,
   orderDaySet,
+  preDeliveryWindow,
   sumSales,
+  upcomingDeliveryDay,
   type PlannerDays,
 } from "@/lib/planner";
 import type { StoreData, UnitsPerCase } from "@/lib/schema";
@@ -24,13 +26,11 @@ export function StorePlanner({
   initialDays: PlannerDays;
   warningsOnly: boolean;
 }) {
+  const [todayDay] = useState(() => new Date().getDay());
   const [days, setDays] = useState<PlannerDays>(initialDays);
   const [draftDays, setDraftDays] = useState<PlannerDays>(initialDays);
-  const [selectedDay, setSelectedDay] = useState<number | null>(() =>
-    firstDeliveryDay(initialDays),
-  );
   const [focusedDay, setFocusedDay] = useState<number>(
-    () => firstDeliveryDay(initialDays) ?? 1,
+    () => upcomingDeliveryDay(initialDays, new Date().getDay()) ?? 1,
   );
   const [editing, setEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,31 +39,36 @@ export function StorePlanner({
   const activeDays = editing ? draftDays : days;
 
   const orderDays = useMemo(() => orderDaySet(activeDays), [activeDays]);
+  const selectedDay = useMemo(
+    () => upcomingDeliveryDay(activeDays, todayDay),
+    [activeDays, todayDay],
+  );
   const coverage = useMemo(
     () => coverageWindow(activeDays, selectedDay),
     [activeDays, selectedDay],
+  );
+  const preDeliveryDays = useMemo(
+    () => preDeliveryWindow(selectedDay, todayDay),
+    [selectedDay, todayDay],
   );
   const salesTarget = useMemo(
     () => sumSales(activeDays, coverage),
     [activeDays, coverage],
   );
+  const preDeliverySalesTarget = useMemo(
+    () => sumSales(activeDays, preDeliveryDays),
+    [activeDays, preDeliveryDays],
+  );
 
   const handleFocusDay = (day: number) => {
     setFocusedDay(day);
-    if (activeDays[day].delivery) setSelectedDay(day);
   };
 
   const handleToggleDelivery = (day: number, value: boolean) => {
     setDraftDays((prev) => {
-      const next = prev.map((d, i) =>
+      return prev.map((d, i) =>
         i === day ? { ...d, delivery: value } : d,
       );
-      if (value) {
-        setSelectedDay(day);
-      } else if (selectedDay === day) {
-        setSelectedDay(firstDeliveryDay(next));
-      }
-      return next;
     });
     setFocusedDay(day);
   };
@@ -82,7 +87,6 @@ export function StorePlanner({
 
   const handleCancelEditing = () => {
     setDraftDays(days);
-    setSelectedDay(firstDeliveryDay(days));
     setFocusedDay(firstDeliveryDay(days) ?? 1);
     setError(null);
     setEditing(false);
@@ -112,6 +116,8 @@ export function StorePlanner({
         selectedDay={selectedDay}
         coverage={coverage}
         salesTarget={salesTarget}
+        preDeliveryDays={preDeliveryDays}
+        preDeliverySalesTarget={preDeliverySalesTarget}
         orderDays={orderDays}
         editing={editing}
         isPending={isPending}
@@ -131,6 +137,8 @@ export function StorePlanner({
         days={activeDays}
         selectedDay={selectedDay}
         coverage={coverage}
+        preDeliveryDays={preDeliveryDays}
+        preDeliverySalesTarget={preDeliverySalesTarget}
         warningsOnly={warningsOnly}
       />
     </div>
