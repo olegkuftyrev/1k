@@ -137,14 +137,17 @@ export function DeliveryPlanner({
                       {showRole ? (
                         <span
                           className={cn(
-                            "flex min-h-6 min-w-6 shrink-0 items-center justify-center rounded border px-1.5 text-xs font-semibold uppercase",
-                            inCoverage
-                              ? "border-brand bg-brand text-brand-foreground"
-                              : "border-border bg-muted text-muted-foreground",
+                            "shrink-0",
+                            !editing &&
+                              "flex min-h-6 min-w-6 items-center justify-center rounded border px-1.5 text-xs font-semibold uppercase",
+                            !editing &&
+                              (inCoverage
+                                ? "border-brand bg-brand text-brand-foreground"
+                                : "border-border bg-muted text-muted-foreground"),
                           )}
                         >
                           {editing ? (
-                            <TruckToggle
+                            <DeliveryToggle
                               active={isDelivery}
                               disabled={isPending}
                               label={`${isDelivery ? "Remove" : "Add"} ${FULL_DAY_LABELS[day]} delivery`}
@@ -186,8 +189,8 @@ export function DeliveryPlanner({
         {editing ? (
           <div className="rounded-lg border border-border bg-muted/40 p-3">
             <p className="text-xs text-muted-foreground">
-              Tap the truck to mark a delivery day. Use plus and minus to adjust
-              the forecast.
+              Use Delivery? to mark delivery days. Use plus and minus to adjust
+              each forecast.
             </p>
             {error ? (
               <p className="mt-2 text-xs text-destructive">{error}</p>
@@ -255,7 +258,7 @@ function DayRole({
   return inCoverage ? "Covered" : null;
 }
 
-function TruckToggle({
+function DeliveryToggle({
   active,
   disabled,
   label,
@@ -277,13 +280,23 @@ function TruckToggle({
       aria-pressed={active}
       aria-label={label}
       className={cn(
-        "flex size-6 items-center justify-center rounded transition-colors disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex h-7 items-center gap-1.5 rounded-full border px-2 text-[11px] font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50",
         active
-          ? "bg-brand text-brand-foreground"
-          : "bg-muted text-muted-foreground hover:bg-accent hover:text-foreground",
+          ? "border-brand bg-brand text-brand-foreground"
+          : "border-border bg-muted text-muted-foreground hover:bg-accent hover:text-foreground",
       )}
     >
-      <Truck className="size-3.5" />
+      <span>Delivery?</span>
+      <span
+        className={cn(
+          "rounded-full px-1.5 py-0.5 text-[10px] uppercase",
+          active
+            ? "bg-brand-foreground/20 text-brand-foreground"
+            : "bg-background text-muted-foreground",
+        )}
+      >
+        {active ? "Yes" : "No"}
+      </span>
     </button>
   );
 }
