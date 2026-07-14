@@ -101,6 +101,7 @@ export function DeliveryPlanner({
             const isSelected = day === selectedDay;
             const isFocused = day === focusedDay;
             const inCoverage = coverageSet.has(day);
+            const showRole = isDelivery || inCoverage;
             const role = isDelivery
               ? isOrder
                 ? "Both"
@@ -135,20 +136,20 @@ export function DeliveryPlanner({
                 <span className="text-sm font-semibold tabular-nums leading-none">
                   {cfg.sales ? fmtTarget(cfg.sales) : "—"}
                 </span>
-                <span
-                  className={cn(
-                    "min-h-4 max-w-full truncate rounded px-1.5 text-[9px] font-semibold uppercase leading-4 tracking-wide",
-                    inCoverage
-                      ? "bg-brand text-brand-foreground"
-                      : isOrder
-                        ? "border border-navy/30 text-navy"
-                        : isDelivery
-                          ? "bg-muted text-muted-foreground"
-                          : "text-muted-foreground",
-                  )}
-                >
-                  {role}
-                </span>
+                {showRole ? (
+                  <span
+                    className={cn(
+                      "min-h-4 max-w-full truncate rounded px-1.5 text-[9px] font-semibold uppercase leading-4 tracking-wide",
+                      inCoverage
+                        ? "bg-brand text-brand-foreground"
+                        : "bg-muted text-muted-foreground",
+                    )}
+                  >
+                    {role}
+                  </span>
+                ) : (
+                  <span className="min-h-4" aria-hidden />
+                )}
               </button>
             );
           })}
