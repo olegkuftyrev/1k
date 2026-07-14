@@ -124,15 +124,22 @@ export function DeliveryPlanner({
                   isFocused && !isSelected && "ring-2 ring-navy/25",
                 )}
               >
-                <button
-                  type="button"
+                <div
+                  role={editing ? undefined : "button"}
+                  tabIndex={editing ? undefined : 0}
                   onClick={() => {
                     if (!editing) onFocusDay(day);
                   }}
-                  disabled={editing}
+                  onKeyDown={(event) => {
+                    if (editing) return;
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onFocusDay(day);
+                    }
+                  }}
                   className={cn(
-                    "flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/50 disabled:pointer-events-none",
-                    !editing && "hover:text-foreground",
+                    "flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring/50",
+                    !editing && "cursor-pointer hover:text-foreground",
                   )}
                 >
                   <span
@@ -176,13 +183,13 @@ export function DeliveryPlanner({
                         </span>
                       ) : null}
                     </span>
-                    <span className="block text-xs text-muted-foreground">
+                  <span className="block text-xs text-muted-foreground">
                       {cfg.sales ? fmtTarget(cfg.sales) : "—"} forecasted
                       {inCoverage && !isDelivery && !isOrder ? " · covered" : ""}
                       {beforeDelivery ? " · before delivery" : ""}
                     </span>
                   </span>
-                </button>
+                </div>
 
                 <span className="flex shrink-0 items-center gap-2">
                   {editing ? (
