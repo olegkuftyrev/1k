@@ -107,7 +107,7 @@ export function DeliveryPlanner({
             const isFocused = day === focusedDay;
             const inCoverage = coverageSet.has(day);
             const beforeDelivery = preDeliverySet.has(day);
-            const showRole = isDelivery || isOrder || inCoverage;
+            const showRole = isDelivery || isOrder;
             return (
               <button
                 key={day}
@@ -143,11 +143,30 @@ export function DeliveryPlanner({
                     {DAY_LABELS[day].slice(0, 1)}
                   </span>
                   <span className="min-w-0">
-                    <span className="block truncate text-sm font-semibold">
-                      {FULL_DAY_LABELS[day]}
+                    <span className="flex min-w-0 items-center gap-2">
+                      <span className="truncate text-sm font-semibold">
+                        {FULL_DAY_LABELS[day]}
+                      </span>
+                      {showRole ? (
+                        <span
+                          className={cn(
+                            "flex min-h-6 min-w-6 shrink-0 items-center justify-center rounded border px-1.5 text-xs font-semibold uppercase",
+                            inCoverage
+                              ? "border-brand bg-brand text-brand-foreground"
+                              : "border-border bg-muted text-muted-foreground",
+                          )}
+                        >
+                          <DayRole
+                            isDelivery={isDelivery}
+                            isOrder={isOrder}
+                            inCoverage={inCoverage}
+                          />
+                        </span>
+                      ) : null}
                     </span>
                     <span className="block text-xs text-muted-foreground">
                       {cfg.sales ? fmtTarget(cfg.sales) : "—"} forecasted
+                      {inCoverage && !showRole ? " · covered" : ""}
                       {beforeDelivery ? " · before delivery" : ""}
                     </span>
                   </span>
@@ -161,22 +180,6 @@ export function DeliveryPlanner({
                         disabled={isPending}
                         label={`Forecasted sales for ${FULL_DAY_LABELS[day]} in thousands`}
                         onChange={(dollars) => onChangeSales(day, dollars)}
-                      />
-                    </span>
-                  ) : null}
-                  {showRole ? (
-                    <span
-                      className={cn(
-                        "flex min-h-7 min-w-7 items-center justify-center rounded border px-2 text-xs font-semibold uppercase",
-                        inCoverage
-                          ? "border-brand bg-brand text-brand-foreground"
-                          : "border-border bg-muted text-muted-foreground",
-                      )}
-                    >
-                      <DayRole
-                        isDelivery={isDelivery}
-                        isOrder={isOrder}
-                        inCoverage={inCoverage}
                       />
                     </span>
                   ) : null}
