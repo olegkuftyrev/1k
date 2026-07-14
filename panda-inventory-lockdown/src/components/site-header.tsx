@@ -65,7 +65,7 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
                   href={`/stores/${s.number}`}
                   icon={<Store className="size-4" />}
                   label={`Store ${s.number}`}
-                  hint={s.manager}
+                  hint={s.manager ?? "Manager Not Found"}
                   active={pathname === `/stores/${s.number}`}
                   onClick={() => setOpen(false)}
                 />

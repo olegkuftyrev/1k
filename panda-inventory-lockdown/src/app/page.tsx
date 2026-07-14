@@ -89,11 +89,11 @@ export default async function DashboardPage() {
                             </span>
                             Store {s.number}
                           </CardTitle>
-                          {managers[s.number] ? (
-                            <CardDescription className="mt-1 truncate">
-                              Manager · {managers[s.number]}
-                            </CardDescription>
-                          ) : null}
+                          <CardDescription className="mt-1 truncate">
+                            {managers[s.number]
+                              ? `Manager · ${managers[s.number]}`
+                              : "Manager Not Found"}
+                          </CardDescription>
                         </div>
                         <ChevronRight className="size-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                       </div>

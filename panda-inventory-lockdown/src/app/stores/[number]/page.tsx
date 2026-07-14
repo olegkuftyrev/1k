@@ -59,11 +59,9 @@ export default async function StorePage({
             <h1 className="text-2xl font-semibold tracking-tight">
               Store {store.store.number}
             </h1>
-            {manager ? (
-              <p className="truncate text-sm text-muted-foreground">
-                Manager · {manager}
-              </p>
-            ) : null}
+            <p className="truncate text-sm text-muted-foreground">
+              {manager ? `Manager · ${manager}` : "Manager Not Found"}
+            </p>
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
