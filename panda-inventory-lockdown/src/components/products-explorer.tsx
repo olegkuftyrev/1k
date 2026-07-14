@@ -318,7 +318,7 @@ function QuickOrder({
               )}
             </div>
 
-            <div className="grid gap-2 sm:grid-cols-[1fr_auto]">
+            <div className="flex flex-col gap-2">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
@@ -332,8 +332,10 @@ function QuickOrder({
                   inputMode="search"
                 />
               </div>
-              <div className="flex items-center gap-1">
-                <span className="text-sm text-muted-foreground">On hand</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm text-muted-foreground">
+                  On hand at the time of delivery
+                </span>
                 <Input
                   value={onHandText}
                   onChange={(event) =>
@@ -342,7 +344,7 @@ function QuickOrder({
                   placeholder="0"
                   inputMode="decimal"
                   className="w-20 text-center font-semibold tabular-nums"
-                  aria-label="Current cases on hand"
+                  aria-label="Cases on hand at the time of delivery"
                 />
                 <span className="text-sm text-muted-foreground">cs</span>
               </div>
