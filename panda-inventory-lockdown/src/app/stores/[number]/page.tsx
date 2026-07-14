@@ -5,14 +5,14 @@ import { ProductsExplorer } from "@/components/products-explorer";
 import { StatCard } from "@/components/stat-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { fmtUsage } from "@/lib/format";
+import { fmtCases } from "@/lib/format";
 import {
   getAllStores,
   getManagers,
   getStore,
   getUnitsPerCase,
   productCount,
-  topProducts,
+  topProductsByCases,
 } from "@/lib/stores";
 
 export async function generateStaticParams() {
@@ -36,7 +36,8 @@ export default async function StorePage({
   const categoryCount = store.categories.filter(
     (c) => c.products.length > 0,
   ).length;
-  const top = topProducts(store, 1)[0];
+  const top = topProductsByCases(store, unitsPerCase, 1)[0];
+  const weekCount = store.source.weekLabels.length;
 
   return (
     <div className="flex flex-col gap-6">
@@ -66,8 +67,8 @@ export default async function StorePage({
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          {store.store.fiscalWeek ? (
-            <Badge variant="outline">{store.store.fiscalWeek}</Badge>
+          {weekCount > 0 ? (
+            <Badge variant="outline">Rolling {weekCount} Weeks</Badge>
           ) : null}
           {store.source.weekLabels.map((w) => (
             <Badge key={w} variant="secondary" className="font-normal">
@@ -89,8 +90,8 @@ export default async function StorePage({
           icon={<Layers className="size-5" />}
         />
         <StatCard
-          label="Top usage / $1K"
-          value={top ? fmtUsage(top.averagePer1k) : "—"}
+          label="Top cases / $1K"
+          value={top ? fmtCases(top.casesPer1k) : "—"}
           icon={<TrendingUp className="size-5" />}
         />
       </section>

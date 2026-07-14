@@ -9,12 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { fmtInt, fmtUsage } from "@/lib/format";
-import { getAllStores, getManagers, productCount, summarize } from "@/lib/stores";
+import { fmtCases, fmtInt } from "@/lib/format";
+import {
+  getAllStores,
+  getManagers,
+  getUnitsPerCase,
+  productCount,
+  summarize,
+} from "@/lib/stores";
 
 export default async function DashboardPage() {
   const stores = await getAllStores();
   const managers = await getManagers();
+  const unitsPerCase = await getUnitsPerCase();
 
   const totalProducts = stores.reduce((n, s) => n + productCount(s), 0);
   const totalCategories = stores.reduce(
@@ -65,7 +72,7 @@ export default async function DashboardPage() {
         ) : (
           <div className="grid gap-3 sm:grid-cols-2">
             {stores.map((store) => {
-              const s = summarize(store);
+              const s = summarize(store, unitsPerCase);
               return (
                 <Link
                   key={s.number}
@@ -101,10 +108,10 @@ export default async function DashboardPage() {
                           <Layers className="size-3" />
                           {s.categoryCount} categories
                         </Badge>
-                        {s.fiscalWeek ? (
+                        {s.weekCount > 0 ? (
                           <Badge variant="outline" className="gap-1">
                             <Truck className="size-3" />
-                            {s.fiscalWeek}
+                            Rolling {s.weekCount} Weeks
                           </Badge>
                         ) : null}
                       </div>
@@ -112,17 +119,17 @@ export default async function DashboardPage() {
                       {s.top.length > 0 ? (
                         <div className="flex flex-col gap-1">
                           <p className="text-xs font-medium text-muted-foreground">
-                            Top usage / $1K
+                            Top cases / $1K
                           </p>
                           <ul className="flex flex-col gap-1">
-                            {s.top.map((p) => (
+                            {s.top.map((t) => (
                               <li
-                                key={p.productNumber}
+                                key={t.product.productNumber}
                                 className="flex items-center justify-between gap-2 text-sm"
                               >
-                                <span className="truncate">{p.name}</span>
+                                <span className="truncate">{t.product.name}</span>
                                 <span className="shrink-0 font-medium tabular-nums">
-                                  {fmtUsage(p.averagePer1k)}
+                                  {fmtCases(t.casesPer1k)}
                                 </span>
                               </li>
                             ))}

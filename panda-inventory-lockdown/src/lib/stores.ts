@@ -10,6 +10,7 @@ import {
   type StoreData,
   type UnitsPerCase,
 } from "@/lib/schema";
+import { casesPer1k } from "@/lib/ordering/calculate";
 
 const STORES_DIR = join(process.cwd(), "data", "stores");
 const UNITS_PER_CASE_FILE = join(process.cwd(), "data", "units-per-case.json");
@@ -92,30 +93,59 @@ export function productCount(store: StoreData): number {
   return store.categories.reduce((n, c) => n + c.products.length, 0);
 }
 
-/** Products with the highest rolling-average usage per $1000. */
-export function topProducts(store: StoreData, limit = 5): Product[] {
+/** A product ranked by how many cases it consumes per $1000 of sales. */
+export interface ProductCaseUsage {
+  product: Product;
+  casesPer1k: number;
+}
+
+/**
+ * Products with the highest case usage per $1000 of sales.
+ * Ranking by cases (not raw units) keeps high-count paper goods from
+ * outranking bulk food: 108 napkins is a fraction of a case, whereas
+ * dark-diced chicken may be several cases.
+ * Products without a known case size are excluded (cases can't be computed).
+ */
+export function topProductsByCases(
+  store: StoreData,
+  unitsPerCase: UnitsPerCase,
+  limit = 5,
+): ProductCaseUsage[] {
   return allProducts(store)
-    .filter((p) => p.averagePer1k !== null)
-    .sort((a, b) => (b.averagePer1k ?? 0) - (a.averagePer1k ?? 0))
+    .map((product) => ({
+      product,
+      casesPer1k: casesPer1k(
+        product.averagePer1k,
+        unitsPerCase[product.productNumber.toUpperCase()] ?? null,
+      ),
+    }))
+    .filter((x): x is ProductCaseUsage => x.casesPer1k !== null)
+    .sort((a, b) => b.casesPer1k - a.casesPer1k)
     .slice(0, limit);
+}
+
+/** Number of weeks of data actually present in the report. */
+export function weekCount(store: StoreData): number {
+  return store.source.weekLabels.length;
 }
 
 export interface StoreSummary {
   number: string;
-  aco?: string;
-  fiscalWeek?: string;
+  weekCount: number;
   categoryCount: number;
   productCount: number;
-  top: Product[];
+  top: ProductCaseUsage[];
 }
 
-export function summarize(store: StoreData): StoreSummary {
+export function summarize(
+  store: StoreData,
+  unitsPerCase: UnitsPerCase,
+): StoreSummary {
   return {
     number: store.store.number,
-    aco: store.store.aco,
-    fiscalWeek: store.store.fiscalWeek,
+    weekCount: weekCount(store),
     categoryCount: store.categories.filter((c) => c.products.length > 0).length,
     productCount: productCount(store),
-    top: topProducts(store, 3),
+    top: topProductsByCases(store, unitsPerCase, 3),
   };
 }
