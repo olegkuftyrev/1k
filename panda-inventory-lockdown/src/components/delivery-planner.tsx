@@ -51,7 +51,6 @@ export function DeliveryPlanner({
 }) {
   const coverageSet = new Set(coverage);
   const preDeliverySet = new Set(preDeliveryDays);
-  const focused = days[focusedDay];
 
   return (
     <Card className="py-0">
@@ -107,7 +106,7 @@ export function DeliveryPlanner({
             const isFocused = day === focusedDay;
             const inCoverage = coverageSet.has(day);
             const beforeDelivery = preDeliverySet.has(day);
-            const showRole = isDelivery || isOrder;
+            const showRole = isDelivery || isOrder || editing;
             return (
               <div
                 key={day}
@@ -127,10 +126,7 @@ export function DeliveryPlanner({
               >
                 <button
                   type="button"
-                  onClick={() => {
-                    onFocusDay(day);
-                    if (editing) onToggleDelivery(day, !isDelivery);
-                  }}
+                  onClick={() => onFocusDay(day)}
                   className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/50"
                 >
                   <span
@@ -157,17 +153,26 @@ export function DeliveryPlanner({
                               : "border-border bg-muted text-muted-foreground",
                           )}
                         >
-                          <DayRole
-                            isDelivery={isDelivery}
-                            isOrder={isOrder}
-                            inCoverage={inCoverage}
-                          />
+                          {editing ? (
+                            <TruckToggle
+                              active={isDelivery}
+                              disabled={isPending}
+                              label={`${isDelivery ? "Remove" : "Add"} ${FULL_DAY_LABELS[day]} delivery`}
+                              onClick={() => onToggleDelivery(day, !isDelivery)}
+                            />
+                          ) : (
+                            <DayRole
+                              isDelivery={isDelivery}
+                              isOrder={isOrder}
+                              inCoverage={inCoverage}
+                            />
+                          )}
                         </span>
                       ) : null}
                     </span>
                     <span className="block text-xs text-muted-foreground">
                       {cfg.sales ? fmtTarget(cfg.sales) : "—"} forecasted
-                      {inCoverage && !showRole ? " · covered" : ""}
+                      {inCoverage && !isDelivery && !isOrder ? " · covered" : ""}
                       {beforeDelivery ? " · before delivery" : ""}
                     </span>
                   </span>
@@ -189,36 +194,13 @@ export function DeliveryPlanner({
         </div>
 
         {editing ? (
-          <div className="flex flex-col gap-3 rounded-lg border border-border bg-muted/40 p-3">
-            <p className="text-sm font-semibold">{FULL_DAY_LABELS[focusedDay]}</p>
-            <div className="flex flex-wrap items-end gap-4">
-              <div className="flex flex-col gap-1">
-                <span className="text-xs text-muted-foreground">
-                  Delivery day?
-                </span>
-                <div className="flex gap-1.5">
-                  <ToggleButton
-                    label="Yes"
-                    active={focused.delivery}
-                    disabled={isPending}
-                    onClick={() => onToggleDelivery(focusedDay, true)}
-                  />
-                  <ToggleButton
-                    label="No"
-                    active={!focused.delivery}
-                    disabled={isPending}
-                    onClick={() => onToggleDelivery(focusedDay, false)}
-                  />
-                </div>
-              </div>
-
-              <p className="max-w-sm text-xs text-muted-foreground">
-                Tap any day row to turn delivery on or off. Use plus and minus
-                on that row to adjust the forecast.
-              </p>
-            </div>
+          <div className="rounded-lg border border-border bg-muted/40 p-3">
+            <p className="text-xs text-muted-foreground">
+              Tap the truck to mark a delivery day. Use plus and minus to adjust
+              the forecast.
+            </p>
             {error ? (
-              <p className="text-xs text-destructive">{error}</p>
+              <p className="mt-2 text-xs text-destructive">{error}</p>
             ) : null}
           </div>
         ) : null}
@@ -283,6 +265,39 @@ function DayRole({
   return inCoverage ? "Covered" : null;
 }
 
+function TruckToggle({
+  active,
+  disabled,
+  label,
+  onClick,
+}: {
+  active: boolean;
+  disabled: boolean;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick();
+      }}
+      disabled={disabled}
+      aria-pressed={active}
+      aria-label={label}
+      className={cn(
+        "flex size-6 items-center justify-center rounded transition-colors disabled:pointer-events-none disabled:opacity-50",
+        active
+          ? "bg-brand text-brand-foreground"
+          : "bg-muted text-muted-foreground hover:bg-accent hover:text-foreground",
+      )}
+    >
+      <Truck className="size-3.5" />
+    </button>
+  );
+}
+
 const FORECAST_STEP_DOLLARS = 500;
 
 function ForecastStepper({
@@ -336,33 +351,5 @@ function ForecastStepper({
         <Plus className="size-3.5" />
       </Button>
     </div>
-  );
-}
-
-function ToggleButton({
-  label,
-  active,
-  disabled,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  disabled: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={cn(
-        "h-9 rounded-lg border px-3 text-sm font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50",
-        active
-          ? "border-brand bg-brand text-brand-foreground"
-          : "border-border bg-card text-muted-foreground hover:bg-accent",
-      )}
-    >
-      {label}
-    </button>
   );
 }
