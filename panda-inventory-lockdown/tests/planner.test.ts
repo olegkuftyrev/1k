@@ -31,10 +31,16 @@ describe("deliveryDayList", () => {
 });
 
 describe("orderDaySet", () => {
-  it("marks the day two days before each delivery", () => {
-    // Mon(1)->Sat(6), Wed(3)->Mon(1), Fri(5)->Wed(3)
+  it("marks the order day and moves weekend orders back to Friday", () => {
+    // Mon(1)->Fri(5), Wed(3)->Mon(1), Fri(5)->Wed(3)
     const set = orderDaySet(defaultDays(MWF));
-    expect([...set].sort((a, b) => a - b)).toEqual([1, 3, 6]);
+    expect([...set].sort((a, b) => a - b)).toEqual([1, 3, 5]);
+  });
+
+  it("moves both Saturday and Sunday order dates to Friday", () => {
+    // Monday delivery would order Saturday; Tuesday delivery would order Sunday.
+    const set = orderDaySet(defaultDays([1, 2]));
+    expect([...set]).toEqual([5]);
   });
 });
 

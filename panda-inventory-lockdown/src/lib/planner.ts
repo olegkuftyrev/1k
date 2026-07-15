@@ -56,12 +56,20 @@ export function deliveryDayList(days: PlannerDays): number[] {
 
 /**
  * Days on which an order must be placed, i.e. `ORDER_LEAD_DAYS` before a
- * delivery. A day may be both a delivery day and an order-by day.
+ * delivery. Weekend order dates move back to Friday because the delivery
+ * provider does not process orders on Saturday or Sunday. A day may be both a
+ * delivery day and an order-by day.
  */
 export function orderDaySet(days: PlannerDays, lead = ORDER_LEAD_DAYS): Set<number> {
   const out = new Set<number>();
-  for (let d = 0; d < 7; d++) {
-    if (days[(d + lead) % 7]?.delivery) out.add(d);
+  for (let deliveryDay = 0; deliveryDay < 7; deliveryDay++) {
+    if (!days[deliveryDay]?.delivery) continue;
+
+    const nominalOrderDay = ((deliveryDay - lead) % 7 + 7) % 7;
+    const orderDay = nominalOrderDay === 0 || nominalOrderDay === 6
+      ? 5
+      : nominalOrderDay;
+    out.add(orderDay);
   }
   return out;
 }
