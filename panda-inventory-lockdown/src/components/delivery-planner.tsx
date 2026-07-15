@@ -272,7 +272,10 @@ function DeliveryToggle({
 }
 
 function formatForecastValue(dollars: number) {
-  return `${dollars / 1000}`;
+  const thousands = dollars / 1000;
+  const decimals = thousands >= 100 ? 0 : thousands >= 10 ? 1 : 2;
+  const formatted = thousands.toFixed(decimals);
+  return decimals === 0 ? formatted : formatted.replace(/\.?0+$/, "");
 }
 
 function ForecastInput({

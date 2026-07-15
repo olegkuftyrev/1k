@@ -1,5 +1,5 @@
 {
-  "_description": "Store number → delivery days of week (0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat). Default is Mon/Wed/Fri. Orders must be placed 2 days before delivery. Kept separate from store JSON so re-ingesting a PDF never overwrites it.",
+  "_description": "Store number → informational delivery days of week (0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat). Default is Mon/Wed/Fri. Kept separate from store JSON so re-ingesting a PDF never overwrites it.",
   "1020": [1, 3, 5],
   "1088": [1, 3, 5],
   "1232": [1, 3, 5],

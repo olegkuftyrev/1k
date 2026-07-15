@@ -1,5 +1,7 @@
+import { readFile } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import { PrismaClient } from "@prisma/client";
+import { ForecastSalesMapSchema } from "../../src/lib/schema.js";
 import { parsePandaPdf } from "./parsePandaPdf.js";
 import { upsertStore } from "../lib/upsertStore.js";
 
@@ -26,7 +28,17 @@ async function main() {
 
   const prisma = new PrismaClient();
   try {
-    const result = await upsertStore(prisma, store);
+    const rawForecasts = JSON.parse(
+      await readFile(resolve("data/forecast-sales.json"), "utf8"),
+    );
+    const forecasts = ForecastSalesMapSchema.parse(
+      Object.fromEntries(
+        Object.entries(rawForecasts).filter(([key]) => !key.startsWith("_")),
+      ),
+    );
+    const result = await upsertStore(prisma, store, {
+      forecastSales: forecasts[store.store.number],
+    });
     console.log(
       `Store ${store.store.number}: ${result.categories} categories, ${result.products} products`,
     );

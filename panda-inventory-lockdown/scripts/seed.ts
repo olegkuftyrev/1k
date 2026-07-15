@@ -1,7 +1,10 @@
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { PrismaClient } from "@prisma/client";
-import { StoreDataSchema } from "../src/lib/schema.js";
+import {
+  ForecastSalesMapSchema,
+  StoreDataSchema,
+} from "../src/lib/schema.js";
 import { DEFAULT_DELIVERY_DAYS, upsertStore } from "./lib/upsertStore.js";
 
 /**
@@ -53,6 +56,9 @@ async function main() {
       string,
       number[]
     >;
+    const forecasts = ForecastSalesMapSchema.parse(
+      await readMap("forecast-sales.json"),
+    );
 
     // 3. Stores.
     let files: string[] = [];
@@ -70,6 +76,7 @@ async function main() {
       const result = await upsertStore(prisma, store, {
         manager: managers[number] ?? null,
         deliveryDays: delivery[number] ?? DEFAULT_DELIVERY_DAYS,
+        forecastSales: forecasts[number],
       });
       console.log(
         `Store ${number}: ${result.categories} categories, ${result.products} products` +

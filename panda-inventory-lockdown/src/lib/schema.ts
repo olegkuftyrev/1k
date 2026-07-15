@@ -100,6 +100,24 @@ export const DeliveryMapSchema = z.record(
 );
 export type DeliveryMap = z.infer<typeof DeliveryMapSchema>;
 
+/**
+ * Map of store number -> seven default daily sales forecasts in dollars.
+ * Arrays are always ordered Sunday through Saturday (0=Sun ... 6=Sat).
+ */
+export const ForecastSalesMapSchema = z.record(
+  z.string().regex(/^\d+$/),
+  z.tuple([
+    z.number().int().nonnegative(),
+    z.number().int().nonnegative(),
+    z.number().int().nonnegative(),
+    z.number().int().nonnegative(),
+    z.number().int().nonnegative(),
+    z.number().int().nonnegative(),
+    z.number().int().nonnegative(),
+  ]),
+);
+export type ForecastSalesMap = z.infer<typeof ForecastSalesMapSchema>;
+
 export const StoreDataSchema = z.object({
   store: StoreMetaSchema,
   source: z.object({

@@ -12,12 +12,15 @@ export interface UpsertStoreOptions {
   manager?: string | null;
   /** Delivery days (0=Sun ... 6=Sat). `undefined` preserves existing / default. */
   deliveryDays?: number[];
+  /** Initial Sun-Sat forecasts. Existing saved forecasts are always preserved. */
+  forecastSales?: number[];
 }
 
 /**
  * Upsert a parsed store and its full category/product/week tree into the
  * database. Categories/products/weeks are fully replaced on each call;
- * manager and deliveryDays are preserved unless explicitly provided.
+ * manager and deliveryDays are preserved unless explicitly provided. Forecasts
+ * are initialized from defaults for new stores and preserved on re-ingestion.
  */
 export async function upsertStore(
   prisma: PrismaClient,
@@ -36,6 +39,10 @@ export async function upsertStore(
     (existing?.deliveryDays?.length
       ? existing.deliveryDays
       : DEFAULT_DELIVERY_DAYS);
+  const forecastSales =
+    existing?.forecastSales?.length === 7
+      ? existing.forecastSales
+      : opts.forecastSales;
 
   let productTotal = 0;
 
@@ -52,6 +59,7 @@ export async function upsertStore(
         weekLabels: data.source.weekLabels,
         manager,
         deliveryDays,
+        ...(forecastSales ? { forecastSales } : {}),
       },
       update: {
         aco: data.store.aco ?? null,
@@ -62,6 +70,7 @@ export async function upsertStore(
         weekLabels: data.source.weekLabels,
         manager,
         deliveryDays,
+        ...(forecastSales ? { forecastSales } : {}),
       },
     });
 
