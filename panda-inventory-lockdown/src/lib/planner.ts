@@ -34,6 +34,25 @@ export const FULL_DAY_LABELS = [
   "Saturday",
 ];
 
+/** Calendar label for a weekday in the current Monday-through-Sunday week. */
+export function scheduleDateLabel(day: number, today = new Date()): string {
+  if (day === today.getDay()) return "Today";
+
+  const todayFromMonday = (today.getDay() + 6) % 7;
+  const dayFromMonday = (day + 6) % 7;
+  const date = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + dayFromMonday - todayFromMonday,
+    12,
+  );
+
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+  });
+}
+
 /** Build a fresh week from a list of delivery day indices. */
 export function defaultDays(
   deliveryDays: number[],

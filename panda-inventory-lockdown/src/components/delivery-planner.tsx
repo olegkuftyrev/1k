@@ -8,6 +8,7 @@ import { fmtTarget } from "@/lib/format";
 import {
   DAY_LABELS,
   FULL_DAY_LABELS,
+  scheduleDateLabel,
   WEEK_ORDER,
   type PlannerDays,
 } from "@/lib/planner";
@@ -41,6 +42,7 @@ export function DeliveryPlanner({
   onChangeSales: (day: number, dollars: number) => void;
 }) {
   const selectedDaySet = new Set(selectedDays);
+  const today = new Date();
 
   return (
     <Card className="py-0">
@@ -129,14 +131,10 @@ export function DeliveryPlanner({
                     ) : null}
                   </span>
                   <span
-                    className={cn(
-                      "block text-xs",
-                      cfg.sales > 20000
-                        ? "font-semibold text-destructive"
-                        : "text-muted-foreground",
-                    )}
+                    suppressHydrationWarning
+                    className="block text-xs text-muted-foreground"
                   >
-                    {cfg.sales ? fmtTarget(cfg.sales) : "$0"} forecasted
+                    {scheduleDateLabel(day, today)}
                   </span>
                 </span>
               </>
@@ -165,6 +163,7 @@ export function DeliveryPlanner({
                     className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {dayIdentity}
+                    <ForecastAmount dollars={cfg.sales} />
                   </button>
                 )}
 
@@ -224,6 +223,19 @@ function DeliveryBadge() {
       title="Delivery"
     >
       <Truck className="size-3.5" aria-label="Delivery" />
+    </span>
+  );
+}
+
+function ForecastAmount({ dollars }: { dollars: number }) {
+  return (
+    <span
+      className={cn(
+        "ml-auto min-w-16 shrink-0 text-right text-sm font-semibold tabular-nums",
+        dollars > 20000 ? "text-destructive" : "text-foreground",
+      )}
+    >
+      {fmtTarget(dollars)}
     </span>
   );
 }
