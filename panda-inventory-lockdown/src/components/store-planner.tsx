@@ -5,11 +5,8 @@ import { DeliveryPlanner } from "@/components/delivery-planner";
 import { ProductsExplorer } from "@/components/products-explorer";
 import { updateStoreWeekPlan } from "@/lib/actions";
 import {
-  coverageWindow,
-  orderDaySet,
-  preDeliveryWindow,
   sumSales,
-  upcomingDeliveryDay,
+  WEEK_ORDER,
   type PlannerDays,
 } from "@/lib/planner";
 import type { StoreData, UnitsPerCase } from "@/lib/schema";
@@ -25,36 +22,33 @@ export function StorePlanner({
   initialDays: PlannerDays;
   warningsOnly: boolean;
 }) {
-  const [todayDay] = useState(() => new Date().getDay());
   const [days, setDays] = useState<PlannerDays>(initialDays);
   const [draftDays, setDraftDays] = useState<PlannerDays>(initialDays);
+  const [selectedDaySet, setSelectedDaySet] = useState<Set<number>>(
+    () => new Set(),
+  );
   const [editing, setEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const activeDays = editing ? draftDays : days;
-
-  const orderDays = useMemo(() => orderDaySet(activeDays), [activeDays]);
-  const selectedDay = useMemo(
-    () => upcomingDeliveryDay(activeDays, todayDay),
-    [activeDays, todayDay],
-  );
-  const coverage = useMemo(
-    () => coverageWindow(activeDays, selectedDay),
-    [activeDays, selectedDay],
-  );
-  const preDeliveryDays = useMemo(
-    () => preDeliveryWindow(selectedDay, todayDay),
-    [selectedDay, todayDay],
+  const selectedDays = useMemo(
+    () => WEEK_ORDER.filter((day) => selectedDaySet.has(day)),
+    [selectedDaySet],
   );
   const salesTarget = useMemo(
-    () => sumSales(activeDays, coverage),
-    [activeDays, coverage],
+    () => sumSales(activeDays, selectedDays),
+    [activeDays, selectedDays],
   );
-  const preDeliverySalesTarget = useMemo(
-    () => sumSales(activeDays, preDeliveryDays),
-    [activeDays, preDeliveryDays],
-  );
+
+  const handleToggleSelectedDay = (day: number) => {
+    setSelectedDaySet((prev) => {
+      const next = new Set(prev);
+      if (next.has(day)) next.delete(day);
+      else next.add(day);
+      return next;
+    });
+  };
 
   const handleToggleDelivery = (day: number, value: boolean) => {
     setDraftDays((prev) => {
@@ -102,18 +96,15 @@ export function StorePlanner({
     <div className="flex flex-col gap-6">
       <DeliveryPlanner
         days={activeDays}
-        selectedDay={selectedDay}
-        coverage={coverage}
+        selectedDays={selectedDays}
         salesTarget={salesTarget}
-        preDeliveryDays={preDeliveryDays}
-        preDeliverySalesTarget={preDeliverySalesTarget}
-        orderDays={orderDays}
         editing={editing}
         isPending={isPending}
         error={error}
         onStartEditing={handleStartEditing}
         onCancelEditing={handleCancelEditing}
         onSaveEditing={handleSaveEditing}
+        onToggleSelectedDay={handleToggleSelectedDay}
         onToggleDelivery={handleToggleDelivery}
         onChangeSales={handleChangeSales}
       />
@@ -123,8 +114,7 @@ export function StorePlanner({
         unitsPerCase={unitsPerCase}
         salesTarget={salesTarget}
         days={activeDays}
-        selectedDay={selectedDay}
-        coverage={coverage}
+        selectedDays={selectedDays}
         warningsOnly={warningsOnly}
       />
     </div>

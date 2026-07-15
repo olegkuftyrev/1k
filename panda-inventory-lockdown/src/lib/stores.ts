@@ -117,7 +117,7 @@ export async function getStorePlannerDays(number: string): Promise<PlannerDays> 
   return defaults.map((day, index) => ({
     ...day,
     sales:
-      Number.isFinite(forecastSales[index]) && forecastSales[index] > 0
+      Number.isFinite(forecastSales[index]) && forecastSales[index] >= 0
         ? forecastSales[index]
         : day.sales,
   }));

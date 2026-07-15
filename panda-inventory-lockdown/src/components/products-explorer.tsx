@@ -23,8 +23,8 @@ import { fmtCases, fmtTarget, fmtUsage } from "@/lib/format";
 import { calculateOrder, casesForTarget } from "@/lib/ordering/calculate";
 import {
   DAY_LABELS,
-  FULL_DAY_LABELS,
   sumSales,
+  WEEK_ORDER,
   type PlannerDays,
 } from "@/lib/planner";
 import type {
@@ -45,16 +45,14 @@ export function ProductsExplorer({
   unitsPerCase,
   salesTarget,
   days,
-  selectedDay,
-  coverage,
+  selectedDays,
   warningsOnly,
 }: {
   store: StoreData;
   unitsPerCase: UnitsPerCase;
   salesTarget: number;
   days: PlannerDays;
-  selectedDay: number | null;
-  coverage: number[];
+  selectedDays: number[];
   warningsOnly: boolean;
 }) {
   const [query, setQuery] = useState("");
@@ -97,8 +95,7 @@ export function ProductsExplorer({
           products={products}
           unitsPerCase={unitsPerCase}
           days={days}
-          selectedDay={selectedDay}
-          coverage={coverage}
+          selectedDays={selectedDays}
         />
         <div className="relative">
           <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -166,14 +163,12 @@ function QuickOrder({
   products,
   unitsPerCase,
   days,
-  selectedDay,
-  coverage,
+  selectedDays,
 }: {
   products: Product[];
   unitsPerCase: UnitsPerCase;
   days: PlannerDays;
-  selectedDay: number | null;
-  coverage: number[];
+  selectedDays: number[];
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -202,7 +197,11 @@ function QuickOrder({
       .slice(0, 6);
   }, [products, query]);
 
-  const orderDays = coverage;
+  const orderDays = selectedDays;
+  const deliveryDays = useMemo(
+    () => WEEK_ORDER.filter((day) => days[day]?.delivery),
+    [days],
+  );
   const quickSalesTarget = useMemo(
     () => sumSales(days, orderDays),
     [days, orderDays],
@@ -241,7 +240,6 @@ function QuickOrder({
     selectedProduct !== null &&
     selectedUnits !== null &&
     selectedProduct.averagePer1k !== null &&
-    selectedDay !== null &&
     orderDays.length > 0 &&
     validOnHand !== null;
 
@@ -276,35 +274,33 @@ function QuickOrder({
           <div className="flex flex-col gap-3 p-4 pt-0">
             <div className="rounded-lg border bg-muted/40 p-3">
               <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                Delivery selection
+                Order coverage
               </p>
-              {selectedDay !== null && orderDays.length > 0 ? (
-                <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Delivery</p>
-                    <p className="font-semibold">
-                      {FULL_DAY_LABELS[selectedDay]}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground">Covers</p>
-                    <p className="font-semibold">
-                      {orderDays.map((day) => DAY_LABELS[day]).join(", ")}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-xs text-muted-foreground">Order need</p>
-                    <p className="font-semibold tabular-nums">
-                      {fmtTarget(quickSalesTarget)}
-                    </p>
-                  </div>
+              <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
+                <div>
+                  <p className="text-xs text-muted-foreground">Delivery days</p>
+                  <p className="font-semibold">
+                    {deliveryDays.map((day) => DAY_LABELS[day]).join(", ") || "—"}
+                  </p>
                 </div>
-              ) : (
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Select a delivery day in the schedule before calculating an
-                  order.
+                <div>
+                  <p className="text-xs text-muted-foreground">Selected</p>
+                  <p className="font-semibold">
+                    {orderDays.map((day) => DAY_LABELS[day]).join(", ") || "—"}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs text-muted-foreground">Forecasted</p>
+                  <p className="font-semibold tabular-nums">
+                    {fmtTarget(quickSalesTarget)}
+                  </p>
+                </div>
+              </div>
+              {orderDays.length === 0 ? (
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Select days in the delivery schedule to calculate an order.
                 </p>
-              )}
+              ) : null}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -431,23 +427,13 @@ function QuickOrder({
                     <span className="font-medium text-foreground">
                       {orderDays.map((day) => DAY_LABELS[day]).join(", ") || "—"}
                     </span>
-                    {selectedDay !== null ? (
-                      <>
-                        {" "}
-                        toward{" "}
-                        <span className="font-medium text-foreground">
-                          {FULL_DAY_LABELS[selectedDay]}
-                        </span>{" "}
-                        delivery
-                      </>
-                    ) : null}
                     .
                   </p>
 
                   {!canCalculate ? (
                     <p className="text-xs text-destructive">
-                      Select a delivery day, enter a valid on-hand count, and make
-                      sure this product has an average and case size.
+                      Select at least one day, enter a valid on-hand count, and
+                      make sure this product has an average and case size.
                     </p>
                   ) : (
                     <p className="text-xs text-muted-foreground">
@@ -459,8 +445,8 @@ function QuickOrder({
               ) : (
                 <p className="text-sm text-muted-foreground">
                   Search a product and enter the cases expected on hand when the
-                  delivery arrives. Quick order will cover the selected delivery
-                  window.
+                  delivery arrives. Quick order will cover only the days selected
+                  in the schedule.
                 </p>
               )}
             </div>
