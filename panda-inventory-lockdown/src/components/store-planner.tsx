@@ -3,7 +3,10 @@
 import { useMemo, useState, useTransition } from "react";
 import { DeliveryPlanner } from "@/components/delivery-planner";
 import { ProductsExplorer } from "@/components/products-explorer";
-import { updateStoreWeekPlan } from "@/lib/actions";
+import {
+  updateStoreSelectedOrderDays,
+  updateStoreWeekPlan,
+} from "@/lib/actions";
 import {
   sumSales,
   WEEK_ORDER,
@@ -15,21 +18,25 @@ export function StorePlanner({
   store,
   unitsPerCase,
   initialDays,
+  initialSelectedDays,
   warningsOnly,
 }: {
   store: StoreData;
   unitsPerCase: UnitsPerCase;
   initialDays: PlannerDays;
+  initialSelectedDays: number[];
   warningsOnly: boolean;
 }) {
   const [days, setDays] = useState<PlannerDays>(initialDays);
   const [draftDays, setDraftDays] = useState<PlannerDays>(initialDays);
   const [selectedDaySet, setSelectedDaySet] = useState<Set<number>>(
-    () => new Set(),
+    () => new Set(initialSelectedDays),
   );
   const [editing, setEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectionError, setSelectionError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const [isSelectionPending, startSelectionTransition] = useTransition();
 
   const activeDays = editing ? draftDays : days;
   const selectedDays = useMemo(
@@ -42,11 +49,29 @@ export function StorePlanner({
   );
 
   const handleToggleSelectedDay = (day: number) => {
-    setSelectedDaySet((prev) => {
-      const next = new Set(prev);
-      if (next.has(day)) next.delete(day);
-      else next.add(day);
-      return next;
+    if (isSelectionPending) return;
+
+    const previous = new Set(selectedDaySet);
+    const next = new Set(previous);
+    if (next.has(day)) next.delete(day);
+    else next.add(day);
+
+    setSelectedDaySet(next);
+    setSelectionError(null);
+    startSelectionTransition(async () => {
+      try {
+        const result = await updateStoreSelectedOrderDays({
+          storeNumber: store.store.number,
+          selectedDays: WEEK_ORDER.filter((value) => next.has(value)),
+        });
+        if (result.ok) return;
+
+        setSelectedDaySet(previous);
+        setSelectionError(result.error ?? "Could not save selected days.");
+      } catch {
+        setSelectedDaySet(previous);
+        setSelectionError("Could not save selected days.");
+      }
     });
   };
 
@@ -100,7 +125,9 @@ export function StorePlanner({
         salesTarget={salesTarget}
         editing={editing}
         isPending={isPending}
+        isSelectionPending={isSelectionPending}
         error={error}
+        selectionError={selectionError}
         onStartEditing={handleStartEditing}
         onCancelEditing={handleCancelEditing}
         onSaveEditing={handleSaveEditing}

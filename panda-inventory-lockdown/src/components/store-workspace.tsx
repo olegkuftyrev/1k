@@ -13,6 +13,7 @@ export function StoreWorkspace({
   store,
   unitsPerCase,
   initialDays,
+  initialSelectedDays,
   productCount,
   categoryCount,
   topCasesLabel,
@@ -21,6 +22,7 @@ export function StoreWorkspace({
   store: StoreData;
   unitsPerCase: UnitsPerCase;
   initialDays: PlannerDays;
+  initialSelectedDays: number[];
   productCount: number;
   categoryCount: number;
   topCasesLabel: string;
@@ -80,6 +82,7 @@ export function StoreWorkspace({
         store={store}
         unitsPerCase={unitsPerCase}
         initialDays={initialDays}
+        initialSelectedDays={initialSelectedDays}
         warningsOnly={warningsOnly}
       />
     </>

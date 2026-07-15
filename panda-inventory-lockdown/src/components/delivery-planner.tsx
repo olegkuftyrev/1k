@@ -20,7 +20,9 @@ export function DeliveryPlanner({
   salesTarget,
   editing,
   isPending,
+  isSelectionPending,
   error,
+  selectionError,
   onStartEditing,
   onCancelEditing,
   onSaveEditing,
@@ -33,7 +35,9 @@ export function DeliveryPlanner({
   salesTarget: number;
   editing: boolean;
   isPending: boolean;
+  isSelectionPending: boolean;
   error: string | null;
+  selectionError: string | null;
   onStartEditing: () => void;
   onCancelEditing: () => void;
   onSaveEditing: () => void;
@@ -56,9 +60,13 @@ export function DeliveryPlanner({
                   {selectedDays.length} day
                   {selectedDays.length === 1 ? "" : "s"} selected ·{" "}
                   {fmtTarget(salesTarget)} forecasted
+                  {isSelectionPending ? " · Saving..." : null}
                 </>
               ) : (
-                "No days selected"
+                <>
+                  No days selected
+                  {isSelectionPending ? " · Saving..." : null}
+                </>
               )}
             </p>
           </div>
@@ -158,9 +166,10 @@ export function DeliveryPlanner({
                   <button
                     type="button"
                     onClick={() => onToggleSelectedDay(day)}
+                    disabled={isSelectionPending}
                     aria-pressed={isSelected}
                     aria-label={`${isSelected ? "Remove" : "Add"} ${FULL_DAY_LABELS[day]} from order coverage`}
-                    className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="flex min-w-0 flex-1 items-center gap-3 rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-wait disabled:opacity-70"
                   >
                     {dayIdentity}
                     <ForecastAmount dollars={cfg.sales} />
@@ -211,6 +220,9 @@ export function DeliveryPlanner({
             Select the days this order needs to cover.
           </p>
         )}
+        {selectionError ? (
+          <p className="text-xs text-destructive">{selectionError}</p>
+        ) : null}
       </CardContent>
     </Card>
   );

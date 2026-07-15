@@ -41,6 +41,17 @@ const weekPlanInput = z.object({
     .length(7),
 });
 
+const selectedOrderDaysInput = z.object({
+  storeNumber: z.string().min(1),
+  selectedDays: z
+    .array(z.number().int().min(0).max(6))
+    .max(7)
+    .refine(
+      (days) => new Set(days).size === days.length,
+      "Days must be unique.",
+    ),
+});
+
 export interface ActionResult {
   ok: boolean;
   error?: string;
@@ -179,6 +190,24 @@ export async function updateStoreWeekPlan(
     where: { number: storeNumber },
     data: { deliveryDays, forecastSales },
   });
+
+  revalidateStore(storeNumber);
+  return { ok: true };
+}
+
+/** Save the days this store's current order should cover. */
+export async function updateStoreSelectedOrderDays(
+  input: z.infer<typeof selectedOrderDaysInput>,
+): Promise<ActionResult> {
+  const parsed = selectedOrderDaysInput.safeParse(input);
+  if (!parsed.success) return { ok: false, error: "Invalid day selection." };
+  const { storeNumber, selectedDays } = parsed.data;
+
+  const updated = await prisma.store.updateMany({
+    where: { number: storeNumber },
+    data: { selectedOrderDays: [...selectedDays].sort((a, b) => a - b) },
+  });
+  if (updated.count === 0) return { ok: false, error: "Store not found." };
 
   revalidateStore(storeNumber);
   return { ok: true };

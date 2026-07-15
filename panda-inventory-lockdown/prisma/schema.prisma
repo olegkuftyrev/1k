@@ -27,6 +27,8 @@ model Store {
   weekLabels String[]
   // Delivery days of week (0=Sun ... 6=Sat).
   deliveryDays Int[]
+  // User-selected order coverage days (0=Sun ... 6=Sat).
+  selectedOrderDays Int[] @default([])
   // Forecasted sales by day index (0=Sun ... 6=Sat), in dollars.
   forecastSales Int[]    @default([5000, 5000, 5000, 5000, 5000, 5000, 5000])
   createdAt  DateTime @default(now())

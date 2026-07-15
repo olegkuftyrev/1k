@@ -12,7 +12,7 @@ import type {
 } from "@/lib/schema";
 import { StoreAddressesSchema } from "@/lib/schema";
 import { casesPer1k } from "@/lib/ordering/calculate";
-import { defaultDays, type PlannerDays } from "@/lib/planner";
+import { defaultDays, WEEK_ORDER, type PlannerDays } from "@/lib/planner";
 
 /** Default delivery days when a store has no explicit schedule: Mon/Wed/Fri. */
 export const DEFAULT_DELIVERY_DAYS = [1, 3, 5];
@@ -121,6 +121,18 @@ export async function getStorePlannerDays(number: string): Promise<PlannerDays> 
         ? forecastSales[index]
         : day.sales,
   }));
+}
+
+/** User-selected days that an order should cover, in display order. */
+export async function getStoreSelectedOrderDays(
+  number: string,
+): Promise<number[]> {
+  const row = await prisma.store.findUnique({
+    where: { number },
+    select: { selectedOrderDays: true },
+  });
+  const selected = new Set(row?.selectedOrderDays ?? []);
+  return WEEK_ORDER.filter((day) => selected.has(day));
 }
 
 /** Flatten every product across a store's categories. */

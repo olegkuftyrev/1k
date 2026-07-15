@@ -11,6 +11,7 @@ import {
   getStore,
   getStoreAddresses,
   getStorePlannerDays,
+  getStoreSelectedOrderDays,
   getUnitsPerCase,
   productCount,
   topProductsByCases,
@@ -36,7 +37,10 @@ export default async function StorePage({
   const addresses = getStoreAddresses();
   const manager = managers[store.store.number];
   const address = addresses[store.store.number] ?? "Address Not Found";
-  const plannerDays = await getStorePlannerDays(store.store.number);
+  const [plannerDays, selectedOrderDays] = await Promise.all([
+    getStorePlannerDays(store.store.number),
+    getStoreSelectedOrderDays(store.store.number),
+  ]);
 
   const categoryCount = store.categories.filter(
     (c) => c.products.length > 0,
@@ -91,6 +95,7 @@ export default async function StorePage({
         store={store}
         unitsPerCase={unitsPerCase}
         initialDays={plannerDays}
+        initialSelectedDays={selectedOrderDays}
         productCount={productCount(store)}
         categoryCount={categoryCount}
         topCasesLabel={top ? fmtCases(top.casesPer1k) : "—"}
