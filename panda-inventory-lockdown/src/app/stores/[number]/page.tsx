@@ -60,12 +60,12 @@ export default async function StorePage({
           Dashboard
         </Button>
         <div className="flex items-center gap-3">
-          <span className="flex size-11 items-center justify-center rounded-lg bg-brand text-lg font-bold text-brand-foreground">
-            {store.store.number.slice(-2)}
+          <span className="flex h-11 min-w-16 items-center justify-center rounded-lg bg-brand px-2 text-lg font-bold tabular-nums text-brand-foreground">
+            {store.store.number}
           </span>
           <div className="min-w-0">
             <h1 className="text-2xl font-semibold tracking-tight">
-              Store {store.store.number}
+              Store
             </h1>
             <p className="truncate text-sm text-muted-foreground">
               {manager ? `Manager · ${manager}` : "Manager Not Found"}
