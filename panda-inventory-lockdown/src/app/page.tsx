@@ -13,6 +13,7 @@ import { fmtCases, fmtInt } from "@/lib/format";
 import {
   getAllStores,
   getManagers,
+  getStoreAddresses,
   getUnitsPerCase,
   productCount,
   summarize,
@@ -21,6 +22,7 @@ import {
 export default async function DashboardPage() {
   const stores = await getAllStores();
   const managers = await getManagers();
+  const addresses = getStoreAddresses();
   const unitsPerCase = await getUnitsPerCase();
 
   const totalProducts = stores.reduce((n, s) => n + productCount(s), 0);
@@ -85,9 +87,11 @@ export default async function DashboardPage() {
                         <div className="min-w-0">
                           <CardTitle className="flex items-center gap-2">
                             <span className="flex h-8 min-w-12 items-center justify-center rounded-md bg-brand px-2 text-sm font-bold tabular-nums text-brand-foreground">
-                              {s.number}
+                              PX{s.number}
                             </span>
-                            Store
+                            <span className="truncate">
+                              {addresses[s.number] ?? "Address Not Found"}
+                            </span>
                           </CardTitle>
                           <CardDescription className="mt-1 truncate">
                             {managers[s.number]

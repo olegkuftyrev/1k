@@ -80,6 +80,16 @@ export const ManagersSchema = z.record(
 export type Managers = z.infer<typeof ManagersSchema>;
 
 /**
+ * Map of store number → street address.
+ * Keys beginning with "_" are metadata and stripped before validation.
+ */
+export const StoreAddressesSchema = z.record(
+  z.string().regex(/^\d+$/),
+  z.string().min(1),
+);
+export type StoreAddresses = z.infer<typeof StoreAddressesSchema>;
+
+/**
  * Map of store number → delivery days (0=Sun ... 6=Sat).
  * Kept separate from store JSON so re-ingesting a PDF never overwrites it.
  * Keys beginning with "_" are metadata and stripped before validation.

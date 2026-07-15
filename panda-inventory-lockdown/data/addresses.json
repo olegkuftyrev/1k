@@ -1,0 +1,14 @@
+{
+  "_description": "Store number → store street address. Kept separate from store JSON so re-ingesting a PDF never overwrites location metadata.",
+  "1088": "4120 196th St SW, Lynnwood, WA 98036",
+  "1183": "31827 Pacific Hwy S, Federal Way, WA 98003",
+  "1232": "9999 Holman Rd NW, Seattle, WA 98117",
+  "1649": "17100 Southcenter Pkwy Ste 100, Tukwila, WA 98188",
+  "1650": "12513 Lake City Way NE, Seattle, WA 98125",
+  "2015": "1115 Outlet Collection Way, Auburn, WA 98001",
+  "2261": "3820 Custer Rd W, University Place, WA 98466",
+  "2874": "5723 10th Ave S, Seattle, WA 98108",
+  "3698": "5115 3rd St, Tillamook, OR 97141",
+  "3829": "1827 15th Ave W Suite A23, Seattle, WA 98119",
+  "3847": "9033 25th Ave SW, Seattle, WA 98106"
+}

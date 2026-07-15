@@ -1,13 +1,16 @@
 import "server-only";
+import addressesJson from "../../data/addresses.json";
 import { prisma } from "@/lib/db";
 import { toStoreData, type StoreRow } from "@/lib/mappers";
 import type {
   DeliveryMap,
   Managers,
   Product,
+  StoreAddresses,
   StoreData,
   UnitsPerCase,
 } from "@/lib/schema";
+import { StoreAddressesSchema } from "@/lib/schema";
 import { casesPer1k } from "@/lib/ordering/calculate";
 import { defaultDays, type PlannerDays } from "@/lib/planner";
 
@@ -71,6 +74,15 @@ export async function getManagers(): Promise<Managers> {
   const map: Managers = {};
   for (const r of rows) if (r.manager) map[r.number] = r.manager;
   return map;
+}
+
+/** Map of store number -> store address. Includes future stores when known. */
+export function getStoreAddresses(): StoreAddresses {
+  return StoreAddressesSchema.parse(
+    Object.fromEntries(
+      Object.entries(addressesJson).filter(([key]) => !key.startsWith("_")),
+    ),
+  );
 }
 
 /** Map of store number -> delivery days. */

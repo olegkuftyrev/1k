@@ -9,6 +9,7 @@ import {
   getAllStores,
   getManagers,
   getStore,
+  getStoreAddresses,
   getStorePlannerDays,
   getUnitsPerCase,
   productCount,
@@ -32,7 +33,9 @@ export default async function StorePage({
 
   const unitsPerCase = await getUnitsPerCase();
   const managers = await getManagers();
+  const addresses = getStoreAddresses();
   const manager = managers[store.store.number];
+  const address = addresses[store.store.number] ?? "Address Not Found";
   const plannerDays = await getStorePlannerDays(store.store.number);
 
   const categoryCount = store.categories.filter(
@@ -61,11 +64,11 @@ export default async function StorePage({
         </Button>
         <div className="flex items-center gap-3">
           <span className="flex h-11 min-w-16 items-center justify-center rounded-lg bg-brand px-2 text-lg font-bold tabular-nums text-brand-foreground">
-            {store.store.number}
+            PX{store.store.number}
           </span>
           <div className="min-w-0">
             <h1 className="text-2xl font-semibold tracking-tight">
-              Store
+              {address}
             </h1>
             <p className="truncate text-sm text-muted-foreground">
               {manager ? `Manager · ${manager}` : "Manager Not Found"}
