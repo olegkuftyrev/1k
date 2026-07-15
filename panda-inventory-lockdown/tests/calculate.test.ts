@@ -88,6 +88,18 @@ describe("calculateOrder", () => {
     expect(r.orderCases).toBe(7);
   });
 
+  it("rounds a 7.32-case delivery need up to 8 when on hand is zero", () => {
+    const r = calculateOrder({
+      averagePer1k: 18.3,
+      unitsPerCase: 40,
+      salesTarget: 16000,
+      onHandCases: 0,
+      roundUp: true,
+    });
+    expect(r.casesNeeded).toBeCloseTo(7.32, 2);
+    expect(r.orderCases).toBe(8);
+  });
+
   it("returns null order when inputs are incomplete", () => {
     const r = calculateOrder({
       averagePer1k: null,

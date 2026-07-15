@@ -125,8 +125,6 @@ export function StorePlanner({
         days={activeDays}
         selectedDay={selectedDay}
         coverage={coverage}
-        preDeliveryDays={preDeliveryDays}
-        preDeliverySalesTarget={preDeliverySalesTarget}
         warningsOnly={warningsOnly}
       />
     </div>
