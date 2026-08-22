@@ -60,6 +60,10 @@ export interface ActionResult {
 function revalidateStore(storeNumber: string) {
   revalidatePath("/");
   revalidatePath(`/stores/${storeNumber}`);
+  revalidatePath(`/stores/${storeNumber}/thaw-plan`);
+  revalidatePath(`/stores/${storeNumber}/order-plan/meat`);
+  revalidatePath(`/stores/${storeNumber}/order-plan/vegetables`);
+  revalidatePath(`/stores/${storeNumber}/container-plan`);
 }
 
 /** Find a product id within a given store, or null when absent. */

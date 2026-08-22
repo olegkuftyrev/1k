@@ -13,6 +13,11 @@ import type {
 import { StoreAddressesSchema } from "@/lib/schema";
 import { casesPer1k } from "@/lib/ordering/calculate";
 import { defaultDays, WEEK_ORDER, type PlannerDays } from "@/lib/planner";
+import {
+  applyStoreRoster,
+  emptyStore,
+  isActiveStore,
+} from "@/lib/store-roster";
 
 /** Default delivery days when a store has no explicit schedule: Mon/Wed/Fri. */
 export const DEFAULT_DELIVERY_DAYS = [1, 3, 5];
@@ -32,22 +37,25 @@ const STORE_INCLUDE = {
   },
 };
 
-/** Load every store, sorted by store number, as canonical StoreData. */
+/** Load the active roster first, followed by inactive report stores. */
 export async function getAllStores(): Promise<StoreData[]> {
   const rows = await prisma.store.findMany({
     orderBy: { number: "asc" },
     include: STORE_INCLUDE,
   });
-  return rows.map((r) => toStoreData(r as unknown as StoreRow));
+  return applyStoreRoster(
+    rows.map((r) => toStoreData(r as unknown as StoreRow)),
+  );
 }
 
-/** Load a single store by its number, or null if missing. */
+/** Load a store or an empty active-roster placeholder when its report is missing. */
 export async function getStore(number: string): Promise<StoreData | null> {
   const row = await prisma.store.findUnique({
     where: { number },
     include: STORE_INCLUDE,
   });
-  return row ? toStoreData(row as unknown as StoreRow) : null;
+  if (row) return toStoreData(row as unknown as StoreRow);
+  return isActiveStore(number) ? emptyStore(number) : null;
 }
 
 /** Load the master units-per-case map (product number -> units per case). */

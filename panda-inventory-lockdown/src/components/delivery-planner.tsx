@@ -70,39 +70,41 @@ export function DeliveryPlanner({
               )}
             </p>
           </div>
-          {editing ? (
-            <div className="flex items-center gap-1.5">
-              <Button
-                type="button"
-                size="sm"
-                onClick={onSaveEditing}
-                disabled={isPending}
-              >
-                <Check className="size-3.5" />
-                Save
-              </Button>
+          <div className="flex items-center gap-1.5">
+            {editing ? (
+              <>
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={onSaveEditing}
+                  disabled={isPending}
+                >
+                  <Check className="size-3.5" />
+                  Save
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={onCancelEditing}
+                  disabled={isPending}
+                >
+                  <X className="size-3.5" />
+                  Cancel
+                </Button>
+              </>
+            ) : (
               <Button
                 type="button"
                 variant="outline"
                 size="sm"
-                onClick={onCancelEditing}
-                disabled={isPending}
+                onClick={onStartEditing}
               >
-                <X className="size-3.5" />
-                Cancel
+                <Pencil className="size-3.5" />
+                Edit week
               </Button>
-            </div>
-          ) : (
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={onStartEditing}
-            >
-              <Pencil className="size-3.5" />
-              Edit week
-            </Button>
-          )}
+            )}
+          </div>
         </div>
 
         <div className="flex flex-col gap-2">
@@ -194,8 +196,8 @@ export function DeliveryPlanner({
         {editing ? (
           <div className="rounded-lg border border-border bg-muted/40 p-3">
             <p className="text-xs text-muted-foreground">
-              Delivery? only controls the truck marker. Forecasts are entered in
-              thousands.
+              Delivery? controls the truck marker and Thaw Plan schedule.
+              Forecasts are entered in thousands.
             </p>
             {error ? (
               <p className="mt-2 text-xs text-destructive">{error}</p>

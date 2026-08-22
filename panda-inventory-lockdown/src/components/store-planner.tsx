@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useTransition } from "react";
 import { DeliveryPlanner } from "@/components/delivery-planner";
+import { PrintablesPanel } from "@/components/printables-panel";
 import { ProductsExplorer } from "@/components/products-explorer";
 import {
   updateStoreSelectedOrderDays,
@@ -135,6 +136,8 @@ export function StorePlanner({
         onToggleDelivery={handleToggleDelivery}
         onChangeSales={handleChangeSales}
       />
+
+      <PrintablesPanel storeNumber={store.store.number} />
 
       <ProductsExplorer
         store={store}

@@ -1,0 +1,420 @@
+.route {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.toolbarCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toolbarCopy h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.toolbarCopy p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.previewStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.warning,
+.emptyState {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #f0c36a;
+  border-radius: 0.5rem;
+  background: #fff8e5;
+  padding: 0.875rem 1rem;
+  color: #7a4b00;
+  font-size: 0.875rem;
+}
+
+.warning svg,
+.emptyState svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 auto;
+}
+
+.emptyState h2 {
+  font-weight: 700;
+}
+
+.sheetScroller {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 30px rgb(25 45 59 / 12%);
+}
+
+.sheet {
+  position: relative;
+  display: flex;
+  width: 50rem;
+  min-width: 44rem;
+  aspect-ratio: 210 / 297;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #f2ece7;
+  padding: 1.5rem 1.65rem 1.3rem;
+  color: #192d3b;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.topRule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.55rem;
+  background: #b2453d;
+}
+
+.brandLine {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.storeBadge {
+  display: inline-flex;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.35rem;
+  background: #b2453d;
+  padding: 0 0.75rem;
+  color: #fffcf9;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.storeMeta {
+  overflow: hidden;
+  color: #5c6b74;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sheetHeader h2 {
+  margin-top: 0.45rem;
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.sheetHeader > p {
+  margin: 0.25rem 0 0.65rem;
+  color: #5c6b74;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.coverageGrid {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid #e7ded3;
+  border-radius: 0.4rem;
+  background: #fffcf9;
+}
+
+.coverageItem {
+  display: flex;
+  min-width: 0;
+  min-height: 2.65rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  color: #5c6b74;
+  font-size: 0.56rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.coverageItem + .coverageItem {
+  border-left: 1px solid #e7ded3;
+}
+
+.coverageItem strong {
+  color: #b2453d;
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.planTable {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 0.7rem;
+  border: 1px solid #e7ded3;
+  border-radius: 0.45rem;
+  background: #fff;
+}
+
+.tableHead,
+.productRow {
+  display: grid;
+  grid-template-columns: var(--order-columns);
+}
+
+.tableHead {
+  min-height: 2.55rem;
+  align-items: center;
+  background: #192d3b;
+  color: #fffcf9;
+}
+
+.tableHead > div {
+  min-width: 0;
+  padding: 0 0.3rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tableHead > div:first-child {
+  padding-left: 0.75rem;
+  text-align: left;
+}
+
+.productRow {
+  min-height: 0;
+  flex: 1 1 0;
+  align-items: stretch;
+}
+
+.productRow + .productRow {
+  border-top: 1px solid #eee7e0;
+}
+
+.productCell {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.25rem 0.55rem;
+}
+
+.productCell > div {
+  min-width: 0;
+}
+
+.productCell strong {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.productCell span:not(.productImage) {
+  display: block;
+  margin-top: 0.1rem;
+  color: #5c6b74;
+  font-size: 0.5rem;
+  font-weight: 800;
+}
+
+.productImage {
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 2.45rem;
+  border-radius: 0.35rem;
+  background-color: #fffcf9;
+  background-repeat: no-repeat;
+}
+
+.productImage[data-kind="meat"] {
+  background-image: url("/protein-icons.png");
+  background-size: 400% 300%;
+}
+
+.productImage[data-kind="vegetables"] {
+  background-image: url("/vegetable-icons.png");
+  background-position: 66.667% 100%;
+  background-size: 400% 300%;
+}
+
+.noodleImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff4df;
+  background-image: none;
+  color: #b2453d;
+}
+
+.noodleImage svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.productImage[data-product="P10002"] { background-position: 0% 0%; }
+.productImage[data-product="P16032"] { background-position: 33.333% 0%; }
+.productImage[data-product="P5017"] { background-position: 66.667% 0%; }
+.productImage[data-product="P10027"] { background-position: 100% 0%; }
+.productImage[data-product="P10018"] { background-position: 0% 50%; }
+.productImage[data-product="P10028"] { background-position: 33.333% 50%; }
+.productImage[data-product="P10019"] { background-position: 66.667% 50%; }
+.productImage[data-product="P5007"] { background-position: 100% 50%; }
+.productImage[data-product="P5020"] { background-position: 0% 100%; }
+.productImage[data-product="P10008"] { background-position: 33.333% 100%; }
+
+.productImage[data-product="P19149"] { background-position: 0% 0%; }
+.productImage[data-product="P19013"] { background-position: 33.333% 0%; }
+.productImage[data-product="P19045"] { background-position: 66.667% 0%; }
+.productImage[data-product="P19961"],
+.productImage[data-product="P19147"] { background-position: 100% 0%; }
+.productImage[data-product="P19909"] { background-position: 0% 50%; }
+.productImage[data-product="P19186"],
+.productImage[data-product="P19005"] { background-position: 33.333% 50%; }
+.productImage[data-product="P19910"] { background-position: 66.667% 50%; }
+.productImage[data-product="P19048"],
+.productImage[data-product="P19046"],
+.productImage[data-product="P19187"] { background-position: 100% 50%; }
+.productImage[data-product="P19016"] { background-position: 0% 100%; }
+.productImage[data-product="P19055"] { background-position: 33.333% 100%; }
+.productImage[data-product="P19169"],
+.productImage[data-product="P19085"],
+.productImage[data-product="P19025"] { background-position: 66.667% 100%; }
+
+.quantityCell {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.12rem;
+  border-left: 1px solid #eee7e0;
+  color: #b2453d;
+  text-align: center;
+}
+
+.quantityCell strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.quantityCell > span:not(.unavailable) {
+  color: #192d3b;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.weekly {
+  background: #f2ece7;
+}
+
+.unavailable {
+  padding: 0.25rem;
+  color: #a35a00;
+  font-size: 0.48rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.sheetFooter {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.65rem;
+}
+
+.sheetFooter p {
+  color: #5c6b74;
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sheetFooter p strong {
+  color: #192d3b;
+}
+
+.assumption {
+  flex: 0 0 auto;
+  border: 1px solid #b2453d;
+  border-radius: 0.35rem;
+  padding: 0.38rem 0.55rem;
+  color: #b2453d;
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sheetScroller {
+    margin-right: -1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .sheet {
+    margin: 0;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  .route,
+  .previewStack {
+    display: block;
+  }
+
+  .toolbar,
+  .warning,
+  .emptyState {
+    display: none;
+  }
+
+  .sheetScroller {
+    overflow: visible;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .sheet {
+    width: 210mm;
+    min-width: 210mm;
+    height: 297mm;
+    margin: 0;
+  }
+}

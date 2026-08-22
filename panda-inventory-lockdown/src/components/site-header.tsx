@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Boxes, LayoutDashboard, Menu, Store } from "lucide-react";
+import {
+  Boxes,
+  CircleOff,
+  LayoutDashboard,
+  Menu,
+  Store,
+  TriangleAlert,
+} from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +24,8 @@ import { cn } from "@/lib/utils";
 export interface HeaderStore {
   number: string;
   manager?: string;
+  active: boolean;
+  hasReport: boolean;
 }
 
 export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
@@ -24,7 +33,7 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 print:hidden">
       <div className="mx-auto flex h-14 w-full max-w-5xl items-center gap-3 px-4">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
@@ -48,7 +57,7 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
                 Panda Lockdown
               </SheetTitle>
             </SheetHeader>
-            <nav className="flex flex-col gap-1 px-2">
+            <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto px-2 pb-4">
               <NavLink
                 href="/"
                 icon={<LayoutDashboard className="size-4" />}
@@ -57,19 +66,46 @@ export function SiteHeader({ stores }: { stores: HeaderStore[] }) {
                 onClick={() => setOpen(false)}
               />
               <p className="px-3 pt-4 pb-1 text-xs font-medium text-muted-foreground">
-                Stores
+                Active stores
               </p>
-              {stores.map((s) => (
+              {stores.filter((store) => store.active).map((s) => (
                 <NavLink
                   key={s.number}
                   href={`/stores/${s.number}`}
-                  icon={<Store className="size-4" />}
-                  label={`Store ${s.number}`}
-                  hint={s.manager ?? "Manager Not Found"}
+                  icon={
+                    s.hasReport ? (
+                      <Store className="size-4" />
+                    ) : (
+                      <TriangleAlert className="size-4 text-amber-700" />
+                    )
+                  }
+                  label={`PX${s.number}`}
+                  hint={
+                    s.hasReport
+                      ? (s.manager ?? "Manager Not Found")
+                      : "Missing report"
+                  }
                   active={pathname === `/stores/${s.number}`}
                   onClick={() => setOpen(false)}
+                  warning={!s.hasReport}
                 />
               ))}
+              {stores.some((store) => !store.active) ? (
+                <>
+                  <p className="px-3 pt-4 pb-1 text-xs font-medium text-muted-foreground">
+                    Inactive
+                  </p>
+                  {stores.filter((store) => !store.active).map((s) => (
+                    <NavLink
+                      key={s.number}
+                      icon={<CircleOff className="size-4" />}
+                      label={`PX${s.number}`}
+                      hint={s.manager ?? "Manager Not Found"}
+                      disabled
+                    />
+                  ))}
+                </>
+              ) : null}
             </nav>
           </SheetContent>
         </Sheet>
@@ -103,32 +139,64 @@ function NavLink({
   hint,
   active,
   onClick,
+  warning,
+  disabled,
 }: {
-  href: string;
+  href?: string;
   icon: React.ReactNode;
   label: string;
   hint?: string;
   active?: boolean;
   onClick?: () => void;
+  warning?: boolean;
+  disabled?: boolean;
 }) {
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      className={cn(
-        "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
-        active
-          ? "bg-accent text-accent-foreground"
-          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
-      )}
-    >
+  const content = (
+    <>
       <span className="text-muted-foreground">{icon}</span>
       <span className="flex min-w-0 flex-col">
-        <span className="truncate font-medium text-foreground">{label}</span>
+        <span
+          className={cn(
+            "truncate font-medium",
+            disabled ? "text-muted-foreground" : "text-foreground",
+          )}
+        >
+          {label}
+        </span>
         {hint ? (
-          <span className="truncate text-xs text-muted-foreground">{hint}</span>
+          <span
+            className={cn(
+              "truncate text-xs",
+              warning ? "font-medium text-amber-700" : "text-muted-foreground",
+            )}
+          >
+            {hint}
+          </span>
         ) : null}
       </span>
+    </>
+  );
+  const className = cn(
+    "flex items-center gap-3 rounded-md px-3 py-2 text-sm",
+    disabled && "cursor-not-allowed bg-muted/40 text-muted-foreground",
+    !disabled && "transition-colors",
+    !disabled && active
+      ? "bg-accent text-accent-foreground"
+      : !disabled &&
+          "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+  );
+
+  if (disabled || !href) {
+    return (
+      <div className={className} aria-disabled="true">
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <Link href={href} onClick={onClick} className={className}>
+      {content}
     </Link>
   );
 }
