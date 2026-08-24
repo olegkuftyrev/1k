@@ -131,13 +131,23 @@ function OrderSheet({
   windows: DeliveryOrderWindow[];
   products: OrderPlanProduct[];
 }) {
+  const density =
+    products.length <= 8
+      ? "sparse"
+      : products.length <= 11
+        ? "comfortable"
+        : "dense";
   const tableStyle = {
     "--order-columns": `minmax(13rem, 1.8fr) repeat(${windows.length + 1}, minmax(4.5rem, 1fr))`,
   } as CSSProperties;
 
   return (
     <div className={styles.sheetScroller}>
-      <section className={styles.sheet} aria-label={title}>
+      <section
+        className={styles.sheet}
+        data-density={density}
+        aria-label={title}
+      >
         <div className={styles.topRule} />
         <header className={styles.sheetHeader}>
           <div className={styles.brandLine}>

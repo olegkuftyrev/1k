@@ -70,6 +70,7 @@
 .sheet {
   position: relative;
   display: flex;
+  box-sizing: border-box;
   width: 70rem;
   min-width: 64rem;
   aspect-ratio: 297 / 210;
@@ -81,6 +82,10 @@
   color: #192d3b;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
+}
+
+.sheet[data-density="comfortable"] .titleLine h2 {
+  font-size: 2.5rem;
 }
 
 .topRule {
@@ -256,6 +261,9 @@
 }
 
 .group {
+  --container-detail-size: 0.43rem;
+  --container-name-size: 0.61rem;
+  --container-quantity-size: 0.76rem;
   display: flex;
   min-height: 0;
   flex-direction: column;
@@ -263,6 +271,18 @@
   border: 1px solid #e7ded3;
   border-radius: 0.4rem;
   background: #fff;
+}
+
+.group[data-density="sparse"] {
+  --container-detail-size: 0.54rem;
+  --container-name-size: 0.78rem;
+  --container-quantity-size: 1rem;
+}
+
+.group[data-density="comfortable"] {
+  --container-detail-size: 0.48rem;
+  --container-name-size: 0.69rem;
+  --container-quantity-size: 0.88rem;
 }
 
 .groupHeader {
@@ -348,6 +368,7 @@
   min-height: 0;
   flex: 1 1 0;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .productRow + .productRow {
@@ -364,7 +385,7 @@
 
 .productCell strong {
   overflow: hidden;
-  font-size: 0.61rem;
+  font-size: var(--container-name-size);
   font-weight: 800;
   line-height: 1.08;
   text-overflow: ellipsis;
@@ -374,7 +395,7 @@
 .productCell span {
   margin-top: 0.08rem;
   color: #5c6b74;
-  font-size: 0.43rem;
+  font-size: var(--container-detail-size);
   font-weight: 750;
 }
 
@@ -391,13 +412,13 @@
 
 .quantityCell strong {
   color: #b2453d;
-  font-size: 0.76rem;
+  font-size: var(--container-quantity-size);
   font-weight: 900;
 }
 
 .quantityCell span {
   color: #6d7980;
-  font-size: 0.43rem;
+  font-size: var(--container-detail-size);
   font-weight: 700;
 }
 
@@ -471,6 +492,9 @@
   .route,
   .previewStack {
     display: block;
+    width: 297mm;
+    margin: 0;
+    padding: 0;
   }
 
   .toolbar,
@@ -480,15 +504,24 @@
   }
 
   .sheetScroller {
+    width: 297mm;
+    height: 210mm;
     overflow: visible;
     border-radius: 0;
     box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .sheet {
     width: 297mm;
     min-width: 297mm;
+    max-width: 297mm;
     height: 210mm;
+    max-height: 210mm;
+    aspect-ratio: auto;
     margin: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }

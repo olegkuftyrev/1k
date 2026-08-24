@@ -158,13 +158,23 @@ function ThawSheet({
   windows: ThawWindow[];
   products: ThawProductPlan[];
 }) {
+  const density =
+    products.length <= 3
+      ? "sparse"
+      : products.length <= 5
+        ? "comfortable"
+        : "dense";
   const tableStyle = {
     "--thaw-columns": `minmax(17rem, 1.85fr) repeat(${windows.length + 1}, minmax(7rem, 1fr))`,
   } as CSSProperties;
 
   return (
     <div className={styles.sheetScroller}>
-      <section className={styles.sheet} aria-label={`${title} thaw plan`}>
+      <section
+        className={styles.sheet}
+        data-density={density}
+        aria-label={`${title} thaw plan`}
+      >
         <div className={styles.topRule} />
         <header className={styles.sheetHeader}>
           <div className={styles.brandLine}>

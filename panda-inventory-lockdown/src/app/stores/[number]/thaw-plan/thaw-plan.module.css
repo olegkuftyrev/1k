@@ -69,8 +69,14 @@
 }
 
 .sheet {
+  --thaw-code-size: 0.68rem;
+  --thaw-image-size: 5.1rem;
+  --thaw-name-size: 1.05rem;
+  --thaw-quantity-size: 1.25rem;
+  --thaw-row-padding: 0.65rem 1rem;
   position: relative;
   display: flex;
+  box-sizing: border-box;
   width: 100%;
   min-width: 58rem;
   aspect-ratio: 297 / 210;
@@ -81,6 +87,30 @@
   color: #192d3b;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
+}
+
+.sheet[data-density="sparse"] {
+  --thaw-code-size: 0.86rem;
+  --thaw-image-size: 7.4rem;
+  --thaw-name-size: 1.38rem;
+  --thaw-quantity-size: 1.9rem;
+  --thaw-row-padding: 0.9rem 1.3rem;
+}
+
+.sheet[data-density="comfortable"] {
+  --thaw-code-size: 0.76rem;
+  --thaw-image-size: 5.8rem;
+  --thaw-name-size: 1.16rem;
+  --thaw-quantity-size: 1.5rem;
+  --thaw-row-padding: 0.75rem 1.1rem;
+}
+
+.sheet[data-density="dense"] {
+  --thaw-code-size: 0.62rem;
+  --thaw-image-size: 4.35rem;
+  --thaw-name-size: 0.94rem;
+  --thaw-quantity-size: 1.12rem;
+  --thaw-row-padding: 0.45rem 0.8rem;
 }
 
 .topRule {
@@ -130,6 +160,10 @@
   font-size: 2.65rem;
   font-weight: 800;
   line-height: 1;
+}
+
+.sheet[data-density="sparse"] .sheetHeader h2 {
+  font-size: 3rem;
 }
 
 .sheetHeader > p {
@@ -214,6 +248,7 @@
   min-height: 0;
   flex: 1 1 0;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .productRow + .productRow {
@@ -225,7 +260,7 @@
   min-width: 0;
   align-items: center;
   gap: 0.9rem;
-  padding: 0.65rem 1rem;
+  padding: var(--thaw-row-padding);
 }
 
 .productCell > div {
@@ -234,7 +269,7 @@
 
 .productCell strong {
   display: block;
-  font-size: 1.05rem;
+  font-size: var(--thaw-name-size);
   font-weight: 800;
   line-height: 1.15;
 }
@@ -243,14 +278,14 @@
   display: block;
   margin-top: 0.2rem;
   color: #5c6b74;
-  font-size: 0.68rem;
+  font-size: var(--thaw-code-size);
   font-weight: 800;
 }
 
 .productImage {
-  width: 5.1rem;
-  height: 5.1rem;
-  flex: 0 0 5.1rem;
+  width: var(--thaw-image-size);
+  height: var(--thaw-image-size);
+  flex: 0 0 var(--thaw-image-size);
   border-radius: 0.55rem;
   background-color: #fffcf9;
   background-image: url("/protein-icons.png");
@@ -296,7 +331,7 @@
 }
 
 .quantityCell strong {
-  font-size: 1.25rem;
+  font-size: var(--thaw-quantity-size);
   font-weight: 800;
   line-height: 1.1;
 }
@@ -339,6 +374,15 @@
   line-height: 1.25;
 }
 
+.sheet[data-density="sparse"] .sheetFooter p {
+  font-size: 0.74rem;
+}
+
+.sheet[data-density="sparse"] .caseKey,
+.sheet[data-density="sparse"] .destination {
+  font-size: 0.72rem;
+}
+
 .sheetFooter p strong {
   color: #192d3b;
 }
@@ -377,6 +421,9 @@
   .route,
   .previewStack {
     display: block;
+    width: 297mm;
+    margin: 0;
+    padding: 0;
   }
 
   .toolbar,
@@ -386,19 +433,30 @@
   }
 
   .sheetScroller {
+    width: 297mm;
+    height: 210mm;
     overflow: visible;
     border-radius: 0;
     box-shadow: none;
+    break-after: page;
+    break-inside: avoid;
+    page-break-after: always;
+    page-break-inside: avoid;
   }
 
   .sheet {
     width: 297mm;
     min-width: 297mm;
+    max-width: 297mm;
     height: 210mm;
-    break-after: page;
+    max-height: 210mm;
+    aspect-ratio: auto;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .sheetScroller:last-child .sheet {
+  .sheetScroller:last-child {
     break-after: auto;
+    page-break-after: auto;
   }
 }

@@ -116,13 +116,22 @@ function ContainerSheet({
   groups: ContainerGroupPlan[];
   totalContainersToKeep: number | null;
 }) {
+  const productCount = groups.reduce(
+    (count, group) => count + group.products.length,
+    0,
+  );
+  const density = productCount <= 12 ? "comfortable" : "dense";
   const tableStyle = {
     "--container-columns": `minmax(8.5rem, 1.65fr) repeat(${windows.length}, minmax(2.9rem, 1fr))`,
   } as CSSProperties;
 
   return (
     <div className={styles.sheetScroller}>
-      <section className={styles.sheet} aria-label="Container Needs Plan">
+      <section
+        className={styles.sheet}
+        data-density={density}
+        aria-label="Container Needs Plan"
+      >
         <div className={styles.topRule} />
         <header className={styles.sheetHeader}>
           <div className={styles.brandLine}>
@@ -210,8 +219,19 @@ function ContainerGroupTable({
   windows: DeliveryOrderWindow[];
   tableStyle: CSSProperties;
 }) {
+  const density =
+    group.products.length <= 3
+      ? "sparse"
+      : group.products.length <= 5
+        ? "comfortable"
+        : "dense";
+
   return (
-    <section className={styles.group} aria-label={group.title}>
+    <section
+      className={styles.group}
+      data-density={density}
+      aria-label={group.title}
+    >
       <header className={styles.groupHeader}>
         <div>
           <h3>{group.title}</h3>

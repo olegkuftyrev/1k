@@ -68,8 +68,14 @@
 }
 
 .sheet {
+  --order-code-size: 0.52rem;
+  --order-image-size: 2.65rem;
+  --order-name-size: 0.78rem;
+  --order-quantity-size: 1rem;
+  --order-row-padding: 0.3rem 0.6rem;
   position: relative;
   display: flex;
+  box-sizing: border-box;
   width: 50rem;
   min-width: 44rem;
   aspect-ratio: 210 / 297;
@@ -81,6 +87,22 @@
   color: #192d3b;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
+}
+
+.sheet[data-density="sparse"] {
+  --order-code-size: 0.72rem;
+  --order-image-size: 4.25rem;
+  --order-name-size: 1.05rem;
+  --order-quantity-size: 1.4rem;
+  --order-row-padding: 0.55rem 0.8rem;
+}
+
+.sheet[data-density="comfortable"] {
+  --order-code-size: 0.62rem;
+  --order-image-size: 3.4rem;
+  --order-name-size: 0.92rem;
+  --order-quantity-size: 1.2rem;
+  --order-row-padding: 0.4rem 0.7rem;
 }
 
 .topRule {
@@ -210,6 +232,7 @@
   min-height: 0;
   flex: 1 1 0;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .productRow + .productRow {
@@ -221,7 +244,7 @@
   min-width: 0;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.25rem 0.55rem;
+  padding: var(--order-row-padding);
 }
 
 .productCell > div {
@@ -230,7 +253,7 @@
 
 .productCell strong {
   display: block;
-  font-size: 0.76rem;
+  font-size: var(--order-name-size);
   font-weight: 800;
   line-height: 1.12;
 }
@@ -239,14 +262,14 @@
   display: block;
   margin-top: 0.1rem;
   color: #5c6b74;
-  font-size: 0.5rem;
+  font-size: var(--order-code-size);
   font-weight: 800;
 }
 
 .productImage {
-  width: 2.45rem;
-  height: 2.45rem;
-  flex: 0 0 2.45rem;
+  width: var(--order-image-size);
+  height: var(--order-image-size);
+  flex: 0 0 var(--order-image-size);
   border-radius: 0.35rem;
   background-color: #fffcf9;
   background-repeat: no-repeat;
@@ -318,7 +341,7 @@
 }
 
 .quantityCell strong {
-  font-size: 0.95rem;
+  font-size: var(--order-quantity-size);
   font-weight: 800;
 }
 
@@ -397,6 +420,9 @@
   .route,
   .previewStack {
     display: block;
+    width: 210mm;
+    margin: 0;
+    padding: 0;
   }
 
   .toolbar,
@@ -406,15 +432,24 @@
   }
 
   .sheetScroller {
+    width: 210mm;
+    height: 297mm;
     overflow: visible;
     border-radius: 0;
     box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .sheet {
     width: 210mm;
     min-width: 210mm;
+    max-width: 210mm;
     height: 297mm;
+    max-height: 297mm;
+    aspect-ratio: auto;
     margin: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
