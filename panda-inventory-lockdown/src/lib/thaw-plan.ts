@@ -43,6 +43,16 @@ export const THAW_PRODUCTS: ThawProductDefinition[] = [
     name: "Top Sirloin Steak",
     location: "wic",
   },
+  {
+    productNumber: "P5052",
+    name: "BBQ Brisket",
+    location: "wic",
+  },
+  {
+    productNumber: "P8065",
+    name: "BBQ Pork",
+    location: "wic",
+  },
 ];
 
 export interface ThawWindow {

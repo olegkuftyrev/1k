@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { defaultDays, type PlannerDays } from "../src/lib/planner";
 import type { StoreData } from "../src/lib/schema";
 import {
+  THAW_PRODUCTS,
   buildStoreThawPlan,
   buildThawWindows,
   formatBagQuantity,
@@ -159,9 +160,20 @@ describe("buildStoreThawPlan", () => {
       [7, 8, 10],
       [13, 15, 19],
     ]);
-    expect(plan.wic.map((product) => product.bagsByDelivery)).toEqual([
+    expect(plan.wic.slice(0, 2).map((product) => product.bagsByDelivery)).toEqual([
       [4, 5, 6],
       [4, 4, 5],
+    ]);
+  });
+
+  it("keeps BBQ brisket and BBQ pork in the WIC plan", () => {
+    expect(
+      THAW_PRODUCTS.filter((product) =>
+        ["P5052", "P8065"].includes(product.productNumber),
+      ),
+    ).toEqual([
+      { productNumber: "P5052", name: "BBQ Brisket", location: "wic" },
+      { productNumber: "P8065", name: "BBQ Pork", location: "wic" },
     ]);
   });
 });
