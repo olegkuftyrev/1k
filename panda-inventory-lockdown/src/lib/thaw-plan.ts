@@ -48,11 +48,6 @@ export const THAW_PRODUCTS: ThawProductDefinition[] = [
     name: "BBQ Brisket",
     location: "wic",
   },
-  {
-    productNumber: "P8065",
-    name: "BBQ Pork",
-    location: "wic",
-  },
 ];
 
 export interface ThawWindow {

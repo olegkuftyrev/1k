@@ -166,15 +166,15 @@ describe("buildStoreThawPlan", () => {
     ]);
   });
 
-  it("keeps BBQ brisket and BBQ pork in the WIC plan", () => {
+  it("keeps BBQ brisket in WIC and excludes BBQ pork", () => {
+    expect(THAW_PRODUCTS).toContainEqual({
+      productNumber: "P5052",
+      name: "BBQ Brisket",
+      location: "wic",
+    });
     expect(
-      THAW_PRODUCTS.filter((product) =>
-        ["P5052", "P8065"].includes(product.productNumber),
-      ),
-    ).toEqual([
-      { productNumber: "P5052", name: "BBQ Brisket", location: "wic" },
-      { productNumber: "P8065", name: "BBQ Pork", location: "wic" },
-    ]);
+      THAW_PRODUCTS.some((product) => product.productNumber === "P8065"),
+    ).toBe(false);
   });
 });
 

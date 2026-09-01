@@ -106,8 +106,19 @@ describe("buildStoreContainerPlan", () => {
     );
   });
 
+  it("excludes celery from container needs", () => {
+    const days = plannerDays([1], [1000, 0, 0, 0, 0, 0, 0]);
+    const plan = buildStoreContainerPlan(storeWithUsage(allUsage), days);
+
+    expect(
+      plan.groups.flatMap((group) =>
+        group.products.map((product) => product.productNumber),
+      ),
+    ).not.toContain("P19085");
+  });
+
   it("does not publish a complete total when product usage is missing", () => {
-    const incomplete = { ...allUsage, P19085: null };
+    const incomplete = { ...allUsage, P19016: null };
     const days = plannerDays(
       [1, 3, 5],
       [7000, 7000, 7000, 7000, 7000, 7000, 7000],

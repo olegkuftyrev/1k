@@ -141,11 +141,6 @@ export const CONTAINER_GROUPS: ContainerGroupDefinition[] = [
         name: "Cabbage",
         poundsPerContainer: 7,
       },
-      {
-        productNumber: "P19085",
-        name: "Celery",
-        poundsPerContainer: 7,
-      },
     ],
   },
 ];
