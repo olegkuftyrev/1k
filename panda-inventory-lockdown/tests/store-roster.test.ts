@@ -61,6 +61,7 @@ describe("store roster", () => {
 
   it("recognizes only configured active stores", () => {
     expect(isActiveStore("1649")).toBe(true);
+    expect(isActiveStore("2605")).toBe(true);
     expect(isActiveStore("3698")).toBe(false);
   });
 });

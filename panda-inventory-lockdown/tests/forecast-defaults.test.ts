@@ -21,6 +21,9 @@ describe("forecast defaults", () => {
     expect(forecasts["1232"]).toEqual([
       5107, 5285, 4800, 5839, 5708, 5356, 4482,
     ]);
+    expect(forecasts["2605"]).toEqual([
+      10000, 9500, 8500, 9500, 10500, 10500, 9500,
+    ]);
     expect(forecasts["3829"]).toEqual([
       10974, 10565, 10767, 10736, 11123, 10920, 9819,
     ]);

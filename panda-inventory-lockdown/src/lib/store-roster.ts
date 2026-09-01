@@ -7,6 +7,7 @@ export const ACTIVE_STORE_NUMBERS = [
   "1649",
   "1961",
   "2154",
+  "2605",
   "3847",
 ] as const;
 
