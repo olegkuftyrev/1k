@@ -19,6 +19,311 @@
   },
   "categories": [
     {
+      "name": "Meat",
+      "products": [
+        {
+          "productNumber": "P10002",
+          "name": "Chicken, Orange Dark Battered K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 20.29
+            },
+            {
+              "label": "W32 '26",
+              "value": 20.14
+            },
+            {
+              "label": "W33 '26",
+              "value": 19.58
+            },
+            {
+              "label": "W34 '26",
+              "value": 26.38
+            }
+          ],
+          "averagePer1k": 21.57
+        },
+        {
+          "productNumber": "P10006",
+          "name": "Chicken, LTO Breast Btrd Chunk",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.08
+            },
+            {
+              "label": "W32 '26",
+              "value": -0.02
+            },
+            {
+              "label": "W33 '26",
+              "value": -0.06
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.41
+            }
+          ],
+          "averagePer1k": 0.1
+        },
+        {
+          "productNumber": "P10008",
+          "name": "Chicken, Breast Sliced Marinated K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.67
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.77
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.04
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.24
+            }
+          ],
+          "averagePer1k": 0.92
+        },
+        {
+          "productNumber": "P10018",
+          "name": "Chicken, Breast Bites Battered K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.77
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.67
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.44
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.14
+            }
+          ],
+          "averagePer1k": 0.76
+        },
+        {
+          "productNumber": "P10019",
+          "name": "Chicken, Dark Diced Marinated K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 4.47
+            },
+            {
+              "label": "W32 '26",
+              "value": 4.37
+            },
+            {
+              "label": "W33 '26",
+              "value": 4.78
+            },
+            {
+              "label": "W34 '26",
+              "value": 6.99
+            }
+          ],
+          "averagePer1k": 5.13
+        },
+        {
+          "productNumber": "P10027",
+          "name": "Chicken, Breast Strip Battered K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 2.47
+            },
+            {
+              "label": "W32 '26",
+              "value": 2.16
+            },
+            {
+              "label": "W33 '26",
+              "value": 2.12
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.88
+            }
+          ],
+          "averagePer1k": 2.16
+        },
+        {
+          "productNumber": "P10028",
+          "name": "Chicken, Teriyaki Thigh Marinated K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 13.06
+            },
+            {
+              "label": "W32 '26",
+              "value": 12.18
+            },
+            {
+              "label": "W33 '26",
+              "value": 12.74
+            },
+            {
+              "label": "W34 '26",
+              "value": 21.35
+            }
+          ],
+          "averagePer1k": 14.78
+        },
+        {
+          "productNumber": "P5007",
+          "name": "Beef, Sliced Marinated K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.96
+            },
+            {
+              "label": "W32 '26",
+              "value": 2.08
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.83
+            },
+            {
+              "label": "W34 '26",
+              "value": 2.42
+            }
+          ],
+          "averagePer1k": 2.07
+        },
+        {
+          "productNumber": "P5017",
+          "name": "Beef, BB Strip Breaded K-",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 2.3
+            },
+            {
+              "label": "W32 '26",
+              "value": 2.36
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.96
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.96
+            }
+          ],
+          "averagePer1k": 2.15
+        },
+        {
+          "productNumber": "P5020",
+          "name": "Beef, Top Sirloin Steak",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.73
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.7
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.76
+            },
+            {
+              "label": "W34 '26",
+              "value": 2.74
+            }
+          ],
+          "averagePer1k": 1.98
+        },
+        {
+          "productNumber": "P5021",
+          "name": "Beef, Angus Steak",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.13
+            }
+          ],
+          "averagePer1k": -0.13
+        },
+        {
+          "productNumber": "P5052",
+          "name": "Beef, LTO Brisket Sliced Fully Cooked",
+          "category": "Meat",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": -0.02
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.42
+            }
+          ],
+          "averagePer1k": 0.2
+        }
+      ]
+    },
+    {
       "name": "Seafood",
       "products": [
         {
