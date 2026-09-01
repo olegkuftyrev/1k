@@ -1,0 +1,2802 @@
+{
+  "store": {
+    "number": "2605",
+    "rdo": "All",
+    "fiscalWeek": "Rolling 4 Weeks"
+  },
+  "source": {
+    "file": "PX2605 Inventory Usage W31-W34 photos",
+    "parsedAt": "2026-08-29T00:00:00.000Z",
+    "weekLabels": [
+      "W31 '26",
+      "W32 '26",
+      "W33 '26",
+      "W34 '26"
+    ]
+  },
+  "delivery": {
+    "deliveryDays": []
+  },
+  "categories": [
+    {
+      "name": "Seafood",
+      "products": [
+        {
+          "productNumber": "P16032",
+          "name": "Shrimp, Battered Tempura 29/33 K-",
+          "category": "Seafood",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 3.4
+            },
+            {
+              "label": "W32 '26",
+              "value": 3.52
+            },
+            {
+              "label": "W33 '26",
+              "value": 3.25
+            },
+            {
+              "label": "W34 '26",
+              "value": 3.75
+            }
+          ],
+          "averagePer1k": 3.48
+        }
+      ]
+    },
+    {
+      "name": "Produce",
+      "products": [
+        {
+          "productNumber": "P19910",
+          "name": "Bell Pepper, Yellow",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.51
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.45
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.61
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.43
+            }
+          ],
+          "averagePer1k": 0.5
+        },
+        {
+          "productNumber": "P19909",
+          "name": "Bell Pepper, Red",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.62
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.68
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.79
+            },
+            {
+              "label": "W34 '26",
+              "value": 2.26
+            }
+          ],
+          "averagePer1k": 1.83
+        },
+        {
+          "productNumber": "P19187",
+          "name": "Onion, Green K-",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.31
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.24
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.2
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.16
+            }
+          ],
+          "averagePer1k": 0.23
+        },
+        {
+          "productNumber": "P19186",
+          "name": "Bean, Green Washed & Trimmed",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.23
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.68
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.69
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.96
+            }
+          ],
+          "averagePer1k": 1.63
+        },
+        {
+          "productNumber": "P19169",
+          "name": "Baby Broccoli",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.41
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.55
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.46
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.59
+            }
+          ],
+          "averagePer1k": 0.5
+        },
+        {
+          "productNumber": "P19149",
+          "name": "Cabbage, K-Minus Shredded",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 10.3
+            },
+            {
+              "label": "W32 '26",
+              "value": 10.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 10.43
+            },
+            {
+              "label": "W34 '26",
+              "value": 9.92
+            }
+          ],
+          "averagePer1k": 10.17
+        },
+        {
+          "productNumber": "P19147",
+          "name": "Kale, Shredded",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.92
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.8
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.91
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.19
+            }
+          ],
+          "averagePer1k": 0.95
+        },
+        {
+          "productNumber": "P19055",
+          "name": "Zucchini",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 2.11
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.19
+            },
+            {
+              "label": "W33 '26",
+              "value": 2.32
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.49
+            }
+          ],
+          "averagePer1k": 1.77
+        },
+        {
+          "productNumber": "P19048",
+          "name": "Onion, Yellow Fresh",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 2.83
+            },
+            {
+              "label": "W32 '26",
+              "value": 3.21
+            },
+            {
+              "label": "W33 '26",
+              "value": 3.3
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.65
+            }
+          ],
+          "averagePer1k": 3.49
+        },
+        {
+          "productNumber": "P19045",
+          "name": "Mushroom, Fresh",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.23
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.22
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.35
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.39
+            }
+          ],
+          "averagePer1k": 1.3
+        },
+        {
+          "productNumber": "P19016",
+          "name": "Cabbage",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.38
+            },
+            {
+              "label": "W32 '26",
+              "value": 2.07
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.35
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.88
+            }
+          ],
+          "averagePer1k": 1.67
+        },
+        {
+          "productNumber": "P19013",
+          "name": "Broccoli",
+          "category": "Produce",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 7.36
+            },
+            {
+              "label": "W32 '26",
+              "value": 6.35
+            },
+            {
+              "label": "W33 '26",
+              "value": 5.88
+            },
+            {
+              "label": "W34 '26",
+              "value": 6.5
+            }
+          ],
+          "averagePer1k": 6.54
+        }
+      ]
+    },
+    {
+      "name": "Grocery",
+      "products": [
+        {
+          "productNumber": "P1079",
+          "name": "Cookies, Fortune PX",
+          "category": "Grocery",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 91.44
+            },
+            {
+              "label": "W32 '26",
+              "value": 76.6
+            },
+            {
+              "label": "W33 '26",
+              "value": 91.29
+            },
+            {
+              "label": "W34 '26",
+              "value": 66.93
+            }
+          ],
+          "averagePer1k": 81.56
+        },
+        {
+          "productNumber": "P1260",
+          "name": "Rangoon, Cream Cheese K-",
+          "category": "Grocery",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 17.01
+            },
+            {
+              "label": "W32 '26",
+              "value": 16.99
+            },
+            {
+              "label": "W33 '26",
+              "value": 13.55
+            },
+            {
+              "label": "W34 '26",
+              "value": 16.65
+            }
+          ],
+          "averagePer1k": 16.1
+        },
+        {
+          "productNumber": "P1102",
+          "name": "Noodles, (K-) Chow Mein",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 15.03
+            },
+            {
+              "label": "W32 '26",
+              "value": 15.34
+            },
+            {
+              "label": "W33 '26",
+              "value": 14.94
+            },
+            {
+              "label": "W34 '26",
+              "value": 14.94
+            }
+          ],
+          "averagePer1k": 15.07
+        },
+        {
+          "productNumber": "P1112",
+          "name": "Rice, Long Grain",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 10.73
+            },
+            {
+              "label": "W32 '26",
+              "value": 10.33
+            },
+            {
+              "label": "W33 '26",
+              "value": 9.91
+            },
+            {
+              "label": "W34 '26",
+              "value": 12.49
+            }
+          ],
+          "averagePer1k": 10.86
+        },
+        {
+          "productNumber": "P1001",
+          "name": "Springroll, Veg",
+          "category": "Grocery",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": -2.21
+            },
+            {
+              "label": "W32 '26",
+              "value": 6.24
+            },
+            {
+              "label": "W33 '26",
+              "value": 9.35
+            },
+            {
+              "label": "W34 '26",
+              "value": 27.82
+            }
+          ],
+          "averagePer1k": 10.04
+        },
+        {
+          "productNumber": "P2169",
+          "name": "Sauce, Orange Chicken RTU",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 8.5
+            },
+            {
+              "label": "W32 '26",
+              "value": 8.95
+            },
+            {
+              "label": "W33 '26",
+              "value": 8.3
+            },
+            {
+              "label": "W34 '26",
+              "value": 13
+            }
+          ],
+          "averagePer1k": 9.67
+        },
+        {
+          "productNumber": "P1107",
+          "name": "Oil, Salad",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 9.39
+            },
+            {
+              "label": "W32 '26",
+              "value": 9.11
+            },
+            {
+              "label": "W33 '26",
+              "value": 8.59
+            },
+            {
+              "label": "W34 '26",
+              "value": 7.14
+            }
+          ],
+          "averagePer1k": 8.58
+        },
+        {
+          "productNumber": "P1004",
+          "name": "Eggroll, Chicken",
+          "category": "Grocery",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 3.82
+            },
+            {
+              "label": "W32 '26",
+              "value": 4.09
+            },
+            {
+              "label": "W33 '26",
+              "value": 4.57
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.21
+            }
+          ],
+          "averagePer1k": 4.16
+        },
+        {
+          "productNumber": "P2002",
+          "name": "Eggs, Liquid Cage Free",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.96
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.93
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.8
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.83
+            }
+          ],
+          "averagePer1k": 1.88
+        },
+        {
+          "productNumber": "P1249",
+          "name": "Sauce, Honey Walnut PX",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.04
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.35
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.08
+            },
+            {
+              "label": "W34 '26",
+              "value": 2.06
+            }
+          ],
+          "averagePer1k": 1.38
+        },
+        {
+          "productNumber": "P19054",
+          "name": "Peas & Carrots",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.44
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.16
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.19
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.31
+            }
+          ],
+          "averagePer1k": 1.28
+        },
+        {
+          "productNumber": "P1295",
+          "name": "Sauce, Sweet and Sour PX",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.42
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.17
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.14
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.3
+            }
+          ],
+          "averagePer1k": 1.26
+        },
+        {
+          "productNumber": "P1404",
+          "name": "Sauce, Honey",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.23
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.98
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.08
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.11
+            }
+          ],
+          "averagePer1k": 1.1
+        },
+        {
+          "productNumber": "P1580",
+          "name": "Sauce, Stir Fry Black Pepper",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.51
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.47
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.54
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.11
+            }
+          ],
+          "averagePer1k": 0.65
+        },
+        {
+          "productNumber": "P1684",
+          "name": "Apple, Crisps Dried",
+          "category": "Grocery",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.33
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.78
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.42
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.2
+            }
+          ],
+          "averagePer1k": 0.6
+        },
+        {
+          "productNumber": "P1233",
+          "name": "Sauce, SweetFire PX",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.37
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.28
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.37
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.91
+            }
+          ],
+          "averagePer1k": 0.48
+        },
+        {
+          "productNumber": "P1268",
+          "name": "Sauce, Stir Fry PX",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.38
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.38
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.59
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.41
+            }
+          ],
+          "averagePer1k": 0.44
+        },
+        {
+          "productNumber": "P1093",
+          "name": "Ginger, Garlic Blend",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.32
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.32
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.3
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.56
+            }
+          ],
+          "averagePer1k": 0.37
+        },
+        {
+          "productNumber": "P1158",
+          "name": "Nuts, Walnut Glazed",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.37
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.34
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.34
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.29
+            }
+          ],
+          "averagePer1k": 0.33
+        },
+        {
+          "productNumber": "P19002",
+          "name": "Pineapple, Chunk",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.41
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.31
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.34
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.22
+            }
+          ],
+          "averagePer1k": 0.32
+        },
+        {
+          "productNumber": "P19052",
+          "name": "Nuts, Peanuts",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.34
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.34
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.3
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.29
+            }
+          ],
+          "averagePer1k": 0.32
+        },
+        {
+          "productNumber": "P1116",
+          "name": "Sauce, Cooking Basic (K-)",
+          "category": "Grocery",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.29
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.29
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.31
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.2
+            }
+          ],
+          "averagePer1k": 0.27
+        },
+        {
+          "productNumber": "P1261",
+          "name": "Garlic, Chopped in Oil",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.15
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.12
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.1
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.49
+            }
+          ],
+          "averagePer1k": 0.22
+        },
+        {
+          "productNumber": "P1114",
+          "name": "Salt",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.11
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.15
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.17
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 0.15
+        },
+        {
+          "productNumber": "P1272",
+          "name": "Starch, Modified PX",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.15
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.15
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.17
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.06
+            }
+          ],
+          "averagePer1k": 0.13
+        },
+        {
+          "productNumber": "P1023",
+          "name": "Chili, Pepper Crushed",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.02
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.06
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.27
+            }
+          ],
+          "averagePer1k": 0.09
+        },
+        {
+          "productNumber": "P1020",
+          "name": "Chili, Dried Whole",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": -0.07
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.08
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.23
+            }
+          ],
+          "averagePer1k": 0.07
+        },
+        {
+          "productNumber": "P2128",
+          "name": "Base, Soup Vegetable PX",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.09
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.02
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.06
+            }
+          ],
+          "averagePer1k": 0.06
+        },
+        {
+          "productNumber": "P1108",
+          "name": "Oil, Sesame Blend PX",
+          "category": "Grocery",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.03
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.04
+            }
+          ],
+          "averagePer1k": 0.04
+        },
+        {
+          "productNumber": "P19053",
+          "name": "Pepper, Black Grnd 18mesh",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 0
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.07
+            }
+          ],
+          "averagePer1k": 0.02
+        },
+        {
+          "productNumber": "P1036",
+          "name": "Wine, Cooking Shaoxing",
+          "category": "Grocery",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.06
+            }
+          ],
+          "averagePer1k": 0.02
+        },
+        {
+          "productNumber": "P1008",
+          "name": "Sesame Seed, White",
+          "category": "Grocery",
+          "unit": "LB",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": -0.01
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.01
+            },
+            {
+              "label": "W34 '26",
+              "value": 0
+            }
+          ],
+          "averagePer1k": 0
+        }
+      ]
+    },
+    {
+      "name": "Beverages",
+      "products": [
+        {
+          "productNumber": "P25973",
+          "name": "Bev, Coke Mexican Glass",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.61
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.5
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.56
+            },
+            {
+              "label": "W34 '26",
+              "value": 1.47
+            }
+          ],
+          "averagePer1k": 1.53
+        },
+        {
+          "productNumber": "P25980",
+          "name": "Bev, Dasani Water 16.9 oz",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.64
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.37
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.85
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.56
+            }
+          ],
+          "averagePer1k": 0.6
+        },
+        {
+          "productNumber": "P25403",
+          "name": "Bev, Sprite Mexican (Glass)",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.48
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.55
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.69
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.38
+            }
+          ],
+          "averagePer1k": 0.52
+        },
+        {
+          "productNumber": "P25908",
+          "name": "Bev, Powerade Mountain Berry Blast",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.41
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.47
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.37
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.72
+            }
+          ],
+          "averagePer1k": 0.49
+        },
+        {
+          "productNumber": "P25353",
+          "name": "Bev, Honest Kids Apple Juice",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.4
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.43
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.3
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.77
+            }
+          ],
+          "averagePer1k": 0.47
+        },
+        {
+          "productNumber": "P25386",
+          "name": "Bev, Smart Water 700ML",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.37
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.57
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.32
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.56
+            }
+          ],
+          "averagePer1k": 0.45
+        },
+        {
+          "productNumber": "P25421",
+          "name": "Bev, Concentrate Watermelon Mango Refresher",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.18
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.34
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.25
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.21
+            }
+          ],
+          "averagePer1k": 0.25
+        },
+        {
+          "productNumber": "P25974",
+          "name": "Bev, Bai Antioxidant Coco Fusion",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.23
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.18
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.25
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.15
+            }
+          ],
+          "averagePer1k": 0.2
+        },
+        {
+          "productNumber": "P25422",
+          "name": "Bev, Concentrate Peach Lychee Refresher",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.31
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.26
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.19
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.16
+            }
+          ],
+          "averagePer1k": 0.18
+        },
+        {
+          "productNumber": "P163",
+          "name": "Bev, Concentrate Strawberry Dragon Fruit",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.21
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.14
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.17
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.1
+            }
+          ],
+          "averagePer1k": 0.16
+        },
+        {
+          "productNumber": "P25424",
+          "name": "Bev, Concentrate Pomegranate Pineapple Lemon Refresher",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.15
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.17
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.36
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.16
+            }
+          ],
+          "averagePer1k": 0.13
+        },
+        {
+          "productNumber": "P25004",
+          "name": "Bev, Coke Diet BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.14
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.08
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.09
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.13
+            }
+          ],
+          "averagePer1k": 0.11
+        },
+        {
+          "productNumber": "P25003",
+          "name": "Bev, Coke Classic BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.13
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.09
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.09
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.08
+            }
+          ],
+          "averagePer1k": 0.1
+        },
+        {
+          "productNumber": "P25943",
+          "name": "Bev, Coke Minute Maid Lemonade BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.08
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.06
+            }
+          ],
+          "averagePer1k": 0.05
+        },
+        {
+          "productNumber": "P25933",
+          "name": "Bev, Fuze Rasberry BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.03
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.06
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.06
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.03
+            }
+          ],
+          "averagePer1k": 0.04
+        },
+        {
+          "productNumber": "P25006",
+          "name": "Bev, Coke Fanta Orange BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.04
+            }
+          ],
+          "averagePer1k": 0.04
+        },
+        {
+          "productNumber": "P25027",
+          "name": "Bev, Coke Sprite 5G BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.04
+            }
+          ],
+          "averagePer1k": 0.04
+        },
+        {
+          "productNumber": "P25005",
+          "name": "Bev, Dr. Pepper BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.04
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.03
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.02
+            }
+          ],
+          "averagePer1k": 0.03
+        },
+        {
+          "productNumber": "P25077",
+          "name": "Bev, Coke Cherry BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.05
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.03
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.01
+            }
+          ],
+          "averagePer1k": 0.03
+        },
+        {
+          "productNumber": "P25346",
+          "name": "Bev, Coke Fanta Strawberry BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.08
+            },
+            {
+              "label": "W32 '26",
+              "value": -0.02
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.05
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.02
+            }
+          ],
+          "averagePer1k": 0.03
+        },
+        {
+          "productNumber": "P25244",
+          "name": "Bev, Coke Barqs Rootbeer BIB",
+          "category": "Beverages",
+          "unit": "GAL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.02
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.04
+            }
+          ],
+          "averagePer1k": 0.03
+        },
+        {
+          "productNumber": "P25341",
+          "name": "Bev, Tea Black WB",
+          "category": "Beverages",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.54
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.52
+            }
+          ],
+          "averagePer1k": 0
+        },
+        {
+          "productNumber": "P25423",
+          "name": "Bev, Concentrate Mango Guava Tea Refresher",
+          "category": "Beverages",
+          "unit": "BOTL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.2
+            }
+          ],
+          "averagePer1k": -0.2
+        }
+      ]
+    },
+    {
+      "name": "Paper",
+      "products": [
+        {
+          "productNumber": "P35432",
+          "name": "Napkin, Kraft Interfold PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 137.78
+            },
+            {
+              "label": "W32 '26",
+              "value": 103.25
+            },
+            {
+              "label": "W33 '26",
+              "value": 130.47
+            },
+            {
+              "label": "W34 '26",
+              "value": 107.68
+            }
+          ],
+          "averagePer1k": 119.72
+        },
+        {
+          "productNumber": "P35048",
+          "name": "Fork, Plastic Black Heavy",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 42.91
+            },
+            {
+              "label": "W32 '26",
+              "value": 48.98
+            },
+            {
+              "label": "W33 '26",
+              "value": 67.74
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 52.73
+        },
+        {
+          "productNumber": "P35551",
+          "name": "Container, Fiber 3 Compartment PFAS Free",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 64.36
+            },
+            {
+              "label": "W32 '26",
+              "value": 33.67
+            },
+            {
+              "label": "W33 '26",
+              "value": 64.36
+            },
+            {
+              "label": "W34 '26",
+              "value": 44.07
+            }
+          ],
+          "averagePer1k": 51.41
+        },
+        {
+          "productNumber": "P35542",
+          "name": "Kit, Cutlery PX",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 23
+            },
+            {
+              "label": "W32 '26",
+              "value": 25.25
+            },
+            {
+              "label": "W33 '26",
+              "value": 35.56
+            },
+            {
+              "label": "W34 '26",
+              "value": 46.52
+            }
+          ],
+          "averagePer1k": 32.28
+        },
+        {
+          "productNumber": "P35213",
+          "name": "Straw, 8.75\" Clear Wrapped",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 53.63
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 25.4
+            },
+            {
+              "label": "W34 '26",
+              "value": 8.16
+            }
+          ],
+          "averagePer1k": 29.64
+        },
+        {
+          "productNumber": "P36029",
+          "name": "Bag, Plas Wave 4mil 19x17 PX",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 19.15
+            },
+            {
+              "label": "W32 '26",
+              "value": 30.61
+            },
+            {
+              "label": "W33 '26",
+              "value": 25.4
+            },
+            {
+              "label": "W34 '26",
+              "value": 14.28
+            }
+          ],
+          "averagePer1k": 22.42
+        },
+        {
+          "productNumber": "P35509",
+          "name": "Lid, 20-22 oz Bowl Clear Plastic PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 12.87
+            },
+            {
+              "label": "W32 '26",
+              "value": 18
+            },
+            {
+              "label": "W33 '26",
+              "value": 4.27
+            },
+            {
+              "label": "W34 '26",
+              "value": 12.34
+            }
+          ],
+          "averagePer1k": 12.05
+        },
+        {
+          "productNumber": "P35130",
+          "name": "Pail, 8 oz PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 15.17
+            },
+            {
+              "label": "W32 '26",
+              "value": 11.57
+            },
+            {
+              "label": "W33 '26",
+              "value": -5.79
+            },
+            {
+              "label": "W34 '26",
+              "value": 20.42
+            }
+          ],
+          "averagePer1k": 10.58
+        },
+        {
+          "productNumber": "P35275",
+          "name": "Bag, Glassine 4.75 x 8.25 PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 76.62
+            },
+            {
+              "label": "W32 '26",
+              "value": -61.22
+            },
+            {
+              "label": "W33 '26",
+              "value": 16.94
+            },
+            {
+              "label": "W34 '26",
+              "value": 8.16
+            }
+          ],
+          "averagePer1k": 9.96
+        },
+        {
+          "productNumber": "P35062",
+          "name": "Lid, 22 oz Cold Cup PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 12.26
+            },
+            {
+              "label": "W32 '26",
+              "value": 9.18
+            },
+            {
+              "label": "W33 '26",
+              "value": 11.85
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.9
+            }
+          ],
+          "averagePer1k": 9.57
+        },
+        {
+          "productNumber": "P35149",
+          "name": "Cup, 12 oz Paper Kid PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 9.19
+            },
+            {
+              "label": "W32 '26",
+              "value": 8.42
+            },
+            {
+              "label": "W33 '26",
+              "value": 8.47
+            },
+            {
+              "label": "W34 '26",
+              "value": 8.98
+            }
+          ],
+          "averagePer1k": 8.77
+        },
+        {
+          "productNumber": "P35406",
+          "name": "Lid, Flat 12-24 oz",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 9.19
+            },
+            {
+              "label": "W32 '26",
+              "value": -345.13
+            },
+            {
+              "label": "W33 '26",
+              "value": 396.29
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.08
+            }
+          ],
+          "averagePer1k": 6.78
+        },
+        {
+          "productNumber": "P35040",
+          "name": "Cup, 22 oz Paper PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 6.13
+            },
+            {
+              "label": "W32 '26",
+              "value": 5.36
+            },
+            {
+              "label": "W33 '26",
+              "value": 7.62
+            },
+            {
+              "label": "W34 '26",
+              "value": 6.53
+            }
+          ],
+          "averagePer1k": 6.38
+        },
+        {
+          "productNumber": "P35380",
+          "name": "Cup, 24 oz Color Print PET",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 6.9
+            },
+            {
+              "label": "W32 '26",
+              "value": 5.36
+            },
+            {
+              "label": "W33 '26",
+              "value": 5.93
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.9
+            }
+          ],
+          "averagePer1k": 5.78
+        },
+        {
+          "productNumber": "P35081",
+          "name": "Pail, 26 oz PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 12.57
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.46
+            },
+            {
+              "label": "W33 '26",
+              "value": 13.55
+            },
+            {
+              "label": "W34 '26",
+              "value": -5.47
+            }
+          ],
+          "averagePer1k": 5.24
+        },
+        {
+          "productNumber": "P35634",
+          "name": "Pail Kid Panda Carton",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 5.08
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 5.08
+        },
+        {
+          "productNumber": "P35508",
+          "name": "Bowl, 20-22 oz Plastic Black PP Square PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 5.15
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.29
+            },
+            {
+              "label": "W33 '26",
+              "value": 21.34
+            },
+            {
+              "label": "W34 '26",
+              "value": -6.86
+            }
+          ],
+          "averagePer1k": 5.02
+        },
+        {
+          "productNumber": "P35268",
+          "name": "Cup, 30 oz Paper PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 4.6
+            },
+            {
+              "label": "W32 '26",
+              "value": 6.12
+            },
+            {
+              "label": "W33 '26",
+              "value": 4.23
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.89
+            }
+          ],
+          "averagePer1k": 4.98
+        },
+        {
+          "productNumber": "P35065",
+          "name": "Lid, 30-32 oz Cold Cup PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 5.52
+            },
+            {
+              "label": "W32 '26",
+              "value": 5.2
+            },
+            {
+              "label": "W33 '26",
+              "value": 5.08
+            },
+            {
+              "label": "W34 '26",
+              "value": 3.26
+            }
+          ],
+          "averagePer1k": 4.78
+        },
+        {
+          "productNumber": "P35067",
+          "name": "Lid, 42-44 oz Cold Cup PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": 7.65
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.69
+            },
+            {
+              "label": "W34 '26",
+              "value": 4.08
+            }
+          ],
+          "averagePer1k": 4.58
+        },
+        {
+          "productNumber": "P35521",
+          "name": "Bag, Paper 20# Shorty PX",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.53
+            },
+            {
+              "label": "W33 '26",
+              "value": 15.24
+            },
+            {
+              "label": "W34 '26",
+              "value": -2.45
+            }
+          ],
+          "averagePer1k": 4.58
+        },
+        {
+          "productNumber": "P35250",
+          "name": "Bag Catering Plastic PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 4.23
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 4.23
+        },
+        {
+          "productNumber": "P35269",
+          "name": "Cup, 42 oz Paper PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 3.06
+            },
+            {
+              "label": "W32 '26",
+              "value": 5.51
+            },
+            {
+              "label": "W33 '26",
+              "value": -1.35
+            },
+            {
+              "label": "W34 '26",
+              "value": 3.26
+            }
+          ],
+          "averagePer1k": 2.71
+        },
+        {
+          "productNumber": "P20231",
+          "name": "Carrier, Paper Family Meal AB",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.07
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.99
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.33
+            }
+          ],
+          "averagePer1k": 0.94
+        },
+        {
+          "productNumber": "P35445",
+          "name": "Container, 100 oz Plastic Black Catering",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.53
+            },
+            {
+              "label": "W32 '26",
+              "value": -10.71
+            },
+            {
+              "label": "W33 '26",
+              "value": 13.55
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.49
+            }
+          ],
+          "averagePer1k": 0.92
+        },
+        {
+          "productNumber": "P35444",
+          "name": "Lid, 100 oz Plastic Clear Catering",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.77
+            },
+            {
+              "label": "W32 '26",
+              "value": -29.08
+            },
+            {
+              "label": "W33 '26",
+              "value": 33.87
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.49
+            }
+          ],
+          "averagePer1k": 0.72
+        },
+        {
+          "productNumber": "P35346",
+          "name": "Spork, Plastic Black Catering PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": -0.33
+            },
+            {
+              "label": "W32 '26",
+              "value": -0.55
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": 2.35
+            }
+          ],
+          "averagePer1k": 0.45
+        },
+        {
+          "productNumber": "P35225",
+          "name": "Tong, Plastic Black PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.65
+            },
+            {
+              "label": "W32 '26",
+              "value": -1.65
+            },
+            {
+              "label": "W33 '26",
+              "value": 1.22
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.59
+            }
+          ],
+          "averagePer1k": 0.43
+        },
+        {
+          "productNumber": "P35580",
+          "name": "Chopsticks, Bamboo Wrapped PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": -19.15
+            },
+            {
+              "label": "W32 '26",
+              "value": 46.68
+            },
+            {
+              "label": "W33 '26",
+              "value": 11.85
+            },
+            {
+              "label": "W34 '26",
+              "value": -39.57
+            }
+          ],
+          "averagePer1k": 0.3
+        },
+        {
+          "productNumber": "P35453",
+          "name": "Box, Catering Container PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.38
+            },
+            {
+              "label": "W32 '26",
+              "value": 0
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 0.19
+        },
+        {
+          "productNumber": "P35000",
+          "name": "Tray, Fiber 4-Cup Holder",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.46
+            },
+            {
+              "label": "W32 '26",
+              "value": -3.21
+            },
+            {
+              "label": "W33 '26",
+              "value": 2.54
+            },
+            {
+              "label": "W34 '26",
+              "value": 0.98
+            }
+          ],
+          "averagePer1k": 0.12
+        },
+        {
+          "productNumber": "P35141",
+          "name": "Towel, White Roll Non-Perforated",
+          "category": "Paper",
+          "unit": "ROLL",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 0.09
+            },
+            {
+              "label": "W32 '26",
+              "value": 0.09
+            },
+            {
+              "label": "W33 '26",
+              "value": 0.1
+            },
+            {
+              "label": "W34 '26",
+              "value": -0.1
+            }
+          ],
+          "averagePer1k": 0.05
+        },
+        {
+          "productNumber": "P35094",
+          "name": "Plate, 9.25\" Fiber 3 Compartment PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 7.56
+            },
+            {
+              "label": "W32 '26",
+              "value": -5.74
+            },
+            {
+              "label": "W33 '26",
+              "value": 6.35
+            },
+            {
+              "label": "W34 '26",
+              "value": -8.16
+            }
+          ],
+          "averagePer1k": 0
+        },
+        {
+          "productNumber": "P35659",
+          "name": "Container, Fiber 3Comp PFree PX",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 9.19
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": -9.79
+            }
+          ],
+          "averagePer1k": 0
+        },
+        {
+          "productNumber": "P35126",
+          "name": "Pail, 16 oz PX Logo",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 14.56
+            },
+            {
+              "label": "W32 '26",
+              "value": -3.06
+            },
+            {
+              "label": "W33 '26",
+              "value": 3.39
+            },
+            {
+              "label": "W34 '26",
+              "value": -19.02
+            }
+          ],
+          "averagePer1k": -0.86
+        },
+        {
+          "productNumber": "P35168",
+          "name": "Container Paper Clamshell Kids",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 1.63
+            },
+            {
+              "label": "W32 '26",
+              "value": 1.81
+            },
+            {
+              "label": "W33 '26",
+              "value": -4.57
+            },
+            {
+              "label": "W34 '26",
+              "value": -8.9
+            }
+          ],
+          "averagePer1k": -2.36
+        },
+        {
+          "productNumber": "P35419",
+          "name": "Lid Plastic Flat Clear Slot 4/14-24",
+          "category": "Paper",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": null
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": null
+            },
+            {
+              "label": "W34 '26",
+              "value": -5.71
+            }
+          ],
+          "averagePer1k": -5.71
+        }
+      ]
+    },
+    {
+      "name": "Condiments",
+      "products": [
+        {
+          "productNumber": "P1124",
+          "name": "Sauce, Soy Packet PX",
+          "category": "Condiments",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 114.93
+            },
+            {
+              "label": "W32 '26",
+              "value": -45.92
+            },
+            {
+              "label": "W33 '26",
+              "value": 33.87
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 34.27
+        },
+        {
+          "productNumber": "P1151",
+          "name": "Sauce, Chili Packet PX",
+          "category": "Condiments",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 85.81
+            },
+            {
+              "label": "W32 '26",
+              "value": -23.94
+            },
+            {
+              "label": "W33 '26",
+              "value": 47.41
+            },
+            {
+              "label": "W34 '26",
+              "value": 26.28
+            }
+          ],
+          "averagePer1k": 33.66
+        },
+        {
+          "productNumber": "P1566",
+          "name": "Sauce, Teriyaki Sauce Packet PX",
+          "category": "Condiments",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 30.13
+            },
+            {
+              "label": "W32 '26",
+              "value": 8.68
+            },
+            {
+              "label": "W33 '26",
+              "value": 20.51
+            },
+            {
+              "label": "W34 '26",
+              "value": 14.69
+            }
+          ],
+          "averagePer1k": 18.51
+        },
+        {
+          "productNumber": "P1652",
+          "name": "Sauce, Sweet & Sour Packets PX",
+          "category": "Condiments",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 68.96
+            },
+            {
+              "label": "W32 '26",
+              "value": null
+            },
+            {
+              "label": "W33 '26",
+              "value": 25.4
+            },
+            {
+              "label": "W34 '26",
+              "value": 14.28
+            }
+          ],
+          "averagePer1k": 37.05
+        },
+        {
+          "productNumber": "P23001",
+          "name": "Sauce, Mustard Packets PX",
+          "category": "Condiments",
+          "unit": "CT",
+          "weeks": [
+            {
+              "label": "W31 '26",
+              "value": 22.99
+            },
+            {
+              "label": "W32 '26",
+              "value": -7.65
+            },
+            {
+              "label": "W33 '26",
+              "value": 8.47
+            },
+            {
+              "label": "W34 '26",
+              "value": null
+            }
+          ],
+          "averagePer1k": 7.91
+        }
+      ]
+    }
+  ]
+}
