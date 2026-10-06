@@ -13,7 +13,6 @@ import {
 } from "@/lib/order-plan";
 import { DAY_LABELS, FULL_DAY_LABELS } from "@/lib/planner";
 import {
-  getAllStores,
   getManagers,
   getStore,
   getStoreAddresses,
@@ -22,15 +21,7 @@ import {
 } from "@/lib/stores";
 import styles from "./order-plan.module.css";
 
-export async function generateStaticParams() {
-  const stores = await getAllStores();
-  return stores.flatMap((store) =>
-    (["meat", "vegetables"] as const).map((kind) => ({
-      number: store.store.number,
-      kind,
-    })),
-  );
-}
+export const dynamic = "force-dynamic";
 
 function parseKind(value: string): OrderPlanKind | null {
   return value === "meat" || value === "vegetables" ? value : null;
