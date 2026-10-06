@@ -531,31 +531,6 @@
           "averagePer1k": 0.94
         },
         {
-          "productNumber": "P19031",
-          "name": "Eggplant",
-          "category": "Produce",
-          "unit": "LB",
-          "weeks": [
-            {
-              "label": "W31 '26",
-              "value": 0.88
-            },
-            {
-              "label": "W32 '26",
-              "value": 0.13
-            },
-            {
-              "label": "W33 '26",
-              "value": 0.46
-            },
-            {
-              "label": "W34 '26",
-              "value": 0.45
-            }
-          ],
-          "averagePer1k": 0.49
-        },
-        {
           "productNumber": "P19016",
           "name": "Cabbage",
           "category": "Produce",

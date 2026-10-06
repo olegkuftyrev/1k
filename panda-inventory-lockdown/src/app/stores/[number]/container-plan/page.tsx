@@ -42,7 +42,7 @@ export default async function ContainerPlanPage({
   if (!store) notFound();
 
   const plan = buildStoreContainerPlan(store, days);
-  const address = getStoreAddresses()[number] ?? "Address Not Found";
+  const address = getStoreAddresses()[number] ?? "";
   const manager = managers[number];
   const hasIncompleteProducts = plan.groups.some((group) =>
     group.products.some((product) => product.averagePer1k === null),
@@ -61,7 +61,7 @@ export default async function ContainerPlanPage({
           </Link>
           <div>
             <h1>Container Needs Plan</h1>
-            <p>{address}</p>
+            {address ? <p>{address}</p> : null}
           </div>
         </div>
         <PrintPlanButton
@@ -137,8 +137,7 @@ function ContainerSheet({
           <div className={styles.brandLine}>
             <span className={styles.storeBadge}>PX{storeNumber}</span>
             <span className={styles.storeMeta}>
-              {manager ? `${manager} | ` : ""}
-              {address}
+              {[manager, address].filter(Boolean).join(" | ")}
             </span>
           </div>
           <div className={styles.titleLine}>

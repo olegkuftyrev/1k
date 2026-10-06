@@ -45,7 +45,7 @@ export default async function OrderPlanPage({
   if (!store) notFound();
 
   const plan = buildStoreOrderPlan(store, unitsPerCase, days, kind);
-  const address = getStoreAddresses()[number] ?? "Address Not Found";
+  const address = getStoreAddresses()[number] ?? "";
   const manager = managers[number];
   const title = kind === "meat" ? "Meat Order Plan" : "Vegetable Order Plan";
   const hasIncompleteProducts = plan.products.some(
@@ -65,7 +65,7 @@ export default async function OrderPlanPage({
           </Link>
           <div>
             <h1>{title}</h1>
-            <p>{address}</p>
+            {address ? <p>{address}</p> : null}
           </div>
         </div>
         <PrintPlanButton
@@ -144,8 +144,7 @@ function OrderSheet({
           <div className={styles.brandLine}>
             <span className={styles.storeBadge}>PX{storeNumber}</span>
             <span className={styles.storeMeta}>
-              {manager ? `${manager} · ` : ""}
-              {address}
+              {[manager, address].filter(Boolean).join(" · ")}
             </span>
           </div>
           <h2>{title}</h2>

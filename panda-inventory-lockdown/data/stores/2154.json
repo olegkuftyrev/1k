@@ -47,7 +47,6 @@
         {"productNumber":"P19055","name":"Zucchini","category":"Produce","unit":"LB","weeks":[{"label":"W31 '26","value":1.47},{"label":"W32 '26","value":1.8},{"label":"W33 '26","value":1.59},{"label":"W34 '26","value":1.78}],"averagePer1k":1.66},
         {"productNumber":"P19048","name":"Onion, Yellow Fresh","category":"Produce","unit":"LB","weeks":[{"label":"W31 '26","value":3.02},{"label":"W32 '26","value":2.69},{"label":"W33 '26","value":3.66},{"label":"W34 '26","value":2.41}],"averagePer1k":2.94},
         {"productNumber":"P19045","name":"Mushroom, Fresh","category":"Produce","unit":"LB","weeks":[{"label":"W31 '26","value":1.11},{"label":"W32 '26","value":1.21},{"label":"W33 '26","value":1.19},{"label":"W34 '26","value":1.07}],"averagePer1k":1.14},
-        {"productNumber":"P19031","name":"Eggplant","category":"Produce","unit":"LB","weeks":[{"label":"W31 '26","value":0.74},{"label":"W32 '26","value":0.87},{"label":"W33 '26","value":1.12},{"label":"W34 '26","value":null}],"averagePer1k":0.91},
         {"productNumber":"P19016","name":"Cabbage","category":"Produce","unit":"LB","weeks":[{"label":"W31 '26","value":2.01},{"label":"W32 '26","value":2},{"label":"W33 '26","value":3.25},{"label":"W34 '26","value":0.86}],"averagePer1k":2.01},
         {"productNumber":"P19013","name":"Broccoli","category":"Produce","unit":"LB","weeks":[{"label":"W31 '26","value":7.41},{"label":"W32 '26","value":5.08},{"label":"W33 '26","value":6.89},{"label":"W34 '26","value":6.84}],"averagePer1k":6.56}
       ]

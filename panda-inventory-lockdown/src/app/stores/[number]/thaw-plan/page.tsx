@@ -50,7 +50,7 @@ export default async function ThawPlanPage({
   if (!store) notFound();
 
   const plan = buildStoreThawPlan(store, unitsPerCase, days);
-  const address = getStoreAddresses()[number] ?? "Address Not Found";
+  const address = getStoreAddresses()[number] ?? "";
   const manager = managers[number];
   const visibleProducts =
     location === "cabinet"
@@ -87,7 +87,7 @@ export default async function ThawPlanPage({
           </Link>
           <div>
             <h1>{routeTitle}</h1>
-            <p>{address}</p>
+            {address ? <p>{address}</p> : null}
           </div>
         </div>
         <PrintThawPlanButton disabled={!hasWindows} />
@@ -180,8 +180,7 @@ function ThawSheet({
           <div className={styles.brandLine}>
             <span className={styles.storeBadge}>PX{storeNumber}</span>
             <span className={styles.storeMeta}>
-              {manager ? `${manager} · ` : ""}
-              {address}
+              {[manager, address].filter(Boolean).join(" · ")}
             </span>
           </div>
           <h2>{title}</h2>
