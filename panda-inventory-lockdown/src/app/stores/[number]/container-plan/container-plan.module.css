@@ -397,6 +397,7 @@
   color: #5c6b74;
   font-size: var(--container-detail-size);
   font-weight: 750;
+  line-height: 1.1;
 }
 
 .quantityCell,
@@ -483,12 +484,16 @@
   }
 }
 
-@page {
+@page container-plan {
   size: A4 landscape;
   margin: 0;
 }
 
 @media print {
+  .route {
+    page: container-plan;
+  }
+
   .route,
   .previewStack {
     display: block;

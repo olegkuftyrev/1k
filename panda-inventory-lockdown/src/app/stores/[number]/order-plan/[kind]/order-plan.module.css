@@ -411,12 +411,16 @@
   }
 }
 
-@page {
+@page order-plan {
   size: A4 portrait;
   margin: 0;
 }
 
 @media print {
+  .route {
+    page: order-plan;
+  }
+
   .route,
   .previewStack {
     display: block;

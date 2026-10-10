@@ -412,12 +412,16 @@
 
 }
 
-@page {
+@page thaw-plan {
   size: A4 landscape;
   margin: 0;
 }
 
 @media print {
+  .route {
+    page: thaw-plan;
+  }
+
   .route,
   .previewStack {
     display: block;
